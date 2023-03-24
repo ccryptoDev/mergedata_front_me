@@ -13,6 +13,7 @@ import Building4Icon from '@/components/General/Icons/Building4Icon';
 import MenIcon from '@/components/General/Icons/MenIcon';
 import DownloadIcon from '@components/General/Icons/DownloadIcon';
 import DoubleArrowIcon from '@components/General/Icons/DoubleArrowIcon';
+import CrossIcon from '@components/General/Icons/CrossIcon';
 
 
 const Decision = ({ name }) => {
@@ -31,6 +32,7 @@ const Decision = ({ name }) => {
     if (name === 'Men') return <MenIcon />;
     if (name === 'Download') return <DownloadIcon />;
     if (name === 'DoubleArrow') return <DoubleArrowIcon />;
+    if (name === 'Cross') return <CrossIcon />;
 
 	return null;
 };

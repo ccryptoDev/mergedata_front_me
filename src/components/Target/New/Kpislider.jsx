@@ -1,5 +1,5 @@
 import arrowupgreen from '@/assets/svg/arrowupgreen.svg';
-import Slider from  '@/components/Target/New/Slider';
+import Slider from '@/components/Target/New/Slider';
 
 function Kpislider(props) {
     return (
@@ -23,7 +23,7 @@ function Kpislider(props) {
                 </div>
             </div>
             {/* progress bar */}
-            <Slider slidervalue={props.slidervalue}/>
+            <Slider slidervalue={props.slidervalue} />
         </div>
     )
 }

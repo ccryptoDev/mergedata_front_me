@@ -12,7 +12,7 @@ export default function SharedLayout({
 			: 'bg-dark-popup-00';
 	return (
 		<div className={`w-screen flex flex-col h-screen relative ${bgColor}`}>
-			<div className='w-[1398px] h-[900px] mx-auto'>
+			<div className='w-[1440px] h-[900px] mx-auto'>
 				<header className='mt-3 w-full h-[56px] flex justify-between items-center gap-6'>
 					<div className='flex w-[124px] justify-between'>
 						<img src={menuButton} alt='menu button' />

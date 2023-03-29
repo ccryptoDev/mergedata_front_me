@@ -9,7 +9,7 @@ import PercentageBigSlider from '@/components/Target/New/PercentageBigSlider';
 import TotalUniqueVisitorsCard_1 from '@/components/Target/New/TotalUniqueVisitorsCard_1';
 import TotalUniqueVisitorsCard_2 from '@/components/Target/New/TotalUniqueVisitorsCard_2';
 import NameSliderCard from '@/components/Target/NameSliderCard';
-import KeyExpensesCard from '@/components/Target/New/KeyExpensesCard';
+import InventoryCard from '@/components/Target/New/InventoryCard';
 import ChangePassword from '@/pages/Recover/ChangePassword';
 import PasswordUpdate from '@/pages/Recover/PasswordUpdate';
 import TargetPresetsSlider from '@/components/Target/TargetPresetsSlider';
@@ -24,6 +24,9 @@ import Slider from '@/components/Target/New/Slider';
 import ResumeUserItem from '@/components/Target/New/ResumeUserItem';
 import ResumeUserCard from '@/components/Target/New/ResumeUserCard';
 import SelectionModelCard from '@/components/Target/New/SelectionModelCard';
+import CommentsItem from '@/components/Target/New/CommentsItem';
+import CommentsCard from '@/components/Target/New/CommentsCard';
+
 export default function App() {
 	return (
 		<BrowserRouter>
@@ -104,19 +107,20 @@ export default function App() {
 				<Route exact path='/nameslidercard' element={<NameSliderCard />} />
 				<Route exact path='/targetpresetsslider' element={<TargetPresetsSlider />} />
 				<Route exact path='/checknamesliderbuttoncard' element={<CheckNameSliderButtonCard />} />
-				<Route exact path='/nameslider' element={<NameSlider />} />	
-				<Route exact path='/roger-test' element={<KeyExpensesCard />} />
+				<Route exact path='/nameslider' element={<NameSlider />} />
 				<Route exact path='/totaluniquevisitorscard_1' element={<TotalUniqueVisitorsCard_1 />} />
-				<Route exact path='/totaluniquevisitorscard_2' element={<TotalUniqueVisitorsCard_2 />} />	
+				<Route exact path='/totaluniquevisitorscard_2' element={<TotalUniqueVisitorsCard_2 />} />
 				<Route exact path='/kpislider' element={<Kpislider />} />
 				<Route exact path='/slider' element={<Slider />} />
-				<Route exact path='/titlevectorx' element={<TitleVectorX />} />	
-				<Route exact path='/departmentcard' element={<DepartmentCard />} />	
+				<Route exact path='/titlevectorx' element={<TitleVectorX />} />
+				<Route exact path='/departmentcard' element={<DepartmentCard />} />
 				<Route exact path='/selectionmodelcar' element={<SelectionModelCard />} />
 				<Route exact path='/resumeuseritem' element={<ResumeUserItem />} />
 				<Route exact path='/resumeusercard' element={<ResumeUserCard />} />
+				<Route exact path='/commentsitem' element={<CommentsItem />} />
+				<Route exact path='/commentscard' element={<CommentsCard />} />
 
-				<Route exact path='/roger-test' element={<KeyExpensesCard />} />
+				<Route exact path='/roger-test' element={<InventoryCard />} />
 				
 			</Routes>
 		</BrowserRouter>

@@ -11,9 +11,12 @@ import Building2Icon from '@/components/General/Icons/Building2Icon';
 import Building3Icon from '@/components/General/Icons/Building3Icon';
 import Building4Icon from '@/components/General/Icons/Building4Icon';
 import MenIcon from '@/components/General/Icons/MenIcon';
-import DownloadIcon from '@components/General/Icons/DownloadIcon';
-import DoubleArrowIcon from '@components/General/Icons/DoubleArrowIcon';
-import CrossIcon from '@components/General/Icons/CrossIcon';
+import DownloadIcon from '@/components/General/Icons/DownloadIcon';
+import DoubleArrowIcon from '@/components/General/Icons/DoubleArrowIcon';
+import CrossIcon from '@/components/General/Icons/CrossIcon';
+import LupeIcon from '@/components/General/Icons/LupeIcon';
+import FilterIcon from '@/components/General/Icons/FilterIcon';
+import DoubleArrowVerticalIcon from '@/components/General/Icons/DoubleArrowVerticalIcon';
 
 
 const Decision = ({ name }) => {
@@ -33,6 +36,9 @@ const Decision = ({ name }) => {
     if (name === 'Download') return <DownloadIcon />;
     if (name === 'DoubleArrow') return <DoubleArrowIcon />;
     if (name === 'Cross') return <CrossIcon />;
+    if (name === 'Lupe') return <LupeIcon />;
+    if (name === 'Filter') return <FilterIcon />;
+    if (name === 'DoubleArrowVertical') return <DoubleArrowVerticalIcon />;
 
 	return null;
 };

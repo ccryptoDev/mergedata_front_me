@@ -1,13 +1,20 @@
 import nextIcon from '@/assets/svg/next_arrow.svg';
 
-
-const Card = ({ children }) => {
+const Card = ({
+	children,
+	height = 'h-[333px]',
+	width = 'w-[373px] ',
+	bgColor = 'bg-[#212A43]',
+	margin,
+}) => {
 	return (
-		<div className='w-[373px] h-[333px] bg-[#212A43] relative flex flex-col px-8 py-6 rounded-2xl'>
+		<div
+			className={`${width} ${height} ${bgColor} relative flex flex-col px-8 py-6 rounded-2xl ${margin}`}
+		>
 			<div>{children}</div>
 			<img
 				src={nextIcon}
-				className='absolute top-[16px] left-[311px] w-[32px] h-[32px] group-hover:bg-[rgba(255,255,255,0.4)] rounded-full'
+				className='absolute top-[16px] right-[16px] w-[32px] h-[32px] group-hover:bg-[rgba(255,255,255,0.4)] rounded-full'
 			/>
 		</div>
 	);

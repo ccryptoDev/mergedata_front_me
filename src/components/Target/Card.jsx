@@ -2,12 +2,16 @@ import CardGradient from '@/components/Target/CardGradient';
 import ValueBarIncrease from '@/components/Target/ValueBarIncrease';
 import IncreaseBarName from '@/components/Target/IncreaseBarName';
 import ContainerNameIncrease from '@/components/Target/ContainerNameIncrease';
-
+import { useNavigate } from 'react-router-dom';
 
 const Card = ({ title, text, data, gradient, subTitle, typeOfCard }) => {
+	const navigate = useNavigate();
 	return (
 		<CardGradient gradient={gradient}>
-			<div className='w-[306px] h-[40px]'>
+			<div
+				className='w-[306px] h-[40px] cursor-pointer'
+				onClick={() => navigate(`target/${title.toLowerCase()}`)}
+			>
 				<h1 className='text-[28px] leading-7 font-bold text-neutrals-00'>
 					{title}
 				</h1>

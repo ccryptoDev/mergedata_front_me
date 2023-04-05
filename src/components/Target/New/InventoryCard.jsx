@@ -30,7 +30,7 @@ const InventoryCard = () => {
                                 <span className='w-[26px] h-[14px] font-baloo font-bold text-[14px] flex items-center text-[#5EFF5A]'>55%</span>
                             </div>
                         </div>
-                        <Slider sliderwidth='w-[125px]' slidervalue='w-[50%]' targetValue='left-[55%]' sliderheight='h-1' slotwidth='w-[125px]' slotheight='h-0.5' sliderbg='bg-[#D6DBE8]' />
+                        <Slider sliderwidth='w-[55px]' slidervalue='w-[50%]' targetValue='left-[55%]' sliderheight='h-1' slotwidth='w-[125px]' slotheight='h-0.5' sliderbg='bg-[#D6DBE8]' />
                     </div>
                     <div className='flex flex-col justify-center items-start w-[125px] h-[74px]'>
                         <span className='w-[80px] h-[22px] flex items-center text-white text-sm'>31 - 90 Days</span>
@@ -43,7 +43,7 @@ const InventoryCard = () => {
                                 <span className='w-[26px] h-[14px] font-baloo font-bold text-[14px] flex items-center text-[#FFBB0D]'>20%</span>
                             </div>
                         </div>
-                        <Slider sliderwidth='w-[125px]' slidervalue='w-[80%]' targetValue='left-[55%]' sliderheight='h-1' slotwidth='w-[125px]' slotheight='h-0.5' sliderbg='bg-[#D6DBE8]' />
+                        <Slider sliderwidth='w-[85px]' slidervalue='w-[80%]' targetValue='left-[55%]' sliderheight='h-1' slotwidth='w-[125px]' slotheight='h-0.5' sliderbg='bg-[#D6DBE8]' />
                     </div>
                 </div>
                 <div className='flex flex-row items-start w-[273px] h-[74px] gap-6'>
@@ -58,7 +58,7 @@ const InventoryCard = () => {
                                 <span className='w-[26px] h-[14px] font-baloo font-bold text-[14px] flex items-center text-[#5EFF5A]'>12%</span>
                             </div>
                         </div>
-                        <Slider sliderwidth='w-[125px]' slidervalue='w-[95%]' targetValue='left-[55%]' sliderheight='h-1' slotwidth='w-[125px]' slotheight='h-0.5' sliderbg='bg-[#D6DBE8]' />
+                        <Slider sliderwidth='w-[105px]' slidervalue='w-[95%]' targetValue='left-[55%]' sliderheight='h-1' slotwidth='w-[125px]' slotheight='h-0.5' sliderbg='bg-[#D6DBE8]' />
                     </div>
                     <div className='flex flex-col justify-center items-start w-[125px] h-[74px]'>
                         <span className='w-[80px] h-[22px] flex items-center text-white text-sm'>+180 Days</span>

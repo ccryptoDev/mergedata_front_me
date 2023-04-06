@@ -30,7 +30,7 @@ const KeyExpensesCard = () => {
             <div className="w-[480px] h-[125px] flex flex-col items-center justify-end">
                 <div className="w-[480px] h-[36px] flex flex-row items-center justify-between">
                     <span className='text-[#FFFFFF] font-[Public_Sans] text-[16px] w-[131px]'>Advertising</span>
-                    <span><Slider slidervalue='w-[20%]' sliderheight='h-2' slotwidth='w-[190px]' slotheight='h-1' sliderbg='bg-gradient-to-l from-white to-gray-300'/></span>
+                    <span><Slider slidervalue='w-[20%]' sliderwidth='w-[20%]' sliderheight='h-2' slotwidth='w-[190px]' slotheight='h-1' sliderbg='bg-gradient-to-l from-white to-gray-300'/></span>
                     <span className='font-baloo font-bold text-[18.5px] text-[#FFFFFF] w-[95px] flex justify-end'>2,666,134</span>
                     <div className='flex flex-row items-center'>
                         <img src={arrow_fat_down_icon} />
@@ -39,7 +39,7 @@ const KeyExpensesCard = () => {
                 </div>
                 <div className="w-[480px] h-[36px] flex flex-row items-center justify-between">
                     <span className='text-[#FFFFFF] font-[Public_Sans] text-[16px] w-[131px]'>Sales Comp.</span>
-                    <span><Slider slidervalue='w-[45%]' sliderheight='h-2' slotwidth='w-[190px]' slotheight='h-1' sliderbg='bg-gradient-to-l from-white to-gray-300'/></span>
+                    <span><Slider slidervalue='w-[45%]' sliderwidth='w-[45%]' sliderheight='h-2' slotwidth='w-[190px]' slotheight='h-1' sliderbg='bg-gradient-to-l from-white to-gray-300'/></span>
                     <span className='font-baloo font-bold text-[18.5px] text-[#FFFFFF] w-[95px] flex justify-end'>1,211,171</span>
                     <div className='flex flex-row items-center'>
                         <img src={neutral} />
@@ -48,7 +48,7 @@ const KeyExpensesCard = () => {
                 </div>
                 <div className="w-[480px] h-[36px] flex flex-row items-center justify-between">
                     <span className='text-[#FFFFFF] font-[Public_Sans] text-[16px] w-[131px]'>Outside Services</span>
-                    <span><Slider slidervalue='w-[95%]' sliderheight='h-2' slotwidth='w-[190px]' slotheight='h-1' sliderbg='bg-gradient-to-l from-white to-gray-300'/></span>
+                    <span><Slider slidervalue='w-[95%]' sliderwidth='w-[95%]' sliderheight='h-2' slotwidth='w-[190px]' slotheight='h-1' sliderbg='bg-gradient-to-l from-white to-gray-300'/></span>
                     <span className='font-baloo font-bold text-[18.5px] text-[#FFFFFF] w-[95px] flex justify-end'>1,911,324</span>
                     <div className='flex flex-row items-center'>
                         <img src={arrowupgreen} />

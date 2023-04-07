@@ -22,10 +22,14 @@ import TargetAdd from '@/pages/TargetAdd/TargetAdd';
 import Kpislider from '@/components/Target/New/Kpislider';
 import Slider from '@/components/Target/New/Slider';
 import ResumeUserItem from '@/components/Target/New/ResumeUserItem';
+import TargetNew from '@/pages/TargetNew/TargetNew';
 import ResumeUserCard from '@/components/Target/New/ResumeUserCard';
 import SelectionModelCard from '@/components/Target/New/SelectionModelCard';
 import CommentsItem from '@/components/Target/New/CommentsItem';
 import CommentsCard from '@/components/Target/New/CommentsCard';
+import ResultResume from '@/components/Target/New/ResultResume';
+import ResultResumeCard from '@/components/Target/New/ResultResumeCard';
+import KeyExpensesCard from '@/components/Target/New/KeyExpensesCard';
 
 export default function App() {
 	return (
@@ -46,6 +50,15 @@ export default function App() {
 					element={
 						<WithPermissionRouter>
 							<TargetAdd />
+						</WithPermissionRouter>
+					}
+				/>
+				<Route
+					exact
+					path='/target/new'
+					element={
+						<WithPermissionRouter>
+							<TargetNew />
 						</WithPermissionRouter>
 					}
 				/>
@@ -103,7 +116,11 @@ export default function App() {
 						</WithPermissionRouter>
 					}
 				/>
-				<Route exact path='/percentagebigslider' element={<PercentageBigSlider />} />
+				<Route
+					exact
+					path='/percentagebigslider'
+					element={<PercentageBigSlider />}
+				/>
 				<Route exact path='/nameslidercard' element={<NameSliderCard />} />
 				<Route exact path='/targetpresetsslider' element={<TargetPresetsSlider />} />
 				<Route exact path='/checknamesliderbuttoncard' element={<CheckNameSliderButtonCard />} />
@@ -119,6 +136,10 @@ export default function App() {
 				<Route exact path='/resumeusercard' element={<ResumeUserCard />} />
 				<Route exact path='/commentsitem' element={<CommentsItem />} />
 				<Route exact path='/commentscard' element={<CommentsCard />} />
+				<Route exact path='/resultresume' element={<ResultResume />} />
+				<Route exact path='/resultresumecard' element={<ResultResumeCard />} />
+				<Route exact path='/keyexpensescard' element={<KeyExpensesCard />} />
+
 
 				<Route exact path='/roger-test' element={<InventoryCard />} />
 				

@@ -3,8 +3,8 @@ import HomeIcon from '@/components/General/Icons/HomeIcon';
 import CheckIcon from '@/components/General/Icons/CheckIcon';
 import RightArrowIcon from '@/components/General/Icons/RightArrowIcon';
 import LeftArrowIcon from  '@/components/General/Icons/LeftArrowIcon';
-import SaveIcon from       '@/components/General/Icons/SaveIcon';
-import ArrowDownIcon from       '@/components/General/Icons/ArrowDownIcon';
+import SaveIcon from '@/components/General/Icons/SaveIcon';
+import ArrowDownIcon from '@/components/General/Icons/ArrowDownIcon';
 import LockIcon from '@/components/General/Icons/LockIcon';
 import BuildingIcon from '@/components/General/Icons/BuildingIcon';
 import Building2Icon from '@/components/General/Icons/Building2Icon';
@@ -16,8 +16,11 @@ import DoubleArrowIcon from '@/components/General/Icons/DoubleArrowIcon';
 import CrossIcon from '@/components/General/Icons/CrossIcon';
 import LupeIcon from '@/components/General/Icons/LupeIcon';
 import FilterIcon from '@/components/General/Icons/FilterIcon';
+import ChatIcon from '@/components/General/Icons/ChatIcon';
 import DoubleArrowVerticalIcon from '@/components/General/Icons/DoubleArrowVerticalIcon';
-
+import ExpandIcon from '@/components/General/Icons/ExpandIcon';
+import ShareIcon from '@/components/General/Icons/ShareIcon';
+import PauseIcon from '@/components/General/Icons/PauseIcon';
 
 const Decision = ({ name }) => {
     if (name === 'Target') return <TargetIcon />;
@@ -38,7 +41,11 @@ const Decision = ({ name }) => {
     if (name === 'Cross') return <CrossIcon />;
     if (name === 'Lupe') return <LupeIcon />;
     if (name === 'Filter') return <FilterIcon />;
+    if (name === 'Chat') return <ChatIcon />;
     if (name === 'DoubleArrowVertical') return <DoubleArrowVerticalIcon />;
+    if (name === 'Expand') return <ExpandIcon />;
+    if (name === 'Share') return <ShareIcon />;
+    if (name === 'Pause') return <PauseIcon />;
 
 	return null;
 };

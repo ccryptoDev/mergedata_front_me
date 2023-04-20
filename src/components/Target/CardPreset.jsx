@@ -26,5 +26,4 @@ const CardPreset = () => {
     </div>
   );
 };
-
 export default CardPreset;

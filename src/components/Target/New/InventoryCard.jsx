@@ -1,4 +1,4 @@
-import arrowupgreen from '@/assets/svg/arrowupgreen.svg';
+import arrowUpGreen from '@/assets/svg/arrowupgreen.svg';
 import neutral from '@/assets/svg/neutral.svg';
 import Slider from '@/components/Target/New/Slider';
 
@@ -10,7 +10,7 @@ const InventoryCard = () => {
                     <span className="w-[107px] h-[36px] font-baloo font-bold text-2xl text-white flex items-center">Inventory</span>
                     <div className="flex flex-row items-end w-[37px] h-[14px]">
                         <div className='w-[12px] h-[12px] flex items-center'>
-                            <img src={arrowupgreen} className="w-[10px] h-[7px]" />
+                            <img src={arrowUpGreen} className="w-[10px] h-[7px]" />
                         </div>
                         <span className='w-[25px] h-[14px] font-baloo font-bold text-[14px] flex items-center text-[#5EFF5A]'>10%</span>
                     </div>
@@ -25,7 +25,7 @@ const InventoryCard = () => {
                             <span className='w-[23px] h-[24px] font-baloo font-bold text-[24px] flex items-center text-white'>61</span>
                             <div className='w-[38px] h-[14px] flex flex-row items-end'>
                                 <div className='w-[12px] h-[12px] flex items-center'>
-                                    <img src={arrowupgreen} className="w-[10px] h-[7px]" />
+                                    <img src={arrowUpGreen} className="w-[10px] h-[7px]" />
                                 </div>
                                 <span className='w-[26px] h-[14px] font-baloo font-bold text-[14px] flex items-center text-[#5EFF5A]'>55%</span>
                             </div>
@@ -53,7 +53,7 @@ const InventoryCard = () => {
                             <span className='w-[23px] h-[24px] font-baloo font-bold text-[24px] flex items-center text-white'>52</span>
                             <div className='w-[38px] h-[14px] flex flex-row items-end'>
                                 <div className='w-[12px] h-[12px] flex items-center'>
-                                    <img src={arrowupgreen} className="w-[10px] h-[7px]" />
+                                    <img src={arrowUpGreen} className="w-[10px] h-[7px]" />
                                 </div>
                                 <span className='w-[26px] h-[14px] font-baloo font-bold text-[14px] flex items-center text-[#5EFF5A]'>12%</span>
                             </div>
@@ -66,7 +66,7 @@ const InventoryCard = () => {
                             <span className='w-[23px] h-[24px] font-baloo font-bold text-[24px] flex items-center text-white'>43</span>
                             <div className='w-[38px] h-[14px] flex flex-row items-end'>
                                 <div className='w-[12px] h-[12px] flex items-center'>
-                                    <img src={arrowupgreen} className="w-[10px] h-[7px]" />
+                                    <img src={arrowUpGreen} className="w-[10px] h-[7px]" />
                                 </div>
                                 <span className='w-[26px] h-[14px] font-baloo font-bold text-[14px] flex items-center text-[#5EFF5A]'>12%</span>
                             </div>

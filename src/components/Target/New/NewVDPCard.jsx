@@ -1,6 +1,6 @@
-import arrowdownicon from '@/assets/svg/arrow_fat_down_icon.svg';
+import ArrowDownIcon from '@/assets/svg/arrow_fat_down_icon.svg';
 import neutral from '@/assets/svg/neutral.svg';
-import arrowupgreen from '@/assets/svg/arrowupgreen.svg';
+import arrowUpGreen from '@/assets/svg/arrowupgreen.svg';
 import IconNameIconDropdownButton from '@/components/General/Buttons/IconNameIconDropdownButton';
 import Slider from '@/components/Target/New/Slider';
 
@@ -10,13 +10,13 @@ const NewVDPCard = () => {
             <div className="w-[291px] h-[70px] flex flex-col gap-2">
                 <div className="w-[291px] h-[42px] flex flex-row items-center justify-between">
                     <span className='w-[100px] h-[36px] flex items-center font-baloo text-2xl font-bold text-white'>New VDP</span>
-                    <IconNameIconDropdownButton width='w-[82px]' heigth='h-[42px]' text='New' iconName='' />
-                    <IconNameIconDropdownButton width='w-[97px]' heigth='h-[42px]' text='Nissan' iconName='' />
+                    <IconNameIconDropdownButton width='w-[82px]' height='h-[42px]' text='New' iconName='' />
+                    <IconNameIconDropdownButton width='w-[97px]' height='h-[42px]' text='Nissan' iconName='' />
                 </div>
                 <div className="w-[291px] h-[19px] flex flex-row">
                     <div className='w-[37px] h-[18px] flex flex-row items-end'>
                         <div className='w-[12px] h-[12px] flex items-end pb-0.5'>
-                            <img src={arrowupgreen} className='w-[10px] h-[7px]' />
+                            <img src={arrowUpGreen} className='w-[10px] h-[7px]' />
                         </div>
                         <span className='w-[25px] h-[14px] text-[#5EFF5A] font-baloo font-bold text-[14px] flex items-center'>10%</span>
                     </div>
@@ -30,7 +30,7 @@ const NewVDPCard = () => {
                     <span className='w-[61px] h-[28px] flex flex-row-reverse items-center font-baloo font-bold text-lg text-white'>354</span>
                     <div className='w-[31px] h-[28px] flex flex-row items-center'>
                         <div className='w-[10px] h-[10px] flex items-end pb-0.5'>
-                            <img src={arrowupgreen} className='w-[9px] h-[6px]' />
+                            <img src={arrowUpGreen} className='w-[9px] h-[6px]' />
                         </div>
                         <span className='w-[21px] h-[12px] text-[#5EFF5A] font-baloo font-bold text-xs flex items-center'>12%</span>
                     </div>
@@ -41,7 +41,7 @@ const NewVDPCard = () => {
                     <span className='w-[61px] h-[28px] flex flex-row-reverse items-center font-baloo font-bold text-lg text-white'>328</span>
                     <div className='w-[31px] h-[28px] flex flex-row items-center'>
                         <div className='w-[10px] h-[10px] flex items-end pb-0.5'>
-                            <img src={arrowdownicon} className='w-[9px] h-[6px]' />
+                            <img src= {ArrowDownIcon} className='w-[9px] h-[6px]' />
                         </div>
                         <span className='w-[21px] h-[12px] text-[#FF8181] font-baloo font-bold text-xs flex items-center'>13%</span>
                     </div>
@@ -63,7 +63,7 @@ const NewVDPCard = () => {
                     <span className='w-[61px] h-[28px] flex flex-row-reverse items-center font-baloo font-bold text-lg text-white'>124</span>
                     <div className='w-[31px] h-[28px] flex flex-row items-center'>
                         <div className='w-[10px] h-[10px] flex items-end pb-0.5'>
-                            <img src={arrowupgreen} className='w-[9px] h-[6px]' />
+                            <img src={arrowUpGreen} className='w-[9px] h-[6px]' />
                         </div>
                         <span className='w-[21px] h-[12px] text-[#5EFF5A] font-baloo font-bold text-xs flex items-center'>24%</span>
                     </div>

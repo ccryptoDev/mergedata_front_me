@@ -1,7 +1,7 @@
 import nextArrow from '@/assets/svg/next_arrow.svg';
-import arrow_fat_down_icon from '@/assets/svg/arrow_fat_down_icon.svg';
+import arrowFatDownIcon from '@/assets/svg/arrow_fat_down_icon.svg';
 import neutral from '@/assets/svg/neutral.svg';
-import arrowupgreen from '@/assets/svg/arrowupgreen.svg';
+import arrowUpGreen from '@/assets/svg/arrowupgreen.svg';
 import IconNameIconDropdownButton from '@/components/General/Buttons/IconNameIconDropdownButton';
 import Slider from '@/components/Target/New/Slider';
 
@@ -14,7 +14,7 @@ const KeyExpensesCard = () => {
                     <span>
                         <IconNameIconDropdownButton
                             width='w-[87px]'
-                            heigth='h-[42px]'
+                            height='h-[42px]'
                             text='Top 3'
                             iconName='' />
                     </span>
@@ -33,7 +33,7 @@ const KeyExpensesCard = () => {
                     <span><Slider slidervalue='w-[20%]' sliderwidth='w-[20%]' sliderheight='h-2' slotwidth='w-[190px]' slotheight='h-1' sliderbg='bg-gradient-to-l from-white to-gray-300'/></span>
                     <span className='font-baloo font-bold text-[18.5px] text-[#FFFFFF] w-[95px] flex justify-end'>2,666,134</span>
                     <div className='flex flex-row items-center'>
-                        <img src={arrow_fat_down_icon} />
+                        <img src={arrowFatDownIcon} />
                         <span className='font-baloo font-bold text-[12px] text-[#FF8181]'>13%</span>
                     </div>
                 </div>
@@ -51,7 +51,7 @@ const KeyExpensesCard = () => {
                     <span><Slider slidervalue='w-[95%]' sliderwidth='w-[95%]' sliderheight='h-2' slotwidth='w-[190px]' slotheight='h-1' sliderbg='bg-gradient-to-l from-white to-gray-300'/></span>
                     <span className='font-baloo font-bold text-[18.5px] text-[#FFFFFF] w-[95px] flex justify-end'>1,911,324</span>
                     <div className='flex flex-row items-center'>
-                        <img src={arrowupgreen} />
+                        <img src={arrowUpGreen} />
                         <span className='font-baloo font-bold text-[12px] text-[#5EFF5A]'>24%</span>
                     </div>
                 </div>

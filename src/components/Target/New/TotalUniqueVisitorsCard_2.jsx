@@ -1,6 +1,6 @@
 import PercentageBigSlider from "@/components/Target/New/PercentageBigSlider";
-import Kpislider from "@components/Target/New/Kpislider";
-import arrowupgreen from '@/assets/svg/arrowupgreen.svg';
+import Kpislider from "@/components/Target/New/Kpislider";
+import arrowUpGreen from '@/assets/svg/arrowupgreen.svg';
 
 import { useState } from "react";
 
@@ -28,7 +28,7 @@ export default function TotalUniqueVisitorsCard() {
                     <div className='flex flex-row items-center'>
                         <p className='pr-2 font-baloo font-bold text-2xl text-[#FFFFFF] '>6,466
                         </p>
-                        <img src={arrowupgreen} className='mt-[2px] w-[11px] h-[7px]' />
+                        <img src={arrowUpGreen} className='mt-[2px] w-[11px] h-[7px]' />
                         <p className='text-[#5EFF5A] font-baloo font-bold text-sm flex items-center'>10%</p>
                     </div>
 

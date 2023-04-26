@@ -1,5 +1,5 @@
 import PercentageBigSlider from "@/components/Target/New/PercentageBigSlider";
-import Kpislider from "@components/Target/New/Kpislider";
+import Kpislider from "@/components/Target/New/Kpislider";
 
 import { useState } from "react";
 

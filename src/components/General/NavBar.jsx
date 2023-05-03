@@ -92,7 +92,7 @@ export default function NavBar({ navBarBgColor = 'bg-dark-background-00' }) {
 				</div>
 			</nav>
 			{showUserMenu && (
-				<div className='absolute right-[0px] top-[61px]'>
+				<div className='absolute right-[0px] top-[61px] z-10'>
 					<UserMenu />
 				</div>
 			)}

@@ -110,11 +110,11 @@ export default function LineGraph() {
 			<LineChart data={data}>
 				<defs>
 					<linearGradient id='unselected'>
-						<stop offset='100%' stopColor='#FFFFFF' stopOpacity={0.2} />
-						<stop offset='100%' stopColor='#B9B9B9' stopOpacity={0.2} />
+						<stop offset='0%' stopColor='#FFFFFF' stopOpacity={0.2} />
+						<stop offset='0%' stopColor='#B9B9B9' stopOpacity={0.2} />
 					</linearGradient>
 					<linearGradient id='selected'>
-						<stop offset='100%' stopColor='#4DFFDF' stopOpacity={1} />
+						<stop offset='0%' stopColor='#4DFFDF' stopOpacity={1} />
 						<stop offset='100%' stopColor='#4DA1FF' stopOpacity={1} />
 					</linearGradient>
 				</defs>

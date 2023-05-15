@@ -11,8 +11,10 @@ export default function NameSliderCard() {
                     <TargetNew uppertitle='Target' maintitle='New' />
                 </div>
                 <div className='w-[320px] h-full flex flex-row items-center'>
-                    <div className='mr-[8px]'>
-                        <ToggleSwitch />
+                    <div className='mr-[16px]'>
+                        <ToggleSwitch
+                            name1='Percentage'
+                            name2='Amount' />
                     </div>
                     <div>
                         <TextIconButton
@@ -31,19 +33,20 @@ export default function NameSliderCard() {
             </div>
             <div className='flex flex-row justify-between w-[534px] h-[240px] '>
                 <div className='w-[261px] h-full mb-3'>
-                    <NameSlider name = 'Retail Sales' cursorlocation = 'left-[70%]' sliderbg = 'bg-[#000000]' slidertrackbg = 'bg-gradient-to-r from-[#3C1CC5] to-[#9043DD]' slidertracklenght = 'w-[37px]' blacktalker = {true} value = {160} blacktalkerlocation = 'left-[55%]'/>
-                    <NameSlider name = 'Retail Gross' cursorlocation = 'left-[45%]' sliderbg = 'bg-[#000000]' slidertrackbg = 'bg-gradient-to-r from-[#3C1CC5] to-[#9043DD]' slidertracklenght = 'w-[0px]' blacktalker = {false} value={100} blacktalkerlocation = 'left-[30%]'/>
-                    <NameSlider name = 'Retail Units' cursorlocation = 'left-[45%]' sliderbg = 'bg-[#000000]' slidertrackbg = 'bg-gradient-to-r from-[#3C1CC5] to-[#9043DD]' slidertracklenght = 'w-[0px]' blacktalker = {false} value = {130} blacktalkerlocation = 'left-[30%]'/>
-                    <NameSlider name = 'Lease Sales' cursorlocation = 'left-[70%]' sliderbg = 'bg-[#000000]' slidertrackbg = 'bg-gradient-to-r from-[#3C1CC5] to-[#9043DD]' slidertracklenght = 'w-[37px]' blacktalker = {false} value = {130} blacktalkerlocation = 'left-[60%]'/>
-                    
+                    <NameSlider name='Retail Sales' cursorlocation='left-[70%]' sliderbg='bg-[#000000]' slidertrackbg='bg-gradient-to-r from-[#3C1CC5] to-[#9043DD]' slidertracklenght='w-[37px]' blacktalker={true} value={160} blacktalkerlocation='left-[55%]' />
+                    <NameSlider name='Retail Gross' cursorlocation='left-[45%]' sliderbg='bg-[#000000]' slidertrackbg='bg-gradient-to-r from-[#3C1CC5] to-[#9043DD]' slidertracklenght='w-[0px]' blacktalker={false} value={100} blacktalkerlocation='left-[30%]' />
+                    <NameSlider name='Retail Units' cursorlocation='left-[45%]' sliderbg='bg-[#000000]' slidertrackbg='bg-gradient-to-r from-[#3C1CC5] to-[#9043DD]' slidertracklenght='w-[0px]' blacktalker={false} value={130} blacktalkerlocation='left-[30%]' />
+                    <NameSlider name='Lease Sales' cursorlocation='left-[70%]' sliderbg='bg-[#000000]' slidertrackbg='bg-gradient-to-r from-[#3C1CC5] to-[#9043DD]' slidertracklenght='w-[37px]' blacktalker={false} value={130} blacktalkerlocation='left-[60%]' />
+
                 </div>
                 <div className='w-[261px] h-full mb-3'>
-                    <NameSlider name = 'Retail Sales' cursorlocation = 'left-[50%]' sliderbg = 'bg-[#000000]' slidertrackbg = 'bg-gradient-to-r from-[#3C1CC5] to-[#9043DD]' slidertracklenght = 'w-[10px]' blacktalker={false} value = {120} blacktalkerlocation = 'left-[40%]'/>
-                    <NameSlider name = 'Retail Gross' cursorlocation = 'left-[60%]' sliderbg = 'bg-[#000000]' slidertrackbg = 'bg-gradient-to-r from-[#3C1CC5] to-[#9043DD]' slidertracklenght = 'w-[30px]' blacktalker={false} value = {120} blacktalkerlocation = 'left-[50%]'/>
-                    <NameSlider name = 'Retail Units' cursorlocation = 'left-[75%]' sliderbg = 'bg-[#000000]' slidertrackbg = 'bg-gradient-to-r from-[#3C1CC5] to-[#9043DD]' slidertracklenght = 'w-[50px]' blacktalker={true} value = {120} blacktalkerlocation = 'left-[60%]'/>
-                    <NameSlider name = 'Lease Sales' cursorlocation = 'left-[45%]' sliderbg = 'bg-[#000000]' slidertrackbg = 'bg-gradient-to-r from-[#3C1CC5] to-[#9043DD]' slidertracklenght = 'w-[0px]' blacktalker={false} value = {100} blacktalkerlocation = 'left-[40%]'/>
+                    <NameSlider name='Retail Sales' cursorlocation='left-[50%]' sliderbg='bg-[#000000]' slidertrackbg='bg-gradient-to-r from-[#3C1CC5] to-[#9043DD]' slidertracklenght='w-[10px]' blacktalker={false} value={120} blacktalkerlocation='left-[40%]' />
+                    <NameSlider name='Retail Gross' cursorlocation='left-[60%]' sliderbg='bg-[#000000]' slidertrackbg='bg-gradient-to-r from-[#3C1CC5] to-[#9043DD]' slidertracklenght='w-[30px]' blacktalker={false} value={120} blacktalkerlocation='left-[50%]' />
+                    <NameSlider name='Retail Units' cursorlocation='left-[75%]' sliderbg='bg-[#000000]' slidertrackbg='bg-gradient-to-r from-[#3C1CC5] to-[#9043DD]' slidertracklenght='w-[50px]' blacktalker={true} value={120} blacktalkerlocation='left-[60%]' />
+                    <NameSlider name='Lease Sales' cursorlocation='left-[45%]' sliderbg='bg-[#000000]' slidertrackbg='bg-gradient-to-r from-[#3C1CC5] to-[#9043DD]' slidertracklenght='w-[0px]' blacktalker={false} value={100} blacktalkerlocation='left-[40%]' />
                 </div>
             </div>
         </div>
     )
 }
+

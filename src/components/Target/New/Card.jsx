@@ -6,10 +6,12 @@ const Card = ({
 	width = 'w-[373px] ',
 	bgColor = 'bg-[#212A43]',
 	margin,
+	onClick,
 }) => {
 	return (
 		<div
 			className={`${width} ${height} ${bgColor} relative flex flex-col px-8 py-6 rounded-2xl ${margin}`}
+			onClick={onClick}
 		>
 			<div>{children}</div>
 			<img

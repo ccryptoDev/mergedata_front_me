@@ -1,20 +1,21 @@
 import "@/css/global.css";
 
-const ToggleSwitch = () => {
+export default function ToggleSwitch({ handleClick, name1, name2 }) {
+
+
     return (
-        <div className="w-[220px] h-7 px-2 bg-[#161A3E] flex flex-row items-center gap-4">
-            <div className="w-20 h-7">
-                <span className="font-baloo text-[#EEECF1]">Percentage</span>
+        <div className="w-auto h-7 bg-[#212A43] flex flex-row items-center gap-4">
+            <div className="w-auto h-7">
+                <span className="font-baloo text-[#EEECF1]">{name1}</span>
             </div>
-            <label className="switch">
-                <input type="checkbox" />
+            <label className="switch" >
+                <input type="checkbox" onClick={handleClick}/>
                 <span className="slider"></span>
             </label>
-            <div className="w-14 h-7">
-                <span className="font-baloo text-[#EEECF1]">Amount</span>
+            <div className="w-auto h-7">
+                <span className="font-baloo text-[#EEECF1]">{name2}</span>
             </div>
         </div>
     )
 }
 
-export default ToggleSwitch;    

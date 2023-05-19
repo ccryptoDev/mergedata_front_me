@@ -10,7 +10,7 @@ const useLoginForm = (
 		pwd: '',
 	},
 ) => {
-	const login = '/identity/Token/Login';
+	const loginPath = '/identity/Token/Login';
 	const forgotPasswordPath = '/identity/User/ForgotPassword';
 	const getTokenPath = '/identity/User/ValidateResetCode';
 	const resetPasswordPath = '/identity/User/ResetPassword';
@@ -54,7 +54,7 @@ const useLoginForm = (
 		setLoading(true);
 		try {
 			const response = await axiosCustomer.post(
-				login,
+				loginPath,
 				{
 					email,
 					password,

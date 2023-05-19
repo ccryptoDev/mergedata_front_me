@@ -2,10 +2,14 @@ import { useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import useRefreshToken from '@/hooks/useRefreshToken';
-import { axiosPrivateImporter } from '@/services/axios';
-import AuthContext from '@context/AuthProvider';
+import {
+	axiosPrivateImporter,
+	axiosPrivateCustomer,
+	axiosPrivateReporter,
+} from '@/services/axios';
+import AuthContext from '@/context/AuthProvider';
 
-const useAxiosPrivate = () => {
+const useAxiosPrivate = (endpoint = 'importer') => {
 	const { setAuth } = useContext(AuthContext);
 	const refresh = useRefreshToken();
 	const navigate = useNavigate();
@@ -20,41 +24,127 @@ const useAxiosPrivate = () => {
 	};
 
 	useEffect(() => {
-		const requestIntercept = axiosPrivateImporter.interceptors.request.use(
-			config => {
-				if (!config.headers.Authorization) {
-					config.headers.Authorization = `Bearer ${token}`;
-				}
-				return config;
-			},
-			error => Promise.reject(error),
-		);
+		let requestIntercept;
+		if (endpoint === 'importer') {
+			requestIntercept = axiosPrivateImporter.interceptors.request.use(
+				config => {
+					if (!config.headers.Authorization) {
+						config.headers.Authorization = `Bearer ${token}`;
+					}
+					return config;
+				},
+				error => Promise.reject(error),
+			);
+		}
 
-		const responseIntercept = axiosPrivateImporter.interceptors.response.use(
-			response => response,
-			async error => {
-				const prevRequest = error?.config;
-				if (
-					error.response.status === 401 ||
-					(error.response.status === 403 && !prevRequest?.sent)
-				) {
-					handleLogout();
-					prevRequest.sent = true;
-					const { newToken } = await refresh();
-					prevRequest.headers.Authorization = `Bearer ${newToken}`;
-					return axiosPrivateImporter(prevRequest);
-				}
-				return Promise.reject(error);
-			},
-		);
+		if (endpoint === 'customer') {
+			requestIntercept = axiosPrivateCustomer.interceptors.request.use(
+				config => {
+					if (!config.headers.Authorization) {
+						config.headers.Authorization = `Bearer ${token}`;
+					}
+					return config;
+				},
+				error => Promise.reject(error),
+			);
+		}
+		if (endpoint === 'reporter') {
+			requestIntercept = axiosPrivateReporter.interceptors.request.use(
+				config => {
+					if (!config.headers.Authorization) {
+						config.headers.Authorization = `Bearer ${token}`;
+					}
+					return config;
+				},
+				error => Promise.reject(error),
+			);
+		}
+
+		let responseIntercept;
+		if (endpoint === 'importer') {
+			responseIntercept = axiosPrivateImporter.interceptors.response.use(
+				response => response,
+				async error => {
+					const prevRequest = error?.config;
+					if (
+						error.response.status === 401 ||
+						(error.response.status === 403 && !prevRequest?.sent)
+					) {
+						handleLogout();
+						prevRequest.sent = true;
+						const { newToken } = await refresh();
+						prevRequest.headers.Authorization = `Bearer ${newToken}`;
+						return axiosPrivateImporter(prevRequest);
+					}
+					return Promise.reject(error);
+				},
+			);
+		}
+
+		if (endpoint === 'customer') {
+			responseIntercept = axiosPrivateCustomer.interceptors.response.use(
+				response => response,
+				async error => {
+					const prevRequest = error?.config;
+					if (
+						error.response.status === 401 ||
+						(error.response.status === 403 && !prevRequest?.sent)
+					) {
+						handleLogout();
+						prevRequest.sent = true;
+						const { newToken } = await refresh();
+						prevRequest.headers.Authorization = `Bearer ${newToken}`;
+						return axiosPrivateCustomer(prevRequest);
+					}
+					return Promise.reject(error);
+				},
+			);
+		}
+		if (endpoint === 'reporter') {
+			responseIntercept = axiosPrivateReporter.interceptors.response.use(
+				response => response,
+				async error => {
+					const prevRequest = error?.config;
+					if (
+						error.response.status === 401 ||
+						(error.response.status === 403 && !prevRequest?.sent)
+					) {
+						handleLogout();
+						prevRequest.sent = true;
+						const { newToken } = await refresh();
+						prevRequest.headers.Authorization = `Bearer ${newToken}`;
+						return axiosPrivateReporter(prevRequest);
+					}
+					return Promise.reject(error);
+				},
+			);
+		}
 
 		return () => {
-			axiosPrivateImporter.interceptors.request.eject(requestIntercept);
-			axiosPrivateImporter.interceptors.response.eject(responseIntercept);
+			if (endpoint === 'importer') {
+				axiosPrivateImporter.interceptors.request.eject(requestIntercept);
+				axiosPrivateImporter.interceptors.response.eject(responseIntercept);
+			}
+			if (endpoint === 'customer') {
+				axiosPrivateCustomer.interceptors.request.eject(requestIntercept);
+				axiosPrivateCustomer.interceptors.response.eject(responseIntercept);
+			}
+			if (endpoint === 'reporter') {
+				axiosPrivateReporter.interceptors.request.eject(requestIntercept);
+				axiosPrivateReporter.interceptors.response.eject(responseIntercept);
+			}
 		};
 	}, [token, refresh]);
 
-	return axiosPrivateImporter;
+	if (endpoint === 'importer') {
+		return axiosPrivateImporter;
+	}
+	if (endpoint === 'customer') {
+		return axiosPrivateCustomer;
+	}
+	if (endpoint === 'reporter') {
+		return axiosPrivateReporter;
+	}
 };
 
 export default useAxiosPrivate;

@@ -143,7 +143,7 @@ export default function Target() {
 					/>
 
 					<Card
-						title='Used'
+						title='CRM'
 						subTitle='na'
 						text='Increased by 82%.'
 						data={data2}
@@ -151,7 +151,7 @@ export default function Target() {
 						typeOfCard={1}
 					/>
 					<Card
-						title='New'
+						title='Website'
 						subTitle='na'
 						text='Increased by 29%.'
 						data={data1}
@@ -159,7 +159,7 @@ export default function Target() {
 						typeOfCard={1}
 					/>
 					<Card
-						title='Used'
+						title='Service & Parts'
 						subTitle='Dollar per copy'
 						text='Increased by 82%.'
 						data={data2}

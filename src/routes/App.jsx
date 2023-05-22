@@ -34,17 +34,40 @@ import KeyExpensesCard from '@/components/Target/New/KeyExpensesCard';
 import GravatarTable from '@/components/Target/New/GravatarTable';
 import NewVDPCard from '@/components/Target/New/NewVDPCard';
 import PeopleTable from '@/components/Target/New/PeopleTable';
-import Table5 from '@/components/Target/New/Table5';
-import Table6 from '@/components/Target/New/Table6';
-import Table6Total from '@/components/Target/New/Table6Total';
-import ModelsTable2 from '@/components/Target/New/ModelsTable2';
-import ModelsTable from '@/components/Target/New/ModelsTable';
+import ToggleSwitch from '@/components/Target/ToggleSwitch';
+
 import TransactionDetailTableCard from '@/components/Target/New/TransactionDetailTableCard';
 import RetailSalesTableCard from '@/components/Target/New/RetailSalesTableCard';
 import SingleButton from '@/components/General/Buttons/SingleButton';
 import BasicInformation from '@/components/Target/Preset/BasicInformation';
 import CancelAndSave from '@/components/Target/CancelAndSave.jsx';
+import TableToggleIncrease from '@/components/Target/New/TableToggleIncrease';
 
+import Table4 from '@/components/Target/New/Table4';
+import Table5 from '@/components/Target/New/Table5';
+import Table6 from '@/components/Target/New/Table6';
+import Table7 from '@/components/Target/New/Table7';
+import Table7Total from '@/components/Target/New/Table7Total';
+import Table8 from '@/components/Target/New/Table8';
+import Table8Total from '@/components/Target/New/Table8Total';
+import ModelsTable2 from '@/components/Target/New/ModelsTable2';
+import ModelsTable from '@/components/Target/New/ModelsTable';
+
+import SimpleLineGraphCard from '@/components/General/Graphs/SimpleLineGraphCard';
+import BubbleGraphCard from '@/components/General/Graphs/BubbleGraphCard';
+import LineChart from '@/components/General/Graphs/LineChart';
+import Models from '@/pages/TargetNew/Models';
+import Expenses from '@/pages/TargetNew/Expenses';
+import CommunityReports from '@/pages/CommunityReports/CommunityReports';
+
+import NotificationGroup from "@/components/General/Contest/NotificationGroup";
+import ProgressPieResume from '@/components/General/Contest/ProgressPieResume';
+import NotificationsCard from '@/components/General/Contest/NotificationsCard';
+import UserInfoResume from '@/components/General/Contest/UserInfoResume';
+import BadgeProgressandButtons from '@/components/General/Contest/BadgeProgressandButtons';
+import ResumeCard from '@/components/General/Contest/ResumeCard';
+import NavBarForm from '@/components/General/Contest/NavBarForm';
+import SearchAndSavedSearchs from '@/components/General/PredictiveAI.jsx/SearchAndSavedSearchs';
 
 export default function App () {
 	return (
@@ -74,6 +97,24 @@ export default function App () {
 					element={
 						<WithPermissionRouter>
 							<TargetNew />
+						</WithPermissionRouter>
+					}
+				/>
+				<Route
+					exact
+					path='/target/new/models'
+					element={
+						<WithPermissionRouter>
+							<Models />
+						</WithPermissionRouter>
+					}
+				/>
+				<Route
+					exact
+					path='/target/new/expenses'
+					element={
+						<WithPermissionRouter>
+							<Expenses />
 						</WithPermissionRouter>
 					}
 				/>
@@ -133,19 +174,50 @@ export default function App () {
 				/>
 				<Route
 					exact
-					path="/percentagebigslider"
+					path='/community-reports'
+					element={
+						<WithPermissionRouter>
+							<CommunityReports />
+						</WithPermissionRouter>
+					}
+				/>
+
+
+				<Route
+					exact
+					path='/percentagebigslider'
 					element={<PercentageBigSlider />}
 				/>
 				<Route exact path='/nameslidercard' element={<NameSliderCard />} />
-				<Route exact path='/targetpresetsslider' element={<TargetPresetsSlider />} />
-				<Route exact path='/checknamesliderbuttoncard' element={<CheckNameSliderButtonCard />} />
+				<Route
+					exact
+					path='/targetpresetsslider'
+					element={<TargetPresetsSlider />}
+				/>
+				<Route
+					exact
+					path='/checknamesliderbuttoncard'
+					element={<CheckNameSliderButtonCard />}
+				/>
 				<Route exact path='/nameslider' element={<NameSlider />} />
-				<Route exact path='/totaluniquevisitorscard_1' element={<TotalUniqueVisitorsCard_1 />} />
-				<Route exact path='/totaluniquevisitorscard_2' element={<TotalUniqueVisitorsCard_2 />} />
+				<Route
+					exact
+					path='/totaluniquevisitorscard_1'
+					element={<TotalUniqueVisitorsCard_1 />}
+				/>
+				<Route
+					exact
+					path='/totaluniquevisitorscard_2'
+					element={<TotalUniqueVisitorsCard_2 />}
+				/>
 				<Route exact path='/slider' element={<Slider />} />
 				<Route exact path='/titlevectorx' element={<TitleVectorX />} />
 				<Route exact path='/departmentcard' element={<DepartmentCard />} />
-				<Route exact path='/selectionmodelcard' element={<SelectionModelCard />} />
+				<Route
+					exact
+					path='/selectionmodelcard'
+					element={<SelectionModelCard />}
+				/>
 				<Route exact path='/resumeuseritem' element={<ResumeUserItem />} />
 				<Route exact path='/resumeusercard' element={<ResumeUserCard />} />
 				<Route exact path='/commentsitem' element={<CommentsItem />} />
@@ -156,20 +228,53 @@ export default function App () {
 				<Route exact path='/gravatartable' element={<GravatarTable />} />
 				<Route exact path='/newvdpcard' element={<NewVDPCard />} />
 				<Route exact path='/peopletable' element={<PeopleTable />} />
-				<Route exact path='/table5' element={<Table5 />} />
-				<Route exact path='/modelstable2' element={<ModelsTable2 />} />
-				<Route exact path='/modelstable' element={<ModelsTable />} />
-				<Route exact path='/table6' element={<Table6 />} />
-				<Route exact path='/retailsalestablecard' element={<RetailSalesTableCard />} />
-				<Route exact path='/transactiondetailtablecard' element={<TransactionDetailTableCard />} />
+				<Route
+					exact
+					path='/retailsalestablecard'
+					element={<RetailSalesTableCard />}
+				/>
+				<Route
+					exact
+					path='/transactiondetailtablecard'
+					element={<TransactionDetailTableCard />}
+				/>
 				<Route exact path='/singlebutton' element={<SingleButton />} />
 				<Route exact path='/basicinformation' element={<BasicInformation />} />
-				<Route exact path='/cardpreset' element={<CardPreset />}/>
-				<Route exact path='/cancelandsave' element={<CancelAndSave />}/>
-				<Route exact path='/table6Total' element={<Table6Total />} />
+				<Route exact path='/cardpreset' element={<CardPreset />} />
+				<Route exact path='/cancelandsave' element={<CancelAndSave />} />
+				<Route exact path='/table4' element={<Table4 />} />
+				<Route exact path='/table5' element={<Table5 />} />
+				<Route exact path='/table6' element={<Table6 />} />
+				<Route exact path='/table7' element={<Table7 />} />
+				<Route exact path='/table7total' element={<Table7Total />} />
+				<Route exact path='/table8' element={<Table8 />} />
+				<Route exact path='/table8total' element={<Table8Total />} />
+				<Route exact path='/modelstable2' element={<ModelsTable2 />} />
+				<Route exact path='/modelstable' element={<ModelsTable />} />
+				<Route
+					exact
+					path='/tabletoggleincrease'
+					element={<TableToggleIncrease />}
+				/>
+				<Route exact path='/toggleSwitch' element={<ToggleSwitch />} />
+				<Route
+					exact
+					path='/simplelinegraph'
+					element={<SimpleLineGraphCard />}
+				/>
+				<Route exact path='/linechart' element={<LineChart />} />
+				<Route exact path='/toggleSwitch' element={<ToggleSwitch />} />
+				<Route exact path='/bubblegraphcard' element={<BubbleGraphCard/>} />
+				<Route exact path='/notificationgroup' element={<NotificationGroup/>} />
+				<Route exact path='/progresspieresume' element={<ProgressPieResume/>} />
+				<Route exact path='/notificationscard' element={<NotificationsCard/>} />
+				<Route exact path='/userinforesume' element={<UserInfoResume/>} />
+				<Route exact path='/badgeprogressandbuttons' element={<BadgeProgressandButtons/> } />
+				<Route exact path='/resumecard' element={<ResumeCard/>} />
+				<Route exact path='/navbarform' element={<NavBarForm/>} />
+				<Route exact path='/searchandsavedsearchs' element={<SearchAndSavedSearchs/>} />
 
 				<Route exact path='/roger-test' element={<ExpensesRetailItem />} />
-
 			</Routes>
 		</BrowserRouter>
 	);

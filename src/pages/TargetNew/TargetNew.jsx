@@ -11,10 +11,10 @@ import NameDropdown from '@/components/Target/New/NameDropdown';
 import NameIncreaseDropdown from '@/components/Target/New/NameIncreaseDropdown';
 import PersonIncrease from '@/components/Target/New/PersonIncrease';
 import PersonIncreaseTable from '@/components/Target/New/PersonIncreaseTable';
-import Slider from '@/components/Target/New/Slider';
 import { useNavigate } from 'react-router-dom';
 import { increaseStatus } from '@/utils/helperFunctions';
 import ModelsIndividualStatus from '@/components/Target/New/ModelsIndividualStatus';
+import BubbleGraphCard from '@/components/General/Graphs/BubbleGraphCard';
 
 function TargetNew() {
 	const navigate = useNavigate();
@@ -61,7 +61,10 @@ function TargetNew() {
 				</section>
 				<section>
 					<div className='bg-[#3E4761] w-full h-[666px] rounded-2xl'>
-						<Card height='h-[500px]'>
+						<Card
+							height='h-[500px]'
+							onClick={() => navigate('/target/new/models')}
+						>
 							<div className='w-[192px] mb-10'>
 								<NameDropdown
 									title='Models'
@@ -102,10 +105,12 @@ function TargetNew() {
 					</div>
 				</section>
 				<section>
-					<Card height='h-[361px]' width='w-[554px]' margin={'mb-7'}>
-						<Slider />
-					</Card>
-					<KeyExpensesCard />
+					<BubbleGraphCard />
+					<div className='mt-6'>
+						<KeyExpensesCard
+							onClick={() => navigate('/target/new/expenses')}
+						/>
+					</div>
 				</section>
 			</div>
 		</SharedLayout>

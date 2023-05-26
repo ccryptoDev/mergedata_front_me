@@ -23,7 +23,7 @@ export default function IconNameIconDropdownButton({
 				className={`flex flex-row py-[12px] px-[14px] items-center justify-between ${border} ${width} ${height} ${background} ${borderRadius} ${backgroundHover} ${borderHover} ${showItems
 					? 'border-primary-purple-600 bg-primary-purple-600'
 					: 'bg-[#05081E] border-2 border-[#212A43]'
-					} transition-colors shadow-[0px_13px_25px_-13px_rgba(0, 0, 0, 0.48)]`}
+					} transition-colors shadow-[0_13px_25px_-13px_rgba(0,0,0,0.48)]`}
 			>
 				<Decision name={iconName} />
 				<span className='flex flex-align-center font-[600] font-baloo text-[15px] leading-[26px] text-[#EEECF1]'>

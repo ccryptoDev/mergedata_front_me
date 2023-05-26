@@ -11,9 +11,10 @@ const TextIconButton = ({
 	textSize = 'text-lg',
 	textColor = 'text-white',
 	textColorHover = '',
+	borderColor = 'border border-transparent',
 }) => {
 	return (
-		<button className={`${background} ${width} ${height} flex flex-row items-center rounded-lg justify-center gap-x-3 shadow-[0_13px_25px_-13px_rgba(0,0,0,0.48)] ${backgroundHover}`}>
+		<button className={`${background} ${width} ${height} ${borderColor} flex flex-row items-center rounded-md justify-center gap-x-3 shadow-[0_13px_25px_-13px_rgba(0,0,0,0.48)] ${backgroundHover}`}>
 			{iconLeft && (
 				<span className='w-6 h-6 flex justify-center items-center'>
 					<IconSelected name={iconLeft} />

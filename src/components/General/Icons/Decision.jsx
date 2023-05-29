@@ -18,12 +18,24 @@ import CrossIcon from '@/components/General/Icons/CrossIcon';
 import LupeIcon from '@/components/General/Icons/LupeIcon';
 import FilterIcon from '@/components/General/Icons/FilterIcon';
 import FlameIcon from '@/components/General/Icons/FlameIcon';
+import ThumbIcon from '@/components/General/Icons/ThumbIcon';
+import ThumbSMIcon from '@/components/General/Icons/ThumbSMIcon';
+import ThumbSMInvertedIcon from '@/components/General/Icons/ThumbSMInvertedIcon';
 import TaskIcon from '@/components/General/Icons/TaskIcon';
 import ChatIcon from '@/components/General/Icons/ChatIcon';
 import DoubleArrowVerticalIcon from '@/components/General/Icons/DoubleArrowVerticalIcon';
 import ExpandIcon from '@/components/General/Icons/ExpandIcon';
 import ShareIcon from '@/components/General/Icons/ShareIcon';
 import PauseIcon from '@/components/General/Icons/PauseIcon';
+import RightPlaneArrowIcon from '@/components/General/Icons/RightPlaneArrowIcon';
+import LargeFlameIcon from '@/components/General/Icons/LargeFlameIcon';
+import DivideIcon from '@/components/General/Icons/DivideIcon';
+import ReturnIcon from '@/components/General/Icons/ReturnIcon';
+import HeartLgIcon from '@/components/General/Icons/HeartLgIcon';
+import DownRedArrowIcon from '@/components/General/Icons/DownRedArrowIcon';
+import CrownShadowIcon from '@/components/General/Icons/CrownShadowIcon';
+import Gallery4SquaresIcon from '@/components/General/Icons/Gallery4SquaresIcon';
+
 
 const Decision = ({ name }) => {
     if (name === 'Target') return <TargetIcon />;
@@ -46,13 +58,23 @@ const Decision = ({ name }) => {
     if (name === 'Lupe') return <LupeIcon />;
     if (name === 'Filter') return <FilterIcon />; 
     if (name === 'Flame') return <FlameIcon />;
+    if (name === 'LargeFlame') return <LargeFlameIcon />;
     if (name === 'Chat') return <ChatIcon />;
     if (name === 'DoubleArrowVertical') return <DoubleArrowVerticalIcon />;
     if (name === 'Expand') return <ExpandIcon />;
     if (name === 'Share') return <ShareIcon />;
-    if (name === 'Flame') return <FlameIcon />;
     if (name === 'Task') return <TaskIcon />;
     if (name === 'Pause') return <PauseIcon fill = 'border-neutrals-00'/>;
+    if (name === 'RightPlaneArrow') return <RightPlaneArrowIcon />;
+    if (name === 'Thumb') return <ThumbIcon />;
+    if (name === 'ThumbSM') return <ThumbSMIcon />;
+    if (name === 'ThumbSMInverted') return <ThumbSMInvertedIcon />;
+    if (name === 'Divide') return <DivideIcon />;
+    if (name === 'Return') return <ReturnIcon />;
+    if (name === 'HeartLg') return <HeartLgIcon />;
+    if (name === 'DownRedArrow') return <DownRedArrowIcon />;
+    if (name === 'CrownShadow') return <CrownShadowIcon />;
+    if (name === 'Gallery4Squares') return <Gallery4SquaresIcon />;
 
 	return null;
 };

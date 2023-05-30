@@ -1,3 +1,4 @@
+
 const SvgComponent = ({flameIconColor='#A6ACBD'}) => (
 
     <svg width="10" height="13" viewBox="0 0 10 13" xmlns="http://www.w3.org/2000/svg">

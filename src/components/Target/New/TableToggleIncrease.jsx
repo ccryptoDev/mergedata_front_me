@@ -6,15 +6,13 @@ import Table8 from '@/components/Target/New/Table8';
 import Table7Total from '@/components/Target/New/Table7Total';
 import Table8Total from '@/components/Target/New/Table8Total';
 
-export default function TableToggleIncrease() {
+export default function TableToggleIncrease ({ report }) {
 
     const [reduce, setReduce] = useState(false);
     const [onSwitch, setOnSwitch] = useState(false);
 
     const handleClick = () => {
-        !reduce && (
-            setOnSwitch(!onSwitch)
-        )
+        setOnSwitch(!onSwitch)
     };
     return (
         <div className='h=4 w-30'>
@@ -69,20 +67,20 @@ export default function TableToggleIncrease() {
                     {!onSwitch ?
                         <div>
                             <div className="overflow-hidden">
-                                <Table8 shouldReduce={reduce} />
+                                <Table8 shouldReduce={reduce} report={report} />
                             </div>
                             <div className='absolute top-[606px] left-0 w-full rounded-[50px]'>
-                                <Table8Total shouldReduce={reduce} />
+                                <Table8Total shouldReduce={reduce} report={report} />
                             </div>
                         </div>
 
                         :
                         <div>
                             <div className="overflow-hidden">
-                                <Table7 shouldReduce={reduce} />
+                                <Table7 />
                             </div>
                             <div className='absolute top-[606px] left-0 w-full rounded-[50px]'>
-                                <Table7Total shouldReduce={reduce} />
+                                <Table7Total shouldReduce={reduce} report={report} />
                             </div>
                         </div>
                     }

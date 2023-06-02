@@ -149,3 +149,25 @@ input:checked + .slider {
 input:checked + .slider::before {
 	transform: translateX(20px);
 }
+
+/* custom scrollbar */
+/* width */
+::-webkit-scrollbar {
+	width: 4px;
+	height: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	@apply shadow-md rounded;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	@apply bg-dark-background-00 dark:bg-neutrals-50 rounded;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	@apply bg-dark-background-00 dark:bg-neutrals-50;
+}

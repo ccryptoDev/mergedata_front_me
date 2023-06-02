@@ -67,7 +67,24 @@ import UserInfoResume from '@/components/General/Contest/UserInfoResume';
 import BadgeProgressandButtons from '@/components/General/Contest/BadgeProgressandButtons';
 import ResumeCard from '@/components/General/Contest/ResumeCard';
 import NavBarForm from '@/components/General/Contest/NavBarForm';
-import SearchAndSavedSearchs from '@/components/General/PredictiveAI.jsx/SearchAndSavedSearchs';
+import FormSettings from '@/components/General/Contest/FormSettings'; 
+import FormParticipants from '@/components/General/Contest/FormParticipants'; 
+import FormPoints from '@/components/General/Contest/FormPoints';
+import PieGraph from '@/components/General/Contest/PieGraph';
+
+import Carousel from '@/components/General/PredictiveAI/Carousel';
+import TextInputChat from '@/components/General/PredictiveAI/TextInputChat';
+import SearchAndSavedSearchs from '@/components/General/PredictiveAI/SearchAndSavedSearchs';
+import TrendsSearch from '@/components/General/PredictiveAI/TrendsSearch';
+import ChatScreen from '@/components/General/PredictiveAI/ChatScreen';
+import RecommendationCard from '@/components/General/PredictiveAI/RecommendationCard';
+import NavBarAI from '@/components/General/PredictiveAI/NavBarAI';
+import CardSlider from '@/components/General/PredictiveAI/CardSlider';
+import DailyRecommendations from '@/components/General/PredictiveAI/DailyRecommendations';
+import DailyRecommendationsChart from '@/components/General/PredictiveAI/DailyRecommendationsChart';
+import SimpleLinesGraph from '@/components/General/PredictiveAI/SimpleLinesGraph';
+
+NavBarAI
 
 export default function App () {
 	return (
@@ -266,6 +283,7 @@ export default function App () {
 				<Route exact path='/toggleSwitch' element={<ToggleSwitch />} />
 				<Route exact path='/bubblegraphcard' element={<BubbleGraphCard/>} />
 				<Route exact path='/notificationgroup' element={<NotificationGroup/>} />
+				<Route exact path='/piegraph' element={<PieGraph/>} />
 				<Route exact path='/progresspieresume' element={<ProgressPieResume/>} />
 				<Route exact path='/notificationscard' element={<NotificationsCard/>} />
 				<Route exact path='/userinforesume' element={<UserInfoResume/>} />
@@ -273,9 +291,22 @@ export default function App () {
 				<Route exact path='/resumecard' element={<ResumeCard/>} />
 				<Route exact path='/navbarform' element={<NavBarForm/>} />
 				<Route exact path='/searchandsavedsearchs' element={<SearchAndSavedSearchs/>} />
+				<Route exact path='/formsettings' element={<FormSettings/>} />
+				<Route exact path='/formparticipants' element={<FormParticipants/>} />
+				<Route exact path='/formpoints' element={<FormPoints/>} />
+				<Route exact path='/carousel' element={<Carousel/>} />
+				<Route exact path='/textinputchat' element={<TextInputChat/>} />
+				<Route exact path='/trendssearch' element={<TrendsSearch/>} />
+				<Route exact path='/chatscreen' element={<ChatScreen/>} />
+				<Route exact path='/recommendationcard' element={<RecommendationCard/>} />
+				<Route exact path='/navbarai' element={<NavBarAI/>} />
+				<Route exact path='/simplelinesgraph' element={<SimpleLinesGraph/>} />
+				<Route exact path='/dailyrecommendations' element={<DailyRecommendations/>} />
+				<Route exact path='/dailyrecommendationschart' element={<DailyRecommendationsChart/>} />
 
 				<Route exact path='/roger-test' element={<ExpensesRetailItem />} />
 			</Routes>
 		</BrowserRouter>
 	);
 }
+DailyRecommendations

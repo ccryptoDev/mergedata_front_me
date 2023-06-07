@@ -39,8 +39,9 @@ export default function NavBar({ navBarBgColor = 'bg-dark-background-00' }) {
 					</li>
 					<li className='py-1 px-3'>
 						<NavLink
+							style={({ isActive }) => (isActive ? activeStyle : undefined)}
 							className='hover:bg-primary-purple-600 rounded-lg px-3 py-2'
-							to='/'
+							to='/contests'
 						>
 							Contests
 						</NavLink>

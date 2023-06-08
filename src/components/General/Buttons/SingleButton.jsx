@@ -13,7 +13,7 @@ const SingleButton = ({
 
 }) => {
     return (
-        <button className={`${background} ${width} ${height} ${border} flex items-center justify-center shadow-[0_13px_25px_-13px_rgba(0,0,0,0.48)] ${backgroundHover} ${borderHover} ${radius}`}>
+        <button className={`${background} ${width} ${height} ${border} flex items-center justify-center shadow-[0_13px_25px_-13px_rgba(0,0,0,0.48)] ${backgroundHover} ${borderHover} hover:delay-250 transition duration-500 ${radius}`}>
             <div className='w-6 h-6 flex justify-center items-center'>
                 <IconSelected name={icon} />
             </div>

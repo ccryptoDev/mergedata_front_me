@@ -2,9 +2,9 @@ import NotificationGroup from "@/components/General/Contest/NotificationGroup"
 
 export default function NotificationsCard() {
     return (
-        <div className='w-[317px] h-[692px] bg-[#0D102C] flex items-center justify-center'>
+        <div className='w-[317px] h-[692px] bg-[#0D102C] flex justify-center rounded-xl'>
             <div className='w-[293px] h-[668px] flex flex-col overflow-hidden'>
-                <div className='w-[293px] h-[41px] flex justify-center mb-3'>
+                <div className='w-[293px] h-[41px] flex justify-center my-3'>
                     <div className='w-[277px] h-[41px] bg-[#563CC7] rounded-lg flex flex-row items-center justify-center gap-x-2'>
                         <p className='text-[13px] text-[#FFFFFF] text-semibold '>Notifications</p>
                         <div className='w-[26px] h-[20px] border-[3px] border-[#563CC7] border-double  rounded-lg bg-primary-purple-300 flex items-center justify-center'>

@@ -49,10 +49,11 @@ function CommunityReports () {
             if (types[index] === 'image') return `image::${value}`;
             if (types[index] === 'link') return `link::${value}`;
             return value
-        })]);
+        }).filter(value => value !== 'hidden')]);
+        const typesFiltered = types.filter(type => type !== 'hidden');
         columns.unshift('Expenses');
-        types.unshift('text');
-        setReport({ columns, types, rows });
+        typesFiltered.unshift('text');
+        setReport({ columns, typesFiltered, rows });
     }
 
     useEffect(() => {

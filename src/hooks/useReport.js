@@ -5,14 +5,14 @@ import useAxiosPrivate from '@/hooks/useAxiosPrivate';
 const useReport = () => {
 	const getReportPath = '/Report/GetReport';
 	const [loading, setLoading] = useState(false);
-	const axiosPrivateReporter = useAxiosPrivate('reporter');
+	const axiosPrivateCustomer = useAxiosPrivate('customer');
 
 	const getReports = async (
 		reportInfo = { reportId: 1, clientId: 1, storeId: 1, period: '2023-04' },
 	) => {
 		setLoading(true);
 		try {
-			const response = await axiosPrivateReporter.post(getReportPath, 0, {
+			const response = await axiosPrivateCustomer.post(getReportPath, 0, {
 				params: {
 					reportId: reportInfo.reportId,
 					clientId: reportInfo.clientId,

@@ -7,7 +7,7 @@ import FilterDates from '@/components/Target/FilterDates';
 import LeftArrowDirectActionHeart from '@/components/Target/New/LeftArrowDirectActionHeart';
 import TableToggleIncrease from '@/components/Target/New/TableToggleIncrease';
 
-function Expenses () {
+function FinancialStatement () {
 	const [report, setReport] = useState(null)
 	const navigate = useNavigate();
 	const { getReports } = useReport('reporter');
@@ -23,7 +23,7 @@ function Expenses () {
 			currency: 'USD',
 			minimumFractionDigits: 0,
 		});
-		const result = await getReports({ reportId: 5, clientId: 1, storeId: 1, period: '2023-04' });
+		const result = await getReports({ reportId: 1, clientId: 1, storeId: 1, period: '2023-04' });
 		const columns = [...result.reportConfig.columns];
 		const types = [...result.reportConfig.typeFormats];
 		const getBehavior = (sign) => {
@@ -63,7 +63,7 @@ function Expenses () {
 			<div className='flex justify-between items-center mr-12'>
 				<LeftArrowDirectActionHeart
 					bgColor='bg-dark-popup-00'
-					buttonName='Expenses'
+					buttonName='Financial Statement'
 					upperName='Targets/New'
 					onClick={() => navigate(-1)}
 				/>
@@ -83,4 +83,4 @@ function Expenses () {
 	);
 }
 
-export default Expenses;
+export default FinancialStatement;

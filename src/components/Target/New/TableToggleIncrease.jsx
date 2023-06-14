@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { CSVLink } from "react-csv";
 import ToggleSwitch from '@/components/Target/ToggleSwitch';
 import SingleButton from '@/components/General/Buttons/SingleButton';
 import Table7 from '@/components/Target/New/Table7';
@@ -7,13 +8,26 @@ import Table7Total from '@/components/Target/New/Table7Total';
 import Table8Total from '@/components/Target/New/Table8Total';
 
 export default function TableToggleIncrease ({ report }) {
-
     const [reduce, setReduce] = useState(false);
     const [onSwitch, setOnSwitch] = useState(false);
 
     const handleClick = () => {
         setOnSwitch(!onSwitch)
     };
+
+    const rows = [];
+    let csvData = null;
+    if (Array.isArray(report?.rows)) {
+        for (let index = 0; index < report?.rows.length; index++) {
+            rows[index] = report?.rows[index].map(cell => `${cell}`.includes('::') ? cell.split('::')[1] : cell);
+
+        }
+        csvData = [
+            report?.columns,
+            ...rows
+        ];
+    }
+
     return (
         <div className='h=4 w-30'>
             <div className={`relative bg-[#212A43] px-6 pt-6 flex flex-col h-[666px] rounded-2xl ${!reduce ? 'w-[1363px]' : 'w-[555px]'}`}>
@@ -23,18 +37,22 @@ export default function TableToggleIncrease ({ report }) {
                         <ToggleSwitch className='border cursor-pointer' name1='By Store' name2='' />
                     </div>
                     <div className='flex flex-row gap-x-2'>
-                        <button>
-                            <SingleButton
-                                icon='Share'
-                                background=''
-                                width='w-[50px]'
-                                border=''
-                                height='h-[50px]'
-                                backgroundHover='hover:bg-purple-300 transition duration-100 delay-150 hover:delay-300'
-                                borderHover='hover:border-purple-100 rounded-full hover:outline-offset-4 hover:opacity-50'
-                                radius=''
-                            />
-                        </button>
+                        {csvData &&
+                            <button>
+                                <CSVLink data={csvData} target="_blank" filename="mergeDataTable.csv">
+                                    <SingleButton
+                                        icon='Share'
+                                        background=''
+                                        width='w-[50px]'
+                                        border=''
+                                        height='h-[50px]'
+                                        backgroundHover='hover:bg-purple-300 transition duration-100 delay-150 hover:delay-300'
+                                        borderHover='hover:border-purple-100 rounded-full hover:outline-offset-4 hover:opacity-50'
+                                        radius=''
+                                    />
+                                </CSVLink>
+                            </button>
+                        }
                         <button onClick={() => setReduce(!reduce)}>
                             {reduce ?
                                 <SingleButton

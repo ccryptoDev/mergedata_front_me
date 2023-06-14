@@ -16,7 +16,7 @@ import { increaseStatus } from '@/utils/helperFunctions';
 import ModelsIndividualStatus from '@/components/Target/New/ModelsIndividualStatus';
 import BubbleGraphCard from '@/components/General/Graphs/BubbleGraphCard';
 
-function TargetNew() {
+function TargetNew () {
 	const navigate = useNavigate();
 	const { icon, textColor } = increaseStatus('up');
 	return (
@@ -41,7 +41,7 @@ function TargetNew() {
 			</div>
 			<div className='flex justify-between mx-4'>
 				<section>
-					<Card margin={'mb-6'}>
+					<Card margin={'mb-6'} onClick={() => navigate('/target/new/financial-statement')}>
 						<NameIncreaseDropdown />
 						<IconNameBarIncreaseTable>
 							<IconNameBarIncrease />

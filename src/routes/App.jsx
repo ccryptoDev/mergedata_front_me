@@ -8,8 +8,6 @@ import Login from '@/pages/Login/Login';
 import Recover from '@/pages/Recover/Recover';
 import RecoveryLink from '@/pages/Recover/RecoveryLink';
 import PercentageBigSlider from '@/components/Target/New/PercentageBigSlider';
-import TotalUniqueVisitorsCard_1 from '@/components/Target/New/TotalUniqueVisitorsCard_1';
-import TotalUniqueVisitorsCard_2 from '@/components/Target/New/TotalUniqueVisitorsCard_2';
 import NameSliderCard from '@/components/Target/NameSliderCard';
 import ExpensesRetailItem from '@/components/Target/New/ExpensesRetailItem';
 import ChangePassword from '@/pages/Recover/ChangePassword';
@@ -58,17 +56,18 @@ import BubbleGraphCard from '@/components/General/Graphs/BubbleGraphCard';
 import LineChart from '@/components/General/Graphs/LineChart';
 import Models from '@/pages/TargetNew/Models';
 import Expenses from '@/pages/TargetNew/Expenses';
+import FinancialStatement from '@/pages/TargetNew/FinancialStatement';
 import CommunityReports from '@/pages/CommunityReports/CommunityReports';
 
-import NotificationGroup from "@/components/General/Contest/NotificationGroup";
+import NotificationGroup from '@/components/General/Contest/NotificationGroup';
 import ProgressPieResume from '@/components/General/Contest/ProgressPieResume';
 import NotificationsCard from '@/components/General/Contest/NotificationsCard';
 import UserInfoResume from '@/components/General/Contest/UserInfoResume';
 import BadgeProgressandButtons from '@/components/General/Contest/BadgeProgressandButtons';
 import ResumeCard from '@/components/General/Contest/ResumeCard';
 import NavBarForm from '@/components/General/Contest/NavBarForm';
-import FormSettings from '@/components/General/Contest/FormSettings'; 
-import FormParticipants from '@/components/General/Contest/FormParticipants'; 
+import FormSettings from '@/components/General/Contest/FormSettings';
+import FormParticipants from '@/components/General/Contest/FormParticipants';
 import FormPoints from '@/components/General/Contest/FormPoints';
 import PieGraph from '@/components/General/Contest/PieGraph';
 
@@ -76,15 +75,23 @@ import Carousel from '@/components/General/PredictiveAI/Carousel';
 import TextInputChat from '@/components/General/PredictiveAI/TextInputChat';
 import SearchAndSavedSearchs from '@/components/General/PredictiveAI/SearchAndSavedSearchs';
 import TrendsSearch from '@/components/General/PredictiveAI/TrendsSearch';
+import Contest from '@/pages/Contest/Contest';
 import ChatScreen from '@/components/General/PredictiveAI/ChatScreen';
 import RecommendationCard from '@/components/General/PredictiveAI/RecommendationCard';
 import NavBarAI from '@/components/General/PredictiveAI/NavBarAI';
-import CardSlider from '@/components/General/PredictiveAI/CardSlider';
 import DailyRecommendations from '@/components/General/PredictiveAI/DailyRecommendations';
 import DailyRecommendationsChart from '@/components/General/PredictiveAI/DailyRecommendationsChart';
 import SimpleLinesGraph from '@/components/General/PredictiveAI/SimpleLinesGraph';
-
-NavBarAI
+import TaskByKayChart from '@/components/General/PredictiveAI/TaskByKayChart';
+import TaskRecommendationList from '@/components/General/PredictiveAI/TaskRecommendationList';
+import QuickChatContactSelect from '@/components/General/PredictiveAI/QuickChatContactSelect';
+import QuickChatConversation from '@/components/General/PredictiveAI/QuickChatConversation';
+import QuickChatCounter from '@/components/General/PredictiveAI/QuickChatCounter';
+import AssignAnOwnerSelection from '@/components/General/PredictiveAI/AssignAnOwnerSelection';
+import AssignToManager from '@/components/General/PredictiveAI/AssignToManager';
+import MessageResponse from '@/components/General/PredictiveAI/MessageResponse';
+import AssignAnOwnerForThisTask from '@/components/General/PredictiveAI/AssignAnOwnerForThisTask';
+import RecommendationDetails from '@/components/General/PredictiveAI/RecommendationDetails';
 
 export default function App () {
 	return (
@@ -132,6 +139,24 @@ export default function App () {
 					element={
 						<WithPermissionRouter>
 							<Expenses />
+						</WithPermissionRouter>
+					}
+				/>
+				<Route
+					exact
+					path='/target/new/financial-statement'
+					element={
+						<WithPermissionRouter>
+							<FinancialStatement />
+						</WithPermissionRouter>
+					}
+				/>
+				<Route
+					exact
+					path='/contests'
+					element={
+						<WithPermissionRouter>
+							<Contest />
 						</WithPermissionRouter>
 					}
 				/>
@@ -199,7 +224,6 @@ export default function App () {
 					}
 				/>
 
-
 				<Route
 					exact
 					path='/percentagebigslider'
@@ -217,16 +241,6 @@ export default function App () {
 					element={<CheckNameSliderButtonCard />}
 				/>
 				<Route exact path='/nameslider' element={<NameSlider />} />
-				<Route
-					exact
-					path='/totaluniquevisitorscard_1'
-					element={<TotalUniqueVisitorsCard_1 />}
-				/>
-				<Route
-					exact
-					path='/totaluniquevisitorscard_2'
-					element={<TotalUniqueVisitorsCard_2 />}
-				/>
 				<Route exact path='/slider' element={<Slider />} />
 				<Route exact path='/titlevectorx' element={<TitleVectorX />} />
 				<Route exact path='/departmentcard' element={<DepartmentCard />} />
@@ -281,6 +295,41 @@ export default function App () {
 				/>
 				<Route exact path='/linechart' element={<LineChart />} />
 				<Route exact path='/toggleSwitch' element={<ToggleSwitch />} />
+				<Route exact path='/bubblegraphcard' element={<BubbleGraphCard />} />
+				<Route
+					exact
+					path='/notificationgroup'
+					element={<NotificationGroup />}
+				/>
+				<Route
+					exact
+					path='/progresspieresume'
+					element={<ProgressPieResume />}
+				/>
+				<Route
+					exact
+					path='/notificationscard'
+					element={<NotificationsCard />}
+				/>
+				<Route exact path='/userinforesume' element={<UserInfoResume />} />
+				<Route
+					exact
+					path='/badgeprogressandbuttons'
+					element={<BadgeProgressandButtons />}
+				/>
+				<Route exact path='/resumecard' element={<ResumeCard />} />
+				<Route exact path='/navbarform' element={<NavBarForm />} />
+				<Route
+					exact
+					path='/searchandsavedsearchs'
+					element={<SearchAndSavedSearchs />}
+				/>
+				<Route exact path='/formsettings' element={<FormSettings />} />
+				<Route exact path='/formparticipants' element={<FormParticipants />} />
+				<Route exact path='/formpoints' element={<FormPoints />} />
+				<Route exact path='/carousel' element={<Carousel />} />
+				<Route exact path='/textinputchat' element={<TextInputChat />} />
+				<Route exact path='/trendssearch' element={<TrendsSearch />} />
 				<Route exact path='/bubblegraphcard' element={<BubbleGraphCard/>} />
 				<Route exact path='/notificationgroup' element={<NotificationGroup/>} />
 				<Route exact path='/piegraph' element={<PieGraph/>} />
@@ -303,10 +352,19 @@ export default function App () {
 				<Route exact path='/simplelinesgraph' element={<SimpleLinesGraph/>} />
 				<Route exact path='/dailyrecommendations' element={<DailyRecommendations/>} />
 				<Route exact path='/dailyrecommendationschart' element={<DailyRecommendationsChart/>} />
+				<Route exact path='/taskbykaychart' element={<TaskByKayChart/>} />
+				<Route exact path='/taskrecommendationlist' element={<TaskRecommendationList/>} />
+				<Route exact path='/quickchatcontactselect' element={<QuickChatContactSelect/>} />
+				<Route exact path='/quickchatcounter' element={<QuickChatCounter/>} />
+				<Route exact path='/quickchatconversation' element={<QuickChatConversation/>} />
+				<Route exact path='/assignanownerselection' element={<AssignAnOwnerSelection/>} />
+				<Route exact path='/assigntomanager' element={<AssignToManager />} />
+				<Route exact path='/messageresponse' element={<MessageResponse />} />
+				<Route exact path='/assignanownerforthistask' element={<AssignAnOwnerForThisTask />} />
+				<Route exact path='/recommendationdetails' element={<RecommendationDetails />} />
 
-				<Route exact path='/roger-test' element={<ExpensesRetailItem />} />
+				<Route exact path='/roger-test' element={<ExpensesRetailItem/>} />
 			</Routes>
 		</BrowserRouter>
 	);
 }
-DailyRecommendations

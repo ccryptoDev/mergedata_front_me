@@ -45,18 +45,18 @@ export default function Table8Total ({ shouldReduce = false, report }) {
                             }
                             return (
 
-                                <tr className='h-auto rounded-x-2xl border-separate border-spacing-2' key={index}>
-                                    <td className="whitespace-nowrap text-neutrals-300 h-auto w-[336px] pl-10 rounded-l-2xl "><div className='text-lg font-bold text-neutrals-00'>{total[0]}</div></td>
+                                <tr className='h-auto rounded-x-2xl border-separate border-spacing-2 flex items-center' key={index}>
+                                    <td className="whitespace-nowrap text-neutrals-300 h-auto w-[279px] pl-11 rounded-l-2xl mr-[26px]"><div className='text-lg font-bold text-neutrals-00'>Total</div></td>
 
-                                    <td className={`whitespace-nowrap text-neutrals-300 h-auto px-3 text-center ${shouldReduce ? 'w-[97px]' : 'w-[120px]'}`}><div className=' text-base '>{total[1]}</div></td>
+                                    <td className={`whitespace-nowrap text-neutrals-300 h-auto px-1 ${shouldReduce ? 'w-[97px]' : 'w-[164px]'}`}><div className=' text-base '>{total[1]}</div></td>
 
-                                    {shouldReduce ? null : <td className=" whitespace-nowrap text-neutrals-300 h-auto w-[164px] text-center"><div className='text-base '>{total[2]}</div></td>}
+                                    {shouldReduce ? null : <td className=" whitespace-nowrap text-neutrals-300 h-auto w-[176px]"><div className='text-base '>{total[2]}</div></td>}
 
-                                    {shouldReduce ? null : <td className="whitespace-nowrap text-neutrals-300 h-auto w-[255px] text-center"><div className='text-base '>{total[3]}</div></td>}
+                                    {shouldReduce ? null : <td className="whitespace-nowrap text-neutrals-300 h-auto w-[275px]"><div className='text-base '>{total[3]}</div></td>}
 
-                                    {shouldReduce ? null : <td className="whitespace-nowrap text-neutrals-300 h-auto w-[256px] text-center"><div className='text-base '>{total[4]}</div></td>}
+                                    {shouldReduce ? null : <td className="whitespace-nowrap text-neutrals-300 h-auto w-[275px]"><div className='text-base '>{total[4]}</div></td>}
 
-                                    <td className={`whitespace-nowrap text-neutrals-100 h-12 text-base flex flex-row flex-nowrap items-center justify-center mt-[5px] rounded-2xl bg-[#151F39] brightness-90 ${shouldReduce ? 'w-[100px]' : 'w-[206px]'}`}>
+                                    <td className={`text-neutrals-100 h-12 text-base flex flex-row flex-nowrap items-center justify-center mt-[5px] px-2 rounded-2xl bg-[#151F39] brightness-90 ${shouldReduce ? 'w-[100px]' : 'w-[130px]'}`}>
                                         <p className='pr-2 file:text-base'>{total[5]}</p>
                                         <p className='pr-1 '>{iconSelect()}</p>
                                         <p className={`flex items-center ${scoreColor()} ${behaviorTextColor}`}>

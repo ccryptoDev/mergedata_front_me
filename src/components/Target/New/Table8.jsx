@@ -15,11 +15,11 @@ export default function Table8 ({ shouldReduce = false, report }) {
                 <thead className="font-medium text-xs leading-[50px] h-10">
                     <tr>
                         <th scope="col" className="text-purple-50 w-8 text-sm font-bold text-start pl-4">{report?.columns[0]}</th>
-                        <th scope="col" className="text-purple-50 text-sm font-bold text-center pl-2">{report?.columns[1]}</th>
-                        {shouldReduce ? null : <th scope="col" className="text-purple-50 text-sm font-bold text-center pl-6">{report?.columns[2]}</th>}
-                        {shouldReduce ? null : <th scope="col" className="text-purple-50 text-sm font-bold text-center pl-12">{report?.columns[3]}</th>}
-                        {shouldReduce ? null : <th scope="col" className="text-purple-50 text-sm font-bold text-center pl-12">{report?.columns[4]}</th>}
-                        <th scope="col" className="text-purple-50 text-sm font-bold text-center pr-5">{report?.columns[5]}</th>
+                        <th scope="col" className="text-purple-50 text-sm font-bold w-[153px]">{report?.columns[1]}</th>
+                        {shouldReduce ? null : <th scope="col" className="text-purple-50 text-sm font-bold">{report?.columns[2]}</th>}
+                        {shouldReduce ? null : <th scope="col" className="text-purple-50 text-sm font-bold ">{report?.columns[3]}</th>}
+                        {shouldReduce ? null : <th scope="col" className="text-purple-50 text-sm font-bold ">{report?.columns[4]}</th>}
+                        <th scope="col" className="text-purple-50 text-sm font-bold pr-5 text-center">{report?.columns[5]}</th>
                     </tr>
                 </thead>
                 <tbody className='overflow-y-auto h-[555px]'>
@@ -60,16 +60,16 @@ export default function Table8 ({ shouldReduce = false, report }) {
                                 return (
 
                                     <tr className={`h-auto border-[6px] border-transparent ${((index) % 2 === 0) ? 'bg-[#151F39]' : ''}`} key={index}>
-                                        <td className="whitespace-nowrap text-neutrals-300 h-auto w-[260px] pl-4 rounded-l-2xl "><div className='text-xl font-bold'>{row[0]}</div></td>
-                                        <td className="whitespace-nowrap text-neutrals-300 h-auto px-4 w-[120px] text-center "><div className=' text-base '>{row[1]}</div></td>
+                                        <td className=" text-neutrals-300 h-auto w-[260px] pl-4 rounded-l-2xl text-ellipsis"><div className='text-xl font-bold'>{row[0]}</div></td>
+                                        <td className="whitespace-nowrap text-neutrals-300 h-auto  w-[120px] "><div className=' text-base '>{row[1]}</div></td>
 
-                                        {shouldReduce ? null : <td className="whitespace-nowrap text-neutrals-300 h-auto text-center w-[164px]"><div className='text-base '>{row[2]}</div></td>}
+                                        {shouldReduce ? null : <td className="whitespace-nowrap text-neutrals-300 h-auto w-[164px]"><div className='text-base '>{row[2]}</div></td>}
 
-                                        {shouldReduce ? null : <td className="whitespace-nowrap text-neutrals-300 h-auto text-center w-[256px] "><div className='text-base '>{row[3]}</div></td>}
+                                        {shouldReduce ? null : <td className="whitespace-nowrap text-neutrals-300 h-auto w-[256px] "><div className='text-base '>{row[3]}</div></td>}
 
-                                        {shouldReduce ? null : <td className="whitespace-nowrap text-neutrals-300 h-auto text-center w-[256px] "><div className='text-base '>{row[4]}</div></td>}
+                                        {shouldReduce ? null : <td className="whitespace-nowrap text-neutrals-300 h-auto w-[256px] "><div className='text-base '>{row[4]}</div></td>}
 
-                                        <td className={'whitespace-nowrap text-neutrals-100 text-base rounded-r-2xl'}>
+                                        <td className={'whitespace-nowrap text-neutrals-100 text-base rounded-r-2xl w-[126px]'}>
                                             <div className='h-[48px] flex flex-row justify-center items-center bg-[#000000] brightness-90 rounded-l-2xl rounded-r-2xl px-2' >
                                                 <p className='pr-2 text-base'>{row[5]}</p>
                                                 <p className='pr-1 '>{iconSelect()}</p>

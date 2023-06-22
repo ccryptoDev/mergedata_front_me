@@ -2,9 +2,10 @@ import menuButton from '@/assets/svg/menu_button.svg';
 import mergeDataLogo from '@/assets/svg/mergedata_logo.svg';
 import NavBar from '@/components/General/NavBar';
 
-export default function SharedLayout({
+export default function SharedLayout ({
 	children,
 	bgColor = 'bg-dark-popup-00',
+	isHome = false,
 }) {
 	const navBarBgColor =
 		bgColor === 'bg-dark-popup-00'
@@ -22,7 +23,7 @@ export default function SharedLayout({
 							className='w-23 h-8'
 						/>
 					</div>
-					<NavBar navBarBgColor={navBarBgColor} />
+					{!isHome && <NavBar navBarBgColor={navBarBgColor} />}
 				</header>
 				<div>{children}</div>
 			</div>

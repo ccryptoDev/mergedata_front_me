@@ -2,10 +2,14 @@ import TargetIcon from '@/components/General/Icons/TargetIcon';
 import HomeIcon from '@/components/General/Icons/HomeIcon';
 import CheckIcon from '@/components/General/Icons/CheckIcon';
 import RightArrowIcon from '@/components/General/Icons/RightArrowIcon';
-import LeftArrowIcon from  '@/components/General/Icons/LeftArrowIcon';
+import LeftArrowIcon from '@/components/General/Icons/LeftArrowIcon';
 import SaveIcon from '@/components/General/Icons/SaveIcon';
 import ArrowDownIcon from '@/components/General/Icons/ArrowDownIcon';
 import ArrowFatUpIcon from '@/components/General/Icons/ArrowFatUpIcon';
+import DownRedArrowIcon from '@/components/General/Icons/DownRedArrowIcon';
+import DownRedArrowSmIcon from '@/components/General/Icons/DownRedArrowSmIcon';
+import UpGreenArrowSmIcon from '@/components/General/Icons/UpGreenArrowSmIcon';
+import Neutral from '@/components/General/Icons/Neutral';
 import LockIcon from '@/components/General/Icons/LockIcon';
 import BuildingIcon from '@/components/General/Icons/BuildingIcon';
 import Building2Icon from '@/components/General/Icons/Building2Icon';
@@ -40,18 +44,29 @@ import LargeFlameIcon from '@/components/General/Icons/LargeFlameIcon';
 import DivideIcon from '@/components/General/Icons/DivideIcon';
 import ReturnIcon from '@/components/General/Icons/ReturnIcon';
 import HeartLgIcon from '@/components/General/Icons/HeartLgIcon';
-import DownRedArrowIcon from '@/components/General/Icons/DownRedArrowIcon';
 import CrownShadowIcon from '@/components/General/Icons/CrownShadowIcon';
 import CrownSmIcon from '@/components/General/Icons/CrownSmIcon';
 import Gallery4SquaresIcon from '@/components/General/Icons/Gallery4SquaresIcon';
 import BlueStarIcon from '@/components/General/Icons/BlueStarIcon';
+import BlueTaskIcon from '@/components/General/Icons/BlueTaskIcon';
 import ThreeDotsIcon from '@/components/General/Icons/ThreeDotsIcon';
-import ProfilePlusIcon from '@/components/General/Icons/ProfilePlusIcon'
-import CopyIcon from '@/components/General/Icons/CopyIcon'
-import PrivateIcon from '@/components/General/Icons/PrivateIcon'
-import BellIcon from '@/components/General/Icons/BellIcon'
+import ProfilePlusIcon from '@/components/General/Icons/ProfilePlusIcon';
+import CopyIcon from '@/components/General/Icons/CopyIcon';
+import PrivateIcon from '@/components/General/Icons/PrivateIcon';
+import BellIcon from '@/components/General/Icons/BellIcon';
+import Arrow45Degrees from '@/components/General/Icons/Arrow45Degrees';
+import DeleteIcon from '@/components/General/Icons/DeleteIcon';
+import AwardIcon from '@/components/General/Icons/AwardIcon';
+import CameraIcon from '@/components/General/Icons/CameraIcon';
+import CommunicationGlobeIcon from '@/components/General/Icons/CommunicationGlobeIcon';
+import PieGraphIcon from '@/components/General/Icons/PieGraphIcon';
+import NoteIcon from '@/components/General/Icons/NoteIcon';
+import SmBotIcon from '@/components/General/Icons/SmBotIcon';
+import CheckBoxOffIcon from '@/components/General/Icons/CheckBoxOffIcon';
+import CheckBoxOnIcon from '@/components/General/Icons/CheckBoxOnIcon';
 
 const Decision = ({ name }) => {
+
     if (name === 'Target') return <TargetIcon />;
     if (name === 'Home') return <HomeIcon />;
     if (name === 'Check') return <CheckIcon />;
@@ -59,9 +74,12 @@ const Decision = ({ name }) => {
     if (name === 'LeftArrow') return <LeftArrowIcon />;
     if (name === 'Save') return <SaveIcon />;
     if (name === 'ArrowDown') return <ArrowDownIcon />;
+    if (name === 'DownRedArrowSm') return <DownRedArrowSmIcon />;
+    if (name === 'UpGreenArrowSm') return <UpGreenArrowSmIcon />;
     if (name === 'ArrowFatUpDown') return <ArrowFatUpIcon />;
-	if (name === 'Lock') return <LockIcon />;
-	if (name === 'Building') return <BuildingIcon />;
+    if (name === 'Neutral') return <Neutral />
+    if (name === 'Lock') return <LockIcon />;
+    if (name === 'Building') return <BuildingIcon />;
     if (name === 'Building2') return <Building2Icon />;
     if (name === 'Building3') return <Building3Icon />;
     if (name === 'Building4') return <Building4Icon />;
@@ -98,12 +116,79 @@ const Decision = ({ name }) => {
     if (name === 'CrownShadow') return <CrownShadowIcon />;
     if (name === 'CrownSm') return <CrownSmIcon />;
     if (name === 'Gallery4Squares') return <Gallery4SquaresIcon />;
-    if (name === 'BlueStar') return <BlueStarIcon />
-    if (name === 'ThreeDots') return <ThreeDotsIcon />
-    if (name === 'ProfilePlus') return <ProfilePlusIcon />
-    if (name === 'Copy') return <CopyIcon />
-    if (name === 'Private') return <PrivateIcon />
-    if (name === 'Bell') return <BellIcon />
+    if (name === 'BlueStar') return <BlueStarIcon />;
+    if (name === 'BlueTask') return <BlueTaskIcon />;
+    if (name === 'ThreeDots') return <ThreeDotsIcon />;
+    if (name === 'ProfilePlus') return <ProfilePlusIcon />;
+    if (name === 'Copy') return <CopyIcon />;
+    if (name === 'Private') return <PrivateIcon />;
+    if (name === 'Bell') return <BellIcon />;
+    if (name === 'Arrow45Degrees') return <Arrow45Degrees />;
+    if (name === 'Delete') return <DeleteIcon />;
+    if (name === 'Camera') return <CameraIcon />;
+    if (name === 'Award') return <AwardIcon />;
+    if (name === 'Target') return <TargetIcon />;
+    if (name === 'Home' || name === 'Store') return <HomeIcon />;
+    if (name === 'Check') return <CheckIcon />;
+    if (name === 'RightArrow') return <RightArrowIcon />;
+    if (name === 'LeftArrow') return <LeftArrowIcon />;
+    if (name === 'Save') return <SaveIcon />;
+    if (name === 'ArrowDown') return <ArrowDownIcon />;
+    if (name === 'ArrowFatUpDown') return <ArrowFatUpIcon />;
+    if (name === 'Lock') return <LockIcon />;
+    if (name === 'Building') return <BuildingIcon />;
+    if (name === 'Building2') return <Building2Icon />;
+    if (name === 'Building3') return <Building3Icon />;
+    if (name === 'Building4') return <Building4Icon />;
+    if (name === 'Men') return <MenIcon />;
+    if (name === 'Download') return <DownloadIcon />;
+    if (name === 'DoubleArrow') return <DoubleArrowIcon />;
+    if (name === 'Cross') return <CrossIcon />;
+    if (name === 'Lupe') return <LupeIcon />;
+    if (name === 'BigLupe') return <BigLupeIcon />;
+    if (name === 'Filter') return <FilterIcon />;
+    if (name === 'Flame') return <FlameIcon />;
+    if (name === 'LargeFlame') return <LargeFlameIcon />;
+    if (name === 'Chat') return <ChatIcon />;
+    if (name === 'DoubleArrowVertical') return <DoubleArrowVerticalIcon />;
+    if (name === 'Expand') return <ExpandIcon />;
+    if (name === 'Share') return <ShareIcon />;
+    if (name === 'ShareSm') return <ShareSmIcon />;
+    if (name === 'Task') return <TaskIcon />;
+    if (name === 'TaskLg') return <TaskLgIcon />;
+    if (name === 'TaskWhite') return <TaskWhiteIcon />;
+    if (name === 'Pause') return <PauseIcon fill='border-neutrals-00' />;
+    if (name === 'RightPlaneArrow') return <RightPlaneArrowIcon />;
+    if (name === 'Thumb') return <ThumbIcon />;
+    if (name === 'ThumbSM') return <ThumbSMIcon />;
+    if (name === 'ThumbLarge') return <ThumbLargeIcon />;
+    if (name === 'ThumbLargeInverted') return <ThumbLargeInvertedIcon />;
+    if (name === 'ThumbSMInverted') return <ThumbSMInvertedIcon />;
+    if (name === 'ThumbMdInverted') return <ThumbMdInvertedIcon />;
+    if (name === 'ThumbMd') return <ThumbMdIcon />;
+    if (name === 'Divide') return <DivideIcon />;
+    if (name === 'Return') return <ReturnIcon />;
+    if (name === 'HeartLg') return <HeartLgIcon />;
+    if (name === 'DownRedArrow') return <DownRedArrowIcon />;
+    if (name === 'CrownShadow') return <CrownShadowIcon />;
+    if (name === 'CrownSm') return <CrownSmIcon />;
+    if (name === 'Gallery4Squares') return <Gallery4SquaresIcon />;
+    if (name === 'BlueStar') return <BlueStarIcon />;
+    if (name === 'BlueTask') return <BlueTaskIcon />;
+    if (name === 'ThreeDots') return <ThreeDotsIcon />;
+    if (name === 'ProfilePlus') return <ProfilePlusIcon />;
+    if (name === 'Copy') return <CopyIcon />;
+    if (name === 'Private') return <PrivateIcon />;
+    if (name === 'Bell') return <BellIcon />;
+    if (name === 'Arrow45Degrees') return <Arrow45Degrees />;
+    if (name === 'Delete') return <DeleteIcon />;
+    if (name === 'PieGraph') return <PieGraphIcon />;
+    if (name === 'Note') return <NoteIcon />;
+    if (name === 'SmBot') return <SmBotIcon />;
+    if (name === 'CommunicationGlobe') return <CommunicationGlobeIcon />;
+    if (name === 'CheckBoxOff') return <CheckBoxOffIcon />;
+    if (name === 'CheckBoxOn') return <CheckBoxOnIcon />;
+
 
 	return null;
 };

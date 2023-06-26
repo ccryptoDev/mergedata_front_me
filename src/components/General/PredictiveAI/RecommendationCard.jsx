@@ -2,15 +2,14 @@ import SingleButton from '@/components/General/Buttons/SingleButton';
 import IconSelected from '@/components/General/Icons/Decision';
 import Decision from '@/components/General/Icons/Decision';
 
-export default function RecommendationCard(
-    {area='area',
+export default function RecommendationCard({
+    area='area',
     title,
     helpText,
     recommendations=[],
     behavior='-23.6%',
     behaviorIcon='DownRedArrow',
-}
-) {
+}) {
 
     return (
         <div className='group w-[325px] h-[452px] bg-[#05081E] hover:bg-[#161A3E] flex flex-col items-center justify-between py-6 shadow-md'>

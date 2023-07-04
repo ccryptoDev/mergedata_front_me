@@ -12,7 +12,7 @@ export default function Table8 ({ shouldReduce = false, report }) {
 
         <div className="h-[555px] overflow-y-auto">
             <table className="min-w-full text-left text-sm font-light ">
-                <thead className="font-medium text-xs leading-[50px] h-10">
+                <thead className="font-medium text-xs leading-[50px] h-10 sticky top-0 z-10 bg-neutrals-900">
                     <tr>
                         <th scope="col" className="text-purple-50 w-8 text-sm font-bold text-start pl-4">{report?.columns[0]}</th>
                         <th scope="col" className="text-purple-50 text-sm font-bold w-[153px]">{report?.columns[1]}</th>
@@ -60,7 +60,7 @@ export default function Table8 ({ shouldReduce = false, report }) {
                                 return (
 
                                     <tr className={`h-auto border-[6px] border-transparent ${((index) % 2 === 0) ? 'bg-[#151F39]' : ''}`} key={index}>
-                                        <td className=" text-neutrals-300 h-auto w-[260px] pl-4 rounded-l-2xl text-ellipsis"><div className='text-xl font-bold'>{row[0]}</div></td>
+                                        <td className=" text-neutrals-300 h-auto w-[260px] pl-4 rounded-l-2xl text-ellipsis text-start"><div className='text-base'>{row[0]}</div></td>
                                         <td className="whitespace-nowrap text-neutrals-300 h-auto  w-[120px] "><div className=' text-base '>{row[1]}</div></td>
 
                                         {shouldReduce ? null : <td className="whitespace-nowrap text-neutrals-300 h-auto w-[164px]"><div className='text-base '>{row[2]}</div></td>}
@@ -89,4 +89,3 @@ export default function Table8 ({ shouldReduce = false, report }) {
         </div>
     );
 };
-

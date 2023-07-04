@@ -5,7 +5,7 @@ const data = [
 ]
 export default function Table7Total ({ shouldReduce = false, report }) {
     return (
-        <div className={`h-[60px] flex flex-col ${!shouldReduce ? 'w-[1363px]' : 'w-[555px]'}`}>
+        <div className={`h-[60px] flex flex-col ${!shouldReduce ? 'w-full' : 'w-[555px]'}`}>
             <table className="whitespace-nowrap h-[60px] text-left text-sm font-light bg-[#505A78] rounded-2xl">
                 <tbody className='overflow-y-auto h-auto pb-6'>
                     {

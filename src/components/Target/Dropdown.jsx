@@ -3,9 +3,8 @@ import { useState } from 'react';
 import ArrowDownIcon from '@/components/General/Icons/ArrowDownIcon';
 import Icon from '@/components/General/Icons/Decision';
 
-
 export default function Dropdown ({
-	name = 'Target',
+	name = 'Targets',
 	width = 'w-[144px]',
 	hight = 'h-[50px]',
 	items = [
@@ -36,8 +35,8 @@ export default function Dropdown ({
 			<button
 				onClick={() => setShowItems(!showItems)}
 				className={`flex flex-row py-[12px] px-[14px] items-center ${width} ${hight} justify-between ${showItems
-					? 'border-primary-purple-600 bg-primary-purple-600'
-					: 'bg-[#05081E]'
+						? 'border-primary-purple-600 bg-primary-purple-600'
+						: 'bg-[#05081E]'
 					} transition-colors border-[2px] border-solid border-[#212A43] shadow-[0px_13px_25px_-13px_rgba(0, 0, 0, 0.48)] rounded-[10px] hover:border-primary-purple-600 hover:bg-[#161A3E]`}
 			>
 				<Icon name={name} />
@@ -49,13 +48,13 @@ export default function Dropdown ({
 				/>
 			</button>
 			{showItems && (
-				<div className='absolute top-[52px] left-0 z-10 flex flex-col gap-2 items-start p-2 bg-[#05081E] rounded-[12px] w-[181px]'>
+				<div className='absolute top-[52px] left-0 z-50 flex flex-col gap-2 items-start p-2 bg-[#05081E] rounded-[12px] w-[181px]'>
 					{items.map(item => (
 						<button
 							key={item.id}
 							className={`w-full h-[32px] font-baloo font-[600] text-sm text-[#FFFFFF] ${item.selected
-								? 'text-center bg-primary-purple-600 rounded-[5px] px-2'
-								: 'px-3 text-start'
+									? 'text-center bg-primary-purple-600 rounded-[5px] px-2'
+									: 'px-3 text-start'
 								}`}
 							onClick={item.click}
 						>

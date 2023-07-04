@@ -2,15 +2,15 @@ import CardGradient from '@/components/Target/CardGradient';
 import ValueBarIncrease from '@/components/Target/ValueBarIncrease';
 import IncreaseBarName from '@/components/Target/IncreaseBarName';
 import ContainerNameIncrease from '@/components/Target/ContainerNameIncrease';
-import { useNavigate } from 'react-router-dom';
+import { usePage } from '@/hooks/usePage';
 
 const Card = ({ title, text, data, gradient, subTitle, typeOfCard }) => {
-	const navigate = useNavigate();
+	const { moveToPage } = usePage();
 	return (
 		<CardGradient gradient={gradient}>
 			<div
 				className='w-[306px] h-[40px] cursor-pointer'
-				onClick={() => navigate(`target/${title.toLowerCase()}`)}
+				onClick={() => moveToPage(`/targets/${title.toLowerCase()}`)}
 			>
 				<h1 className='text-[28px] leading-7 font-bold text-neutrals-00'>
 					{title}

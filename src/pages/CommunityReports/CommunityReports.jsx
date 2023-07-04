@@ -1,88 +1,100 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router';
-import { useReport } from '@/hooks/useReport';
 
+import EqualIcon from '@/components/General/Icons/DivideIcon';
+
+import SortBy from '@/components/General/Icons/DoubleArrowVerticalIcon';
+import FilterIcon from '@/components/General/Icons/FilterIcon';
+import SearchIcon from '@/components/General/Icons/LupeIcon';
 import SharedLayout from '@/components/General/SharedLayout';
-import Dropdown from '@/components/Target/Dropdown';
-import FilterDates from '@/components/Target/FilterDates';
-import LeftArrowDirectActionHeart from '@/components/Target/New/LeftArrowDirectActionHeart';
-import TableToggleIncrease from '@/components/Target/New/TableToggleIncrease';
-
+import CommunityReportTile from '@/components/CommunityReports/CommunityReportTile';
+import CommunityReportCreateReport from '@/components/CommunityReports/CommutinyReportCreateReport';
+import Loader from '@/components/General/Loader';
+import { useReport } from '@/hooks/useReport';
+import { usePage } from '@/hooks/usePage';
 
 function CommunityReports () {
-    const [report, setReport] = useState(null)
-    const navigate = useNavigate();
-    const { getReports } = useReport('reporter');
+	const { getSummariesForASection } = useReport('reporter');
+	const { previousState, moveToPage } = usePage();
+	const [reportsSummary, setReportsSummary] = useState();
 
-    const getReport = async () => {
-        const formatterDollars = new Intl.NumberFormat('en-US', {
-            style: 'currency',
-            currency: 'USD',
-            minimumFractionDigits: 0,
-        });
-        const formatterNumbers = new Intl.NumberFormat('en-US', {
-            style: 'currency',
-            currency: 'USD',
-            minimumFractionDigits: 0,
-        });
-        const result = await getReports();
-        const columns = [...result.reportConfig.columns];
-        const types = [...result.reportConfig.typeFormats];
-        const getBehavior = (sign) => {
-            if (sign === '+') return 'up';
-            if (sign === '-') return 'down';
-            return 'neutral';
-        }
-        const rows = result.reportLines.map(reportLine => [reportLine.name, ...reportLine.values.map((value, index) => {
-            if (types[index] === 'subtitle') return `subtitle::${value}`;
-            if (types[index] === 'dollar') return formatterDollars.format(value);
-            if (types[index] === 'dollar_v') return `${getBehavior(value[0])}::${formatterDollars.format(value)}`;
-            if (types[index] === 'double') return parseFloat(value);
-            if (types[index] === 'double_v') return `${getBehavior(value[0])}::${parseFloat(value)}`;
-            if (types[index] === 'integer') return parseInt(value);
-            if (types[index] === 'integer_v') return `${getBehavior(value[0])}::${parseInt(value)}`;
-            if (types[index] === 'indented_number') return formatterNumbers.format(value);
-            if (types[index] === 'indented_number_v') return `${getBehavior(value[0])}::${formatterNumbers.format(value)}`;
-            if (types[index] === 'percentage') return `${+(parseFloat(value) * 100).toFixed(12)}%`;
-            if (types[index] === 'percentage_v') return `${getBehavior(value[0])}::${+(parseFloat(value) * 100).toFixed(12)}%`;
-            if (types[index] === 'icon') return `icon::${value}`;
-            if (types[index] === 'image') return `image::${value}`;
-            if (types[index] === 'link') return `link::${value}`;
-            return value
-        }).filter(value => value !== 'hidden')]);
-        const typesFiltered = types.filter(type => type !== 'hidden');
-        columns.unshift('Expenses');
-        typesFiltered.unshift('text');
-        setReport({ columns, typesFiltered, rows });
-    }
+	const getCommunityReports = async section => {
+		const user = JSON.parse(localStorage.getItem('permissionsMergeData'));
+		const summaries = await getSummariesForASection({ ...section, userId: user?.userId, clientId: user?.client?.clientId });
+		if (summaries) setReportsSummary(...summaries);
+	};
 
-    useEffect(() => {
-        getReport();
-    }, []);
+	const handleSummaryClick = report => {
+		moveToPage('/community-table', {
+			reportInfo: {
+				id: report.id,
+				clientId: previousState.user.client.clientId,
+				storeId: previousState.user.store.storeId,
+				period: ['2023-05'],
+				name: report.name,
+			},
+		});
+	};
 
-    return (
-        <SharedLayout>
-            <div className='flex justify-between items-center mr-12'>
-                <LeftArrowDirectActionHeart
-                    bgColor='bg-dark-popup-00'
-                    buttonName='MIS/Doc'
-                    upperName='Community Reports'
-                    onClick={() => navigate(-1)}
-                />
-                <div className='flex items-center gap-12 uppercase'>
-                    <h6 className='text-white py-1 px-3 rounded-2xl hover:bg-neutrals-400 transition-colors duration-700'>
-                        Day
-                    </h6>
-                    <h6 className='text-white py-1 px-3 rounded-2xl hover:bg-neutrals-400 transition-colors duration-700'>
-                        Month
-                    </h6>
-                    <FilterDates />
-                </div>
-                <Dropdown name='Home' />
-            </div>
-            <TableToggleIncrease report={report} />
-        </SharedLayout>
-    );
+	useEffect(() => {
+		if (previousState?.section.id) getCommunityReports(previousState.section);
+	}, [previousState]);
+
+	return (
+		<SharedLayout>
+			<main className='max-w-[1299px] h-[calc(800px-62px)] mt-6 flex flex-col justify-center mx-auto gap-9 overflow-hidden'>
+				{/* filters section */}
+				<section className='h-[50px] flex justify-between gap-6'>
+					<h3 className='text-primary-purple-50'>Community</h3>
+					<div className='px-4 flex grow items-center border-2 border-neutrals-900 rounded-lg bg-[#05050F] focus-within:border-2 focus-within:border-primary-purple-500'>
+						<input
+							type='text'
+							name=''
+							id=''
+							placeholder='Report Search'
+							className='bg-transparent border-none w-full text-primary-purple-100'
+						/>
+						<SearchIcon width='21' height='21' />
+					</div>
+					<div className='flex gap-3'>
+						<div className='w-[56px] h-[50px] bg-neutrals-800 flex items-center justify-center rounded-lg hover:bg-neutrals-900'>
+							<EqualIcon />
+						</div>
+						<div className='w-[56px] h-[50px] bg-neutrals-800 flex items-center justify-center rounded-lg hover:bg-neutrals-900'>
+							<SortBy />
+						</div>
+						<div className='w-[56px] h-[50px] bg-neutrals-800 flex items-center justify-center rounded-lg hover:bg-neutrals-900'>
+							<FilterIcon />
+						</div>
+					</div>
+				</section>
+
+				{/* tiles container */}
+				<section className='h-[80%] flex flex-wrap items-start gap-6 overflow-x-scroll'>
+					<CommunityReportCreateReport />
+					{reportsSummary ? (
+						reportsSummary.map((reportSummary, index) => (
+							<CommunityReportTile
+								key={index}
+								withInfoIcon={false}
+								report={reportSummary}
+								handleClick={() => handleSummaryClick(reportSummary)}
+							/>
+						))
+					) : (
+						<Loader />
+					)}
+				</section>
+
+				{/* count section */}
+				<section className='w-full text-right text-purple-50 pr-4'>
+					<p>
+						11/64 <span className='text-neutrals-400'>Community</span>{' '}
+						<span className='text-primary-purple-300'>- Load More</span>
+					</p>
+				</section>
+			</main>
+		</SharedLayout>
+	);
 }
 
 export default CommunityReports;

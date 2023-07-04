@@ -3,30 +3,52 @@
 @tailwind utilities;
 
 @layer base {
-  @font-face {
-    font-family: 'Baloo';
-    src: url('/fonts/baloo-700.woff') format('woff'), url('/fonts/baloo-700.woff') format('woff2');
-    font-weight: 700;
-    font-style: normal;
-  }
-  @font-face {
-    font-family: 'Baloo';
-    src: url('/fonts/baloo-600.woff') format('woff'), url('/fonts/baloo-600.woff') format('woff2');
-    font-weight: 600;
-    font-style: normal;
-  }
-  @font-face {
-    font-family: 'Public';
-    src: url('/fonts/public-sans-600.woff') format('woff'), url('/fonts/public-sans-600.woff2') format('woff2');
-    font-weight: 600;
-    font-style: normal;
-  }
-  @font-face {
-    font-family: 'Public';
-    src: url('/fonts/public-sans-regular.woff') format('woff'), url('/fonts/public-sans-regular.woff2') format('woff2');
-    font-weight: 400;
-    font-style: normal;
-  }
+	@font-face {
+		font-family: 'Baloo';
+		src: url('/fonts/baloo-700.woff') format('woff'),
+			url('/fonts/baloo-700.woff') format('woff2');
+		font-weight: 700;
+		font-style: normal;
+	}
+	@font-face {
+		font-family: 'Baloo';
+		src: url('/fonts/baloo-600.woff') format('woff'),
+			url('/fonts/baloo-600.woff') format('woff2');
+		font-weight: 600;
+		font-style: normal;
+	}
+	@font-face {
+		font-family: 'Public';
+		src: url('/fonts/public-sans-900.woff2') format('woff2');
+		font-weight: 900;
+		font-style: normal;
+	}
+	@font-face {
+		font-family: 'Public';
+		src: url('/fonts/public-sans-800.woff2') format('woff2');
+		font-weight: 800;
+		font-style: normal;
+	}
+	@font-face {
+		font-family: 'Public';
+		src: url('/fonts/public-sans-700.woff2') format('woff2');
+		font-weight: 700;
+		font-style: normal;
+	}
+	@font-face {
+		font-family: 'Public';
+		src: url('/fonts/public-sans-600.woff') format('woff'),
+			url('/fonts/public-sans-600.woff2') format('woff2');
+		font-weight: 600;
+		font-style: normal;
+	}
+	@font-face {
+		font-family: 'Public';
+		src: url('/fonts/public-sans-regular.woff') format('woff'),
+			url('/fonts/public-sans-regular.woff2') format('woff2');
+		font-weight: 400;
+		font-style: normal;
+	}
 }
 
 /* Loader component */
@@ -66,8 +88,9 @@
 	}
 }
 
-input[type='text'], input[type='password'] {
-  @apply px-4 focus:outline-none focus:ring-0 border-0;
+input[type='text'],
+input[type='password'] {
+	@apply px-4 focus:outline-none focus:ring-0 border-0;
 }
 
 h1,
@@ -76,43 +99,43 @@ h3,
 h4,
 h5,
 h6 {
-  @apply font-baloo;
+	@apply font-baloo;
 }
 h1 {
-  font-size: 64px;
-  line-height: 80px;
-  font-weight: 700;
+	font-size: 64px;
+	line-height: 80px;
+	font-weight: 700;
 }
 h2 {
-  font-size: 48px;
-  line-height: 64px;
-  font-weight: 700;
+	font-size: 48px;
+	line-height: 64px;
+	font-weight: 700;
 }
 h3 {
-  font-size: 32px;
-  line-height: 48px;
-  font-weight: 700;
+	font-size: 32px;
+	line-height: 48px;
+	font-weight: 700;
 }
 h4 {
-  font-size: 24px;
-  line-height: 36px;
-  font-weight: 700;
+	font-size: 24px;
+	line-height: 36px;
+	font-weight: 700;
 }
 h5 {
-  font-size: 20px;
-  line-height: 30px;
-  font-weight: 700;
+	font-size: 20px;
+	line-height: 30px;
+	font-weight: 700;
 }
 h6 {
-  font-size: 18px;
-  line-height: 28px;
-  font-weight: 700;
+	font-size: 18px;
+	line-height: 28px;
+	font-weight: 700;
 }
 body {
-  @apply font-public;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
+	@apply font-public;
+	font-size: 16px;
+	line-height: 24px;
+	font-weight: 400;
 }
 
 .switch {
@@ -128,7 +151,7 @@ body {
 	position: absolute;
 	inset: 0;
 	cursor: pointer;
-	background-color: #A6ACBD;
+	background-color: #a6acbd;
 	transition: 0.4s;
 	border-radius: 2rem;
 }
@@ -139,12 +162,12 @@ body {
 	width: 16px;
 	left: 2px;
 	bottom: 2px;
-	background-color: #FFFFFF;
+	background-color: #ffffff;
 	transition: 0.4s;
 	border-radius: 50%;
 }
 input:checked + .slider {
-  background: #6043DD;
+	background: #6043dd;
 }
 input:checked + .slider::before {
 	transform: translateX(20px);

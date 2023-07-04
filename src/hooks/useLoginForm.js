@@ -1,8 +1,8 @@
 import { useContext, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 import AuthContext from '@/context/AuthProvider';
 import { axiosCustomer } from '@/services/axios';
+import { usePage } from '@/hooks/usePage';
 
 const useLoginForm = (
 	initialForm = {
@@ -18,10 +18,10 @@ const useLoginForm = (
 	const [form, setForm] = useState(initialForm);
 	const [loading, setLoading] = useState(false);
 	const [errorMessage, setErrorMessage] = useState('');
-	const navigate = useNavigate();
+	const { moveToPage } = usePage();
 
 	const handleLogout = () => {
-		navigate('/login');
+		moveToPage('/login');
 		setAuth('');
 		localStorage.removeItem('permissionsMergeData');
 	};
@@ -67,6 +67,8 @@ const useLoginForm = (
 			const userId = data?.userId;
 			const firstName = data?.firstName;
 			const lastName = data?.lastName;
+			const clients = data?.clients?.length ? data.clients : [1];
+			const stores = data?.stores?.length ? data.stores : [1];
 			const role = data?.userRoles[0];
 			const permissionsMergeData = {
 				userId,
@@ -75,6 +77,10 @@ const useLoginForm = (
 				refreshToken,
 				firstName,
 				lastName,
+				clients,
+				stores,
+				client: clients[0],
+				store: stores[0],
 			};
 			localStorage.setItem(
 				'permissionsMergeData',
@@ -82,7 +88,20 @@ const useLoginForm = (
 			);
 			setAuth({ userId, role, token, refreshToken });
 			setLoading(false);
-			navigate('/');
+			moveToPage('/', {
+				user: {
+					userId,
+					role,
+					token,
+					refreshToken,
+					firstName,
+					lastName,
+					clients,
+					stores,
+					client: clients[0],
+					store: stores[0],
+				},
+			});
 		} catch (error) {
 			setLoading(false);
 			if (!error?.response) {
@@ -123,7 +142,7 @@ const useLoginForm = (
 		event.preventDefault();
 		const result = await forgotPassword(email);
 		if (result) {
-			navigate('/recover-link', {
+			moveToPage('/recover-link', {
 				state: email,
 			});
 		}
@@ -165,7 +184,7 @@ const useLoginForm = (
 			console.log(error);
 		}
 		setLoading(false);
-		if (response?.data?.succeeded) navigate('/recover-password-updated');
+		if (response?.data?.succeeded) moveToPage('/recover-password-updated');
 		cleanMessage(setErrorMessage('Unable to change the password'));
 	};
 

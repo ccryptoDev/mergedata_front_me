@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import WithPermissionRouter from '@/routes/WithPermissionRouter';
 import Target from '@/pages/Target/Target';
+import Home from '@/pages/Home/Home';
 import CardPreset from '@/components/Target/CardPreset';
 
 import Login from '@/pages/Login/Login';
@@ -19,7 +20,6 @@ import DepartmentCard from '@/components/Target/DepartmentCard';
 import CheckNameSliderButtonCard from '@/components/Target/CheckNameSliderButtonCard';
 import TargetPreset from '@/pages/TargetPreset/TargetPreset';
 import TargetAdd from '@/pages/TargetAdd/TargetAdd';
-import Slider from '@/components/Target/New/Slider';
 import ResumeUserItem from '@/components/Target/New/ResumeUserItem';
 import TargetNew from '@/pages/TargetNew/TargetNew';
 import ResumeUserCard from '@/components/Target/New/ResumeUserCard';
@@ -33,6 +33,7 @@ import GravatarTable from '@/components/Target/New/GravatarTable';
 import NewVDPCard from '@/components/Target/New/NewVDPCard';
 import PeopleTable from '@/components/Target/New/PeopleTable';
 import ToggleSwitch from '@/components/Target/ToggleSwitch';
+import NameInitials from '@/components/General/NameInitials';
 
 import TransactionDetailTableCard from '@/components/Target/New/TransactionDetailTableCard';
 import RetailSalesTableCard from '@/components/Target/New/RetailSalesTableCard';
@@ -50,6 +51,7 @@ import Table8 from '@/components/Target/New/Table8';
 import Table8Total from '@/components/Target/New/Table8Total';
 import ModelsTable2 from '@/components/Target/New/ModelsTable2';
 import ModelsTable from '@/components/Target/New/ModelsTable';
+import Slider from '@/components/Target/New/Slider';
 
 import SimpleLineGraphCard from '@/components/General/Graphs/SimpleLineGraphCard';
 import BubbleGraphCard from '@/components/General/Graphs/BubbleGraphCard';
@@ -58,6 +60,7 @@ import Models from '@/pages/TargetNew/Models';
 import Expenses from '@/pages/TargetNew/Expenses';
 import FinancialStatement from '@/pages/TargetNew/FinancialStatement';
 import CommunityReports from '@/pages/CommunityReports/CommunityReports';
+import CommunityReportsTable from '@/pages/CommunityReports/CommunityReportsTable';
 
 import NotificationGroup from '@/components/General/Contest/NotificationGroup';
 import ProgressPieResume from '@/components/General/Contest/ProgressPieResume';
@@ -92,6 +95,16 @@ import AssignToManager from '@/components/General/PredictiveAI/AssignToManager';
 import MessageResponse from '@/components/General/PredictiveAI/MessageResponse';
 import AssignAnOwnerForThisTask from '@/components/General/PredictiveAI/AssignAnOwnerForThisTask';
 import RecommendationDetails from '@/components/General/PredictiveAI/RecommendationDetails';
+import CardSlider from '@/components/General/PredictiveAI/CardSlider';
+import SalesGpruCard from '@/components/General/PredictiveAI/SalesGpruCard';
+import TrainingScoreCardsGroup from '@/components/General/PredictiveAI/TrainingScoreCardsGroup';
+import TrainingScoreCards from '@/components/General/PredictiveAI/TrainingScoreCards';
+import SalesActionCard from '@/components/General/PredictiveAI/SalesActionCard';
+import MessageSalesGpruNavBar from '@/components/General/MergeChat/MessageSalesGpruNavBar';
+import UpdateLuxuryCarInventoryCard from '@/components/General/PredictiveAI/UpdateLuxuryCarInventoryCard';
+import ProductivityCard from '@/components/Target/ServiceAndParts/ProductivityCard';
+import MessageSectionView from '@/components/General/MergeChat/MessageSectionView';
+import FilterDates from '@/components/Target/FilterDates';
 
 export default function App () {
 	return (
@@ -99,7 +112,7 @@ export default function App () {
 			<Routes>
 				<Route
 					exact
-					path='/target/preset'
+					path='/targets/preset'
 					element={
 						<WithPermissionRouter>
 							<TargetPreset />
@@ -108,7 +121,7 @@ export default function App () {
 				/>
 				<Route
 					exact
-					path='/target/preset/add'
+					path='/targets/preset/add'
 					element={
 						<WithPermissionRouter>
 							<TargetAdd />
@@ -117,7 +130,7 @@ export default function App () {
 				/>
 				<Route
 					exact
-					path='/target/new'
+					path='/targets/new'
 					element={
 						<WithPermissionRouter>
 							<TargetNew />
@@ -126,7 +139,7 @@ export default function App () {
 				/>
 				<Route
 					exact
-					path='/target/new/models'
+					path='/targets/new/models'
 					element={
 						<WithPermissionRouter>
 							<Models />
@@ -135,7 +148,7 @@ export default function App () {
 				/>
 				<Route
 					exact
-					path='/target/new/expenses'
+					path='/targets/new/expenses'
 					element={
 						<WithPermissionRouter>
 							<Expenses />
@@ -144,7 +157,7 @@ export default function App () {
 				/>
 				<Route
 					exact
-					path='/target/new/financial-statement'
+					path='/targets/new/financial-statement'
 					element={
 						<WithPermissionRouter>
 							<FinancialStatement />
@@ -162,10 +175,19 @@ export default function App () {
 				/>
 				<Route
 					exact
-					path='/'
+					path='/targets'
 					element={
 						<WithPermissionRouter>
 							<Target />
+						</WithPermissionRouter>
+					}
+				/>
+				<Route
+					exact
+					path='/'
+					element={
+						<WithPermissionRouter>
+							<Home />
 						</WithPermissionRouter>
 					}
 				/>
@@ -216,14 +238,22 @@ export default function App () {
 				/>
 				<Route
 					exact
-					path='/community-reports'
+					path='/community'
 					element={
 						<WithPermissionRouter>
 							<CommunityReports />
 						</WithPermissionRouter>
 					}
 				/>
-
+				<Route
+					exact
+					path='/community-table'
+					element={
+						<WithPermissionRouter>
+							<CommunityReportsTable />
+						</WithPermissionRouter>
+					}
+				/>
 				<Route
 					exact
 					path='/percentagebigslider'
@@ -330,40 +360,122 @@ export default function App () {
 				<Route exact path='/carousel' element={<Carousel />} />
 				<Route exact path='/textinputchat' element={<TextInputChat />} />
 				<Route exact path='/trendssearch' element={<TrendsSearch />} />
-				<Route exact path='/bubblegraphcard' element={<BubbleGraphCard/>} />
-				<Route exact path='/notificationgroup' element={<NotificationGroup/>} />
-				<Route exact path='/piegraph' element={<PieGraph/>} />
-				<Route exact path='/progresspieresume' element={<ProgressPieResume/>} />
-				<Route exact path='/notificationscard' element={<NotificationsCard/>} />
-				<Route exact path='/userinforesume' element={<UserInfoResume/>} />
-				<Route exact path='/badgeprogressandbuttons' element={<BadgeProgressandButtons/> } />
-				<Route exact path='/resumecard' element={<ResumeCard/>} />
-				<Route exact path='/navbarform' element={<NavBarForm/>} />
-				<Route exact path='/searchandsavedsearchs' element={<SearchAndSavedSearchs/>} />
-				<Route exact path='/formsettings' element={<FormSettings/>} />
-				<Route exact path='/formparticipants' element={<FormParticipants/>} />
-				<Route exact path='/formpoints' element={<FormPoints/>} />
-				<Route exact path='/carousel' element={<Carousel/>} />
-				<Route exact path='/textinputchat' element={<TextInputChat/>} />
-				<Route exact path='/trendssearch' element={<TrendsSearch/>} />
-				<Route exact path='/chatscreen' element={<ChatScreen/>} />
-				<Route exact path='/recommendationcard' element={<RecommendationCard/>} />
-				<Route exact path='/navbarai' element={<NavBarAI/>} />
-				<Route exact path='/simplelinesgraph' element={<SimpleLinesGraph/>} />
-				<Route exact path='/dailyrecommendations' element={<DailyRecommendations/>} />
-				<Route exact path='/dailyrecommendationschart' element={<DailyRecommendationsChart/>} />
-				<Route exact path='/taskbykaychart' element={<TaskByKayChart/>} />
-				<Route exact path='/taskrecommendationlist' element={<TaskRecommendationList/>} />
-				<Route exact path='/quickchatcontactselect' element={<QuickChatContactSelect/>} />
-				<Route exact path='/quickchatcounter' element={<QuickChatCounter/>} />
-				<Route exact path='/quickchatconversation' element={<QuickChatConversation/>} />
-				<Route exact path='/assignanownerselection' element={<AssignAnOwnerSelection/>} />
+				<Route exact path='/bubblegraphcard' element={<BubbleGraphCard />} />
+				<Route
+					exact
+					path='/notificationgroup'
+					element={<NotificationGroup />}
+				/>
+				<Route exact path='/piegraph' element={<PieGraph />} />
+				<Route
+					exact
+					path='/progresspieresume'
+					element={<ProgressPieResume />}
+				/>
+				<Route
+					exact
+					path='/notificationscard'
+					element={<NotificationsCard />}
+				/>
+				<Route exact path='/userinforesume' element={<UserInfoResume />} />
+				<Route
+					exact
+					path='/badgeprogressandbuttons'
+					element={<BadgeProgressandButtons />}
+				/>
+				<Route exact path='/resumecard' element={<ResumeCard />} />
+				<Route exact path='/navbarform' element={<NavBarForm />} />
+				<Route
+					exact
+					path='/searchandsavedsearchs'
+					element={<SearchAndSavedSearchs />}
+				/>
+				<Route exact path='/formsettings' element={<FormSettings />} />
+				<Route exact path='/formparticipants' element={<FormParticipants />} />
+				<Route exact path='/formpoints' element={<FormPoints />} />
+				<Route exact path='/carousel' element={<Carousel />} />
+				<Route exact path='/textinputchat' element={<TextInputChat />} />
+				<Route exact path='/chatscreen' element={<ChatScreen />} />
+				<Route
+					exact
+					path='/recommendationcard'
+					element={<RecommendationCard />}
+				/>
+				<Route exact path='/navbarai' element={<NavBarAI />} />
+				<Route exact path='/simplelinesgraph' element={<SimpleLinesGraph />} />
+				<Route
+					exact
+					path='/dailyrecommendations'
+					element={<DailyRecommendations />}
+				/>
+				<Route
+					exact
+					path='/dailyrecommendationschart'
+					element={<DailyRecommendationsChart />}
+				/>
+				<Route exact path='/taskbykaychart' element={<TaskByKayChart />} />
+				<Route
+					exact
+					path='/taskrecommendationlist'
+					element={<TaskRecommendationList />}
+				/>
+				<Route
+					exact
+					path='/quickchatcontactselect'
+					element={<QuickChatContactSelect />}
+				/>
+				<Route exact path='/quickchatcounter' element={<QuickChatCounter />} />
+				<Route
+					exact
+					path='/quickchatconversation'
+					element={<QuickChatConversation />}
+				/>
+				<Route
+					exact
+					path='/assignanownerselection'
+					element={<AssignAnOwnerSelection />}
+				/>
 				<Route exact path='/assigntomanager' element={<AssignToManager />} />
 				<Route exact path='/messageresponse' element={<MessageResponse />} />
-				<Route exact path='/assignanownerforthistask' element={<AssignAnOwnerForThisTask />} />
-				<Route exact path='/recommendationdetails' element={<RecommendationDetails />} />
+				<Route
+					exact
+					path='/assignanownerforthistask'
+					element={<AssignAnOwnerForThisTask />}
+				/>
+				<Route
+					exact
+					path='/recommendationdetails'
+					element={<RecommendationDetails />}
+				/>
+				<Route exact path='/salesgprucard' element={<SalesGpruCard />} />
+				<Route exact path='/cardslider' element={<CardSlider />} />
+				<Route
+					exact
+					path='/trainingscorecardsgroup'
+					element={<TrainingScoreCardsGroup />}
+				/>
+				<Route
+					exact
+					path='/trainingscorecards'
+					element={<TrainingScoreCards />}
+				/>
+				<Route exact path='/salesactioncard' element={<SalesActionCard />} />
+				<Route exact path='/productivitycard' element={<ProductivityCard />} />
+				<Route
+					exact
+					path='/messagesalesgprunavbar'
+					element={<MessageSalesGpruNavBar />}
+				/>
+				<Route
+					exact
+					path='/updateluxurycarinventorycard'
+					element={<UpdateLuxuryCarInventoryCard />}
+				/>
+				<Route exact path='/nameinitials' element={<NameInitials />} />
+				<Route exact path='/messagesectionview' element={<MessageSectionView />} />
+				<Route exact path='/filterdates' element={<FilterDates/>} />
 
-				<Route exact path='/roger-test' element={<ExpensesRetailItem/>} />
+				<Route exact path='/roger-test' element={<ExpensesRetailItem />} />
 			</Routes>
 		</BrowserRouter>
 	);

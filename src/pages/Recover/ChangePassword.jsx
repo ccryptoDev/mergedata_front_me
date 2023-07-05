@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 import GenericArrow from '@/components/General/Icons/GenericArrow';
 import Loader from '@/components/General/Loader';
@@ -10,9 +10,10 @@ import messageIconBlack from '@/assets/svg/message_icon_bg_black.svg';
 import backgroundImage from '@/assets/images/Home2.png';
 import keyIcon from '@/assets/svg/blackKey_icon.svg';
 import arrowRight from '@/assets/svg/arrowright_icon.svg';
+import { usePage } from '@/hooks/usePage';
 
 const ChangePassword = () => {
-	const navigate = useNavigate();
+	const { moveToPage } = usePage();
 	const { userId } = useParams();
 	const [config, setConfig] = useState({
 		password: '',
@@ -51,7 +52,7 @@ const ChangePassword = () => {
 					<div className='mt-[81px] w-[300px]'>
 						<button
 							className='flex items-center gap-[10px]'
-							onClick={() => navigate('/recover')}
+							onClick={() => moveToPage('/recover')}
 						>
 							<div className='w-[34px] h-[34px] flex justify-center items-center rotate-180 bg-purple-50 rounded-full hover:bg-purple-100 hover:scale-110'>
 								<GenericArrow color='#000' />

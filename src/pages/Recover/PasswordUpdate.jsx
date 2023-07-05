@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { usePage } from '@/hooks/usePage';
 import mergeDataLogo from '@/assets/svg/mergedata_logo.svg';
 import mergeDataIcon from '@/assets/svg/mergedata_icon.svg';
 import messageIconBlack from '@/assets/svg/message_icon_bg_black.svg';
@@ -7,7 +7,7 @@ import CheckIcon from '@/assets/svg/check-purple_icon.svg';
 import arrowRight from '@/assets/svg/arrowright_icon.svg';
 
 const PasswordUpdate = () => {
-	const navigate = useNavigate();
+	const { moveToPage } = usePage();
 
 	return (
 		<div className='flex bg-dark-accent-00 h-screen'>
@@ -30,7 +30,7 @@ const PasswordUpdate = () => {
 						the login page and sign in with your new password.
 					</p>
 					<button
-						onClick={() => navigate('/login')}
+						onClick={() => moveToPage('/login')}
 						className='w-[97px] h-[44px] mt-[33px] flex justify-center items-center gap-2 bg-primary-purple-600 text-neutrals-00 rounded hover:scale-[.95] hover:bg-primary-purple-400'
 					>
 						Login

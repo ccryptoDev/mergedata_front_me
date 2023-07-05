@@ -3,7 +3,8 @@ import FilterDates from '@/components/Target/FilterDates';
 import CarouselItem from '@/components/Target/CarouselItem';
 import SharedLayout from '@/components/General/SharedLayout';
 import Card from '@/components/Target/Card';
-import { useNavigate } from 'react-router-dom';
+import { usePage } from '@/hooks/usePage';
+
 
 const data1 = [
 	{
@@ -77,8 +78,8 @@ const gradient2 = {
 	},
 };
 
-export default function Target() {
-	const navigate = useNavigate();
+export default function Target () {
+	const { returnOnePage, moveToPage } = usePage();
 	const items = [
 		{
 			id: 'dd-item-0',
@@ -95,7 +96,7 @@ export default function Target() {
 		{
 			id: 'dd-item-2',
 			name: 'Add Target preset',
-			click: () => navigate('/target/preset'),
+			click: () => moveToPage('/targets/preset'),
 			selected: true,
 		},
 	];

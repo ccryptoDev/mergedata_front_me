@@ -2,10 +2,10 @@ import SharedLayout from '@/components/General/SharedLayout';
 import LeftArrowDirectActionHeart from '@/components/Target/New/LeftArrowDirectActionHeart';
 import BasicInformation from '@/components/Target/Preset/BasicInformation';
 import PresetContainer from '@/components/Target/Preset/PresetContainer';
-import { useNavigate } from 'react-router-dom';
+import { usePage } from '@/hooks/usePage';
 
-function TargetAdd() {
-	const navigate = useNavigate();
+function TargetAdd () {
+	const { returnOnePage } = usePage();
 
 	return (
 		<SharedLayout bgColor='bg-dark-background-00'>
@@ -13,7 +13,7 @@ function TargetAdd() {
 				bgColor='bg-dark-background-00'
 				buttonName='Add Target'
 				upperName='Targets / Presets'
-				onClick={() => navigate(-1)}
+				onClick={returnOnePage}
 			/>
 			<PresetContainer>
 				<BasicInformation />

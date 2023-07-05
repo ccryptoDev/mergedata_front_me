@@ -1,5 +1,6 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
+import { usePage } from '@/hooks/usePage';
 import GenericArrow from '@/components/General/Icons/GenericArrow';
 import mergeDataLogo from '@/assets/svg/mergedata_logo.svg';
 import mergeDataIcon from '@/assets/svg/mergedata_icon.svg';
@@ -9,7 +10,7 @@ import arrowRight from '@/assets/svg/arrowright_icon.svg';
 import CheckIcon from '@/assets/svg/check-purple_icon.svg';
 
 const RecoveryLink = () => {
-	const navigate = useNavigate();
+	const { moveToPage } = usePage();
 
 	return (
 		<div className='flex bg-dark-accent-00 h-screen'>
@@ -24,7 +25,7 @@ const RecoveryLink = () => {
 					<div className='mt-[131px] w-[300px]'>
 						<button
 							className='flex items-center gap-[10px]'
-							onClick={() => navigate('/recover')}
+							onClick={() => moveToPage('/recover')}
 						>
 							<div className='w-[34px] h-[34px] flex justify-center items-center rotate-180 bg-purple-50 rounded-full hover:bg-purple-100 hover:scale-110'>
 								<GenericArrow color='#000' />
@@ -50,7 +51,7 @@ const RecoveryLink = () => {
 										Resend the link
 									</Link>
 									<button
-										onClick={() => navigate('/login')}
+										onClick={() => moveToPage('/login')}
 										className='w-[97px] h-[44px] flex justify-center items-center gap-2 bg-primary-purple-600 text-neutrals-00 rounded hover:scale-[.95] hover:bg-primary-purple-400'
 									>
 										Login

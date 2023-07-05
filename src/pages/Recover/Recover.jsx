@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
+import { usePage } from '@/hooks/usePage';
 import GenericArrow from '@/components/General/Icons/GenericArrow';
 import Loader from '@/components/General/Loader';
 import { useLoginForm } from '@/hooks/useLoginForm';
@@ -14,7 +14,7 @@ import arrowRight from '@/assets/svg/arrowright_icon.svg';
 const Recover = () => {
 	const [email, setEmail] = useState('');
 	const { handleSentEmail, errorMessage, loading } = useLoginForm();
-	const navigate = useNavigate();
+	const { moveToPage } = usePage();
 
 	return (
 		<div className='flex bg-dark-accent-00 h-screen'>
@@ -29,7 +29,7 @@ const Recover = () => {
 					<div className='mt-[131px] w-[300px]'>
 						<button
 							className='flex items-center gap-[10px]'
-							onClick={() => navigate('/login')}
+							onClick={() => moveToPage('/login')}
 						>
 							<div className='w-[34px] h-[34px] flex justify-center items-center rotate-180 bg-purple-50 rounded-full hover:bg-purple-100 hover:scale-110'>
 								<GenericArrow color='#000' />

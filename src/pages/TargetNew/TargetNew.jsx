@@ -11,14 +11,16 @@ import NameDropdown from '@/components/Target/New/NameDropdown';
 import NameIncreaseDropdown from '@/components/Target/New/NameIncreaseDropdown';
 import PersonIncrease from '@/components/Target/New/PersonIncrease';
 import PersonIncreaseTable from '@/components/Target/New/PersonIncreaseTable';
-import { useNavigate } from 'react-router-dom';
 import { increaseStatus } from '@/utils/helperFunctions';
 import ModelsIndividualStatus from '@/components/Target/New/ModelsIndividualStatus';
 import BubbleGraphCard from '@/components/General/Graphs/BubbleGraphCard';
+import { usePage } from '@/hooks/usePage';
+
 
 function TargetNew () {
-	const navigate = useNavigate();
+	const { previousState, returnOnePage, moveToPage } = usePage();
 	const { icon, textColor } = increaseStatus('up');
+
 	return (
 		<SharedLayout>
 			<div className='flex justify-between items-center mr-12'>
@@ -26,7 +28,7 @@ function TargetNew () {
 					bgColor='bg-dark-popup-00'
 					buttonName='New'
 					upperName='Targets'
-					onClick={() => navigate(-1)}
+					onClick={returnOnePage}
 				/>
 				<div className='flex items-center gap-12 uppercase'>
 					<h6 className='text-white py-1 px-3 rounded-2xl hover:bg-neutrals-400 transition-colors duration-700'>
@@ -41,7 +43,16 @@ function TargetNew () {
 			</div>
 			<div className='flex justify-between mx-4'>
 				<section>
-					<Card margin={'mb-6'} onClick={() => navigate('/target/new/financial-statement')}>
+					<Card margin={'mb-6'} onClick={() => moveToPage('/targets/new/financial-statement', {
+						reportInfo: {
+							id: 10,
+							clientId: previousState.user.client.clientId,
+							storeId: [previousState.user.store.storeId],
+							period: ['2023-05'],
+							name: 'Financial Statement'
+						},
+					})}
+					>
 						<NameIncreaseDropdown />
 						<IconNameBarIncreaseTable>
 							<IconNameBarIncrease />
@@ -63,7 +74,7 @@ function TargetNew () {
 					<div className='bg-[#3E4761] w-full h-[666px] rounded-2xl'>
 						<Card
 							height='h-[500px]'
-							onClick={() => navigate('/target/new/models')}
+							onClick={() => moveToPage('/targets/new/models')}
 						>
 							<div className='w-[192px] mb-10'>
 								<NameDropdown
@@ -108,7 +119,15 @@ function TargetNew () {
 					<BubbleGraphCard />
 					<div className='mt-6'>
 						<KeyExpensesCard
-							onClick={() => navigate('/target/new/expenses')}
+							onClick={() => moveToPage('/targets/new/expenses', {
+								reportInfo: {
+									id: 23,
+									clientId: previousState.user.client.clientId,
+									storeId: [previousState.user.store.storeId],
+									period: ['2023-05'],
+									name: 'Expenses'
+								},
+							})}
 						/>
 					</div>
 				</section>

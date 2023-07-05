@@ -9,11 +9,12 @@ import NameDropdown from '@/components/Target/New/NameDropdown';
 import PersonIncrease from '@/components/Target/New/PersonIncrease';
 import PersonIncreaseTable from '@/components/Target/New/PersonIncreaseTable';
 import ResumeUserCard from '@/components/Target/New/ResumeUserCard';
+import { usePage } from '@/hooks/usePage';
 import { useState } from 'react';
-import { useNavigate } from 'react-router';
 
-function Models() {
-	const navigate = useNavigate();
+
+function Models () {
+	const { returnOnePage } = usePage();
 	const [showModel, setShowModel] = useState(false);
 	return (
 		<SharedLayout>
@@ -22,7 +23,7 @@ function Models() {
 					bgColor='bg-dark-popup-00'
 					buttonName='Models'
 					upperName='Targets/New'
-					onClick={() => navigate(-1)}
+					onClick={returnOnePage}
 				/>
 				<div className='flex items-center gap-12 uppercase'>
 					<h6 className='text-white py-1 px-3 rounded-2xl hover:bg-neutrals-400 transition-colors duration-700'>
@@ -37,7 +38,7 @@ function Models() {
 			</div>
 			<div className='flex'>
 				<section>
-					<ModelsTable setShowModel={setShowModel}/>
+					<ModelsTable setShowModel={setShowModel} />
 				</section>
 				<section className='flex flex-col ml-7 flex-grow'>
 					{!showModel ? (

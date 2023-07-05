@@ -1,62 +1,80 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router';
+
 import { useReport } from '@/hooks/useReport';
+import { usePage } from '@/hooks/usePage';
 import SharedLayout from '@/components/General/SharedLayout';
 import Dropdown from '@/components/Target/Dropdown';
 import FilterDates from '@/components/Target/FilterDates';
 import LeftArrowDirectActionHeart from '@/components/Target/New/LeftArrowDirectActionHeart';
-import TableToggleIncrease from '@/components/Target/New/TableToggleIncrease';
+import TableToggleIncreaseDynamic from '@/components/Target/New/TableToggleIncreaseDynamic';
+import { formatReportsTable } from '@/utils/helperFunctions';
 
 function FinancialStatement () {
-	const [report, setReport] = useState(null)
-	const navigate = useNavigate();
-	const { getReports } = useReport('reporter');
+	const [report, setReport] = useState(null);
+	const { getReport } = useReport('reporter');
+	const { previousState, returnOnePage } = usePage();
 
-	const getReport = async () => {
-		const formatterDollars = new Intl.NumberFormat('en-US', {
-			style: 'currency',
-			currency: 'USD',
-			minimumFractionDigits: 0,
-		});
-		const formatterNumbers = new Intl.NumberFormat('en-US', {
-			style: 'currency',
-			currency: 'USD',
-			minimumFractionDigits: 0,
-		});
-		const result = await getReports({ reportId: 1, clientId: 1, storeId: 1, period: '2023-04' });
-		const columns = [...result.reportConfig.columns];
-		const types = [...result.reportConfig.typeFormats];
-		const getBehavior = (sign) => {
-			if (sign === '+') return 'up';
-			if (sign === '-') return 'down';
-			return 'neutral';
-		}
-		const rows = result.reportLines.map(reportLine => [reportLine.name, ...reportLine.values.map((value, index) => {
-			if (types[index] === 'subtitle') return `subtitle::${value}`;
-			if (types[index] === 'dollar') return formatterDollars.format(value);
-			if (types[index] === 'dollar_v') return `${getBehavior(value[0])}::${formatterDollars.format(value)}`;
-			if (types[index] === 'double') return parseFloat(value);
-			if (types[index] === 'double_v') return `${getBehavior(value[0])}::${parseFloat(value)}`;
-			if (types[index] === 'integer') return parseInt(value);
-			if (types[index] === 'integer_v') return `${getBehavior(value[0])}::${parseInt(value)}`;
-			if (types[index] === 'indented_number') return formatterNumbers.format(value);
-			if (types[index] === 'indented_number_v') return `${getBehavior(value[0])}::${formatterNumbers.format(value)}`;
-			if (types[index] === 'percentage') return `${+(parseFloat(value) * 100).toFixed(12)}%`;
-			if (types[index] === 'percentage_v') return `${getBehavior(value[0])}::${+(parseFloat(value) * 100).toFixed(12)}%`;
-			if (types[index] === 'icon') return `icon::${value}`;
-			if (types[index] === 'image') return `image::${value}`;
-			if (types[index] === 'link') return `link::${value}`;
-			return value
-		}).filter(value => value !== 'hidden')]);
-		const typesFiltered = types.filter(type => type !== 'hidden');
-		columns.unshift('Expenses');
-		typesFiltered.unshift('text');
-		setReport({ columns, typesFiltered, rows });
-	}
+	const formatReport = async reportInfo => {
+		const report = await getReport(reportInfo);
+		setReport(formatReportsTable(report));
+	};
+
+	const itemsTarget = [
+		{
+			id: 'dd-item-0',
+			name: 'Prior Month',
+			click: () => console.log('clicked 1'),
+			selected: false,
+		},
+		{
+			id: 'dd-item-1',
+			name: 'Same Month Last Year',
+			click: () => console.log('clicked 2'),
+			selected: false,
+		},
+		{
+			id: 'dd-item-2',
+			name: '3 Months Average',
+			click: () => console.log('clicked 3'),
+			selected: false,
+		},
+		{
+			id: 'dd-item-3',
+			name: 'Add Target Preset',
+			click: () => console.log('clicked 3'),
+			selected: true,
+		},
+	];
+	const itemsStores = [
+		{
+			id: 'dd-item-0',
+			name: 'All Stores',
+			click: () => console.log('clicked 1'),
+			selected: false,
+		},
+		{
+			id: 'dd-item-1',
+			name: 'MD Sub-Toy',
+			click: () => console.log('clicked 1'),
+			selected: false,
+		},
+		{
+			id: 'dd-item-2',
+			name: 'MergeData Subaru',
+			click: () => console.log('clicked 2'),
+			selected: false,
+		},
+		{
+			id: 'dd-item-3',
+			name: 'MergeData Toyota',
+			click: () => console.log('clicked 3'),
+			selected: true,
+		},
+	];
 
 	useEffect(() => {
-		getReport();
-	}, []);
+		if (previousState?.reportInfo) formatReport(previousState.reportInfo);
+	}, [previousState]);
 
 	return (
 		<SharedLayout>
@@ -65,7 +83,7 @@ function FinancialStatement () {
 					bgColor='bg-dark-popup-00'
 					buttonName='Financial Statement'
 					upperName='Targets/New'
-					onClick={() => navigate(-1)}
+					onClick={returnOnePage}
 				/>
 				<div className='flex items-center gap-12 uppercase'>
 					<h6 className='text-white py-1 px-3 rounded-2xl hover:bg-neutrals-400 transition-colors duration-700'>
@@ -76,9 +94,12 @@ function FinancialStatement () {
 					</h6>
 					<FilterDates />
 				</div>
-				<Dropdown name='Home' />
+				<div className='flex gap-2'>
+					<Dropdown items={itemsStores} name='Stores' />
+					<Dropdown items={itemsTarget} />
+				</div>
 			</div>
-			<TableToggleIncrease report={report} />
+			<TableToggleIncreaseDynamic report={report} />
 		</SharedLayout>
 	);
 }

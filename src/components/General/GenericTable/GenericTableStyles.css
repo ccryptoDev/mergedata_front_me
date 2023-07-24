@@ -6,7 +6,7 @@ table {
 	color: #c2c8d7;
 	text-align: right;
 	margin: 0 auto;
-	overflow-y: scroll;
+	overflow: scroll;
 }
 thead {
 	position: sticky;
@@ -44,6 +44,9 @@ th:last-child {
 tr:hover {
 	background-color: #35257a;
 	cursor: pointer;
+}
+.title-cell {
+	font-weight: 700;
 }
 .variance-cell {
 	height: 48px;

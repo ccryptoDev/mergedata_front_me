@@ -1,10 +1,10 @@
-export default function Loader () {
-    return (
-        <div className='lds-ring'>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    );
+export default function Loader({ size }) {
+	return (
+		<div className={`${size === 'large' ? 'lds-ring_big' : 'lds-ring'}`}>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+	);
 }

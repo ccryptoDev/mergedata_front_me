@@ -6,7 +6,7 @@ module.exports = {
 		'./src/**/*.{js,jsx}',
 		'node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}',
 	],
-	
+
 	theme: {
 		colors: {
 			primary: {
@@ -61,7 +61,11 @@ module.exports = {
 			baloo: 'Baloo, sans-serif',
 			public: 'Public, serif',
 		},
-		extend: {},
+		extend: {
+			screens: {
+				'tall': { 'raw': '(max-height: 820px)' }
+			}
+		},
 	},
 	plugins: [require('flowbite/plugin')],
 };

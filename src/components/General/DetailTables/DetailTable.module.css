@@ -1,0 +1,83 @@
+.detailTable {
+	width: 100%;
+	border-collapse: collapse;
+	padding: 1rem;
+	background-color: #202449;
+	color: #c2c8d7;
+	text-align: right;
+	margin: 0 auto;
+	overflow: scroll;
+}
+thead.detailTable_tableHead {
+	position: sticky;
+	top: 0;
+	background-color: #202449;
+}
+td.detailTable_tableData,
+th.detailTable_tableHeader {
+	padding: 0 1rem;
+	font-size: 1rem;
+	font-weight: 800;
+	line-height: 24px;
+	white-space: nowrap;
+}
+tr.detailTable_tableRow {
+	height: 54px;
+}
+td.detailTable_tableData {
+	font-size: 14px;
+	font-weight: 400;
+}
+tr.detailTable_tableRow:nth-child(even) {
+	background-color: #161a3e;
+}
+td.detailTable_tableData:first-child,
+th.detailTable_tableHeader:first-child {
+	border-radius: 12px 0 0 12px;
+	text-align: left;
+	white-space: nowrap;
+}
+td.detailTable_tableData:last-child,
+th.detailTable_tableHeader:last-child {
+	border-radius: 0 12px 12px 0;
+}
+tr.detailTable_tableRow:hover {
+	background-color: #35257a;
+	cursor: pointer;
+}
+td.title_cell {
+	font-weight: 700;
+	cursor: default;
+}
+.variance_cell {
+	height: 48px;
+	display: flex;
+	margin-right: -12px;
+	gap: 0.2rem;
+	justify-content: center;
+	align-items: center;
+	background-color: #151f39;
+	border-radius: 12px;
+	color: #c2c8d7;
+}
+tr.detailTable_tableRow.total_row {
+	position: sticky;
+	width: inherit;
+	bottom: 0;
+	background-color: #505a78;
+}
+tr.detailTable_tableRow.total_row td.detailTable_tableData {
+	font-weight: 700;
+}
+.table_header:hover {
+	background-color: #212a43;
+	cursor: default;
+}
+.total_row:hover {
+	background-color: #505a78;
+}
+.detailTable_tableHead {
+	position: sticky;
+	top: 0;
+	background-color: #161a3e;
+}

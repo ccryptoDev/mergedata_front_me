@@ -1,8 +1,14 @@
+import { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import { useLoginForm } from '@/hooks/useLoginForm';
 import LogoutIcon from '@/components/General/Icons/LogoutIcon';
 
 const UserMenu = () => {
 	const { handleLogout } = useLoginForm();
+	const [linkSelect, setLinkSelect] = useState('/integrations')
+	const activeStyle = {
+		backgroundColor: '#6043DD',
+	};
 
 	return (
 		<div className='w-[130px] h-[136px] bg-[#05081E] rounded-lg justify-center items-center'>
@@ -13,9 +19,15 @@ const UserMenu = () => {
 				<p className='ml-4 mb-2 text-white font-baloo text-[13px] leading-4'>
 					Settings
 				</p>
-				<p className='ml-4 mb-3 text-white font-baloo text-[13px] leading-4'>
-					Integrations
-				</p>
+				<NavLink
+					onClick={() => { setGoToIntegrations(!goToIntegrations) }}
+					className='hover:bg-primary-purple-600 rounded-sm flex items-center justify-left cursor-pointer hover:scale-90 py-1'
+					to={`${linkSelect}`}
+				>
+					<p className='ml-4 text-white font-baloo text-[13px] leading-4'>
+						Integrations
+					</p>
+				</NavLink>
 			</div>
 			<div onClick={handleLogout} className='flex items-center border-dashed border-[#5F5F5F] border-t-[2px] mx-3 cursor-pointer'>
 				<div className='mt-3 mr-2'>

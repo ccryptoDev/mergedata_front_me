@@ -1,12 +1,12 @@
 <svg width="70" height="14" viewBox="0 0 70 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_4430_313856)">
+<g clipPath="url(#clip0_4430_313856)">
 <path d="M6.41797 3.5H11.668" stroke="#CFC7F5" stroke-width="1.16667" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M6.41797 7H11.668" stroke="#CFC7F5" stroke-width="1.16667" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M7 10.5H11.6667" stroke="#CFC7F5" stroke-width="1.16667" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M2.33203 9.33341C2.33203 9.024 2.45495 8.72725 2.67374 8.50846C2.89253 8.28966 3.18928 8.16675 3.4987 8.16675C3.80812 8.16675 4.10486 8.28966 4.32366 8.50846C4.54245 8.72725 4.66536 9.024 4.66536 9.33341C4.66536 9.67816 4.3737 9.91675 4.08203 10.2084L2.33203 11.6667H4.66536" stroke="#CFC7F5" stroke-width="1.16667" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M3.4987 5.83325V2.33325L2.33203 3.49992" stroke="#CFC7F5" stroke-width="1.16667" stroke-linecap="round" stroke-linejoin="round"/>
 </g>
-<g clip-path="url(#clip1_4430_313856)">
+<g clipPath="url(#clip1_4430_313856)">
 <path d="M33.25 3.5H39.6667" stroke="#CFC7F5" stroke-width="1.16667" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M33.25 7H39.6667" stroke="#CFC7F5" stroke-width="1.16667" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M33.25 10.5H39.6667" stroke="#CFC7F5" stroke-width="1.16667" stroke-linecap="round" stroke-linejoin="round"/>
@@ -14,7 +14,7 @@
 <path d="M30.918 7V7.00583" stroke="#CFC7F5" stroke-width="1.16667" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M30.918 10.5V10.5058" stroke="#CFC7F5" stroke-width="1.16667" stroke-linecap="round" stroke-linejoin="round"/>
 </g>
-<g clip-path="url(#clip2_4430_313856)">
+<g clipPath="url(#clip2_4430_313856)">
 <path d="M61.25 3.5H67.6667" stroke="#CFC7F5" stroke-width="1.16667" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M61.25 7H67.6667" stroke="#CFC7F5" stroke-width="1.16667" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M61.25 10.5H67.6667" stroke="#CFC7F5" stroke-width="1.16667" stroke-linecap="round" stroke-linejoin="round"/>

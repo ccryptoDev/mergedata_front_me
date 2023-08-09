@@ -13,7 +13,7 @@ export default function SharedLayout ({
 			: 'bg-dark-popup-00';
 	return (
 		<div className={`w-screen flex flex-col h-screen relative ${bgColor}`}>
-			<div className='w-[1440px] h-[900px] mx-auto'>
+			<div className='w-[1440px] h-full flex justify-between flex-col mx-auto pb-5'>
 				<header className='mt-3 w-full h-[56px] flex justify-between items-center gap-6'>
 					<div className='flex w-[124px] justify-between'>
 						<img src={menuButton} alt='menu button' />
@@ -25,7 +25,7 @@ export default function SharedLayout ({
 					</div>
 					{!isHome && <NavBar navBarBgColor={navBarBgColor} />}
 				</header>
-				<div>{children}</div>
+				<div className='h-[calc(100%-56px)]'>{children}</div>
 			</div>
 		</div>
 	);

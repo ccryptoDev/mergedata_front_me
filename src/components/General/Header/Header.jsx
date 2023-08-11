@@ -1,0 +1,21 @@
+import menuButton from '@/assets/svg/menu_button.svg';
+import mergeDataLogo from '@/assets/svg/mergedata_logo.svg';
+import NavBar from '@/components/General/NavBar';
+
+const Header = ({ bgColor = 'bg-dark-popup-00', isHome = false }) => {
+	const navBarBgColor =
+		bgColor === 'bg-dark-popup-00'
+			? 'bg-dark-background-00'
+			: 'bg-dark-popup-00';
+	return (
+		<header className='mt-3 w-full h-[56px] flex justify-between items-center gap-6'>
+			<div className='flex w-[124px] justify-between'>
+				<img src={menuButton} alt='menu button' />
+				<img src={mergeDataLogo} alt='merge data logo' className='w-23 h-8' />
+			</div>
+			{!isHome && <NavBar navBarBgColor={navBarBgColor} />}
+		</header>
+	);
+};
+
+export default Header;

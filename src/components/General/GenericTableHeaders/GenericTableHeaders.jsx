@@ -1,15 +1,18 @@
 import ToggleSwitch from '@/components/Target/ToggleSwitch';
 import {
-	removeSpecialCases,
-	exportPDF,
 	exportCSV,
+	exportPDF,
+	removeSpecialCases,
 } from '@/utils/helperFunctions';
-import { CSVLink } from 'react-csv';
-import SplitIcon from '../Icons/SplitIcon';
-import DownloadIconTable from '../Icons/DownloadIconTable';
-import ShareIcon from '../Icons/ShareIcon';
-import HeaderDropdown from './HeaderDropdown';
 import { useState } from 'react';
+import { CSVLink } from 'react-csv';
+import CloseIcon from '../Icons/CloseIcon';
+import DownloadIconTable from '../Icons/DownloadIconTable';
+import FileDownloadIcon from '../Icons/FileDownloadIcon';
+import ShareIcon from '../Icons/ShareIcon';
+import SplitIcon from '../Icons/SplitIcon';
+import HeaderDropdown from './HeaderDropdown';
+import ExpandIcon from '../Icons/ExpandIcon';
 
 export const GenericTableHeaders = ({
 	report,
@@ -21,13 +24,32 @@ export const GenericTableHeaders = ({
 	withSplit = false,
 	onSplit = '',
 	split = '',
+	isDetailHeaders = false,
+	detailHeadersTitle = '',
+	detailHeaderItem = '',
+	onClose = '',
+	close = '',
+	withExpand = '',
+	expand = '',
+	onExpand = '',
 }) => {
 	const [downloadToggle, setDownloadToggle] = useState(false);
 
-	const rows = removeSpecialCases(report?.rows.map(row => [row.name, ...row.values]));
+	const rows = removeSpecialCases(
+		report?.rows.map(row => [row.name, ...row.values]),
+	);
 	const csvData = exportCSV(report?.columns, rows);
 	const downloadPDF = () => {
-		exportPDF(report?.columns, rows, report?.name, report?.reportName, report?.timelapse, report?.storesName, report?.periodName, report?.target);
+		exportPDF(
+			report?.columns,
+			rows,
+			report?.name,
+			report?.reportName,
+			report?.timelapse,
+			report?.storesName,
+			report?.periodName,
+			report?.target,
+		);
 	};
 
 	const renderFilters = header => {
@@ -75,12 +97,14 @@ export const GenericTableHeaders = ({
 		return (
 			<button>
 				<div
-					className={`${share && 'ring ring-neutrals-50'
-						} w-[40px] h-[40px] flex items-center justify-center hover:ring hover:ring-neutrals-50 rounded-full `}
+					className={`${
+						share && 'ring ring-neutrals-50'
+					} w-[40px] h-[40px] flex items-center justify-center hover:ring hover:ring-neutrals-50 rounded-full `}
 				>
 					<div
-						className={`${share && 'bg-primary-purple-200'
-							} w-[32px] h-[32px] flex items-center justify-center hover:bg-primary-purple-200 rounded-full`}
+						className={`${
+							share && 'bg-primary-purple-200'
+						} w-[32px] h-[32px] flex items-center justify-center hover:bg-primary-purple-200 rounded-full`}
 					>
 						<ShareIcon fill={`${split ? '#000' : '#fff'}`} />
 					</div>
@@ -94,37 +118,42 @@ export const GenericTableHeaders = ({
 			<div className='flex flex-row gap-x-2 relative z-20'>
 				<button onClick={() => setDownloadToggle(!downloadToggle)}>
 					<div
-						className={`${downloadToggle && 'ring ring-neutrals-50'
-							} w-[40px] h-[40px] flex items-center justify-center hover:ring hover:ring-neutrals-50 rounded-full `}
+						className={`${
+							downloadToggle && 'ring ring-neutrals-50'
+						} w-[40px] h-[40px] flex items-center justify-center hover:ring hover:ring-neutrals-50 rounded-full `}
 					>
 						<div
-							className={`${downloadToggle && 'bg-primary-purple-200'
-								} w-[32px] h-[32px] flex items-center justify-center hover:bg-primary-purple-200 rounded-full`}
+							className={`${
+								downloadToggle && 'bg-primary-purple-200'
+							} w-[32px] h-[32px] flex items-center justify-center hover:bg-primary-purple-200 rounded-full`}
 						>
 							<DownloadIconTable fill={`${downloadToggle ? '#000' : '#fff'}`} />
 						</div>
 					</div>
 				</button>
 				{downloadToggle && (
-					<div className='absolute top-[52px] right-0 flex flex-col gap-2 items-start p-2 bg-[#05081E] rounded-[12px]'>
+					<div className='px-2 w-[180px] h-[96px] absolute top-[52px] right-0 flex flex-col gap-2 justify-center items-start p-2 bg-[#05081E] rounded-[12px]'>
+						<button
+							type='button'
+							onClick={downloadPDF}
+							className='w-full h-[32px] flex items-center gap-2 font-baloo font-[600] text-sm text-[#FFFFFF] px-3 text-left whitespace-nowrap rounded-md hover:bg-primary-purple-600'
+						>
+							<FileDownloadIcon />
+							PDF
+						</button>
 						{csvData && (
-							<button className='w-full h-[32px] font-baloo font-[600] text-sm text-[#FFFFFF] px-3 text-center whitespace-nowrap rounded-md z-10 hover:bg-primary-purple-600'>
+							<button className='w-full h-[32px] flex items-center gap-2 font-baloo font-[600] text-sm text-[#FFFFFF] px-3 text-left whitespace-nowrap rounded-md z-10 hover:bg-primary-purple-600'>
 								<CSVLink
 									data={csvData}
 									target='_blank'
 									filename={`${report?.name}.csv` || 'mergeDataTable.csv'}
+									className='flex items-center gap-2'
 								>
-									CSV
+									<FileDownloadIcon />
+									Excel
 								</CSVLink>
 							</button>
 						)}
-						<button
-							type='button'
-							onClick={downloadPDF}
-							className='w-full h-[32px] font-baloo font-[600] text-sm text-[#FFFFFF] px-3 text-center whitespace-nowrap rounded-md hover:bg-primary-purple-600'
-						>
-							PDF
-						</button>
 					</div>
 				)}
 			</div>
@@ -135,14 +164,55 @@ export const GenericTableHeaders = ({
 		return (
 			<button onClick={onSplit}>
 				<div
-					className={`${split && 'ring ring-neutrals-50'
-						} w-[40px] h-[40px] flex items-center justify-center hover:ring hover:ring-neutrals-50 rounded-full `}
+					className={`${
+						split && 'ring ring-neutrals-50'
+					} w-[40px] h-[40px] flex items-center justify-center hover:ring hover:ring-neutrals-50 rounded-full `}
 				>
 					<div
-						className={`${split && 'bg-primary-purple-200'
-							} w-[32px] h-[32px] flex items-center justify-center hover:bg-primary-purple-200 rounded-full`}
+						className={`${
+							split && 'bg-primary-purple-200'
+						} w-[32px] h-[32px] flex items-center justify-center hover:bg-primary-purple-200 rounded-full`}
 					>
 						<SplitIcon fill={`${split ? '#000' : '#fff'}`} />
+					</div>
+				</div>
+			</button>
+		);
+	};
+
+	const renderExpandIcon = () => {
+		return (
+			<button onClick={onExpand}>
+				<div
+					className={`${
+						expand && 'ring ring-neutrals-50'
+					} w-[40px] h-[40px] flex items-center justify-center hover:ring hover:ring-neutrals-50 rounded-full `}
+				>
+					<div
+						className={`${
+							expand && 'bg-primary-purple-200'
+						} w-[32px] h-[32px] flex items-center justify-center hover:bg-primary-purple-200 rounded-full`}
+					>
+						<ExpandIcon />
+					</div>
+				</div>
+			</button>
+		);
+	};
+	const renderCloseIcon = () => {
+		return (
+			<button onClick={onClose}>
+				<div
+					className={`${
+						close && 'ring ring-neutrals-50'
+					} w-[40px] h-[40px] flex items-center justify-center hover:ring hover:ring-neutrals-50 rounded-full `}
+				>
+					<div
+						className={`${
+							close && 'bg-primary-purple-200'
+						} w-[32px] h-[32px] flex items-center justify-center hover:bg-primary-purple-200 rounded-full`}
+					>
+						<CloseIcon />
 					</div>
 				</div>
 			</button>
@@ -152,18 +222,28 @@ export const GenericTableHeaders = ({
 	return (
 		<div className='h-[50px] flex justify-between items-center mb-5 px-[1rem]'>
 			<div className='flex items-center gap-5'>
-				{headers?.map((header) => {
-					return header.type === 'filter' && !split
-						? renderFilters(header)
-						: header.type === 'select' && !split
-							? renderSelect(header)
-							: header.type === 'slide' && renderSlider(header);
-				})}
+				{!isDetailHeaders && headers
+					? headers?.map(header => {
+							return header.type === 'filter' && !split
+								? renderFilters(header)
+								: header.type === 'select' && !split
+								? renderSelect(header)
+								: header.type === 'slide' && renderSlider(header);
+					  })
+					: isDetailHeaders && (
+							<div className='flex items-center gap-2 text-neutrals-50'>
+								<h4 className='mr-4'>{detailHeadersTitle || 'Title'}</h4>
+								<span className='h-[24px] w-1 border-r border-r-primary-purple-50 border-dashed'></span>
+								<p className='ml-4 text-xs'>{detailHeaderItem || 'Item'}</p>
+							</div>
+					  )}
 			</div>
 			<div className='flex items-center  gap-3'>
 				{withShare && renderShare()}
 				{withDownload && renderDownload()}
-				{withSplit && renderSplit()}
+				{!isDetailHeaders && withSplit && renderSplit()}
+				{withExpand && renderExpandIcon()}
+				{isDetailHeaders && renderCloseIcon()}
 			</div>
 		</div>
 	);

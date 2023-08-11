@@ -10,6 +10,7 @@ const HeaderDropdown = ({
 	items,
 }) => {
 	const [selectedItem, setSelectedItem] = useState(placeholder);
+	const [toggleHeader, setToggleHeader] = useState(false);
 
 	const handleSelectItem = item => {
 		setSelectedItem(item);
@@ -23,7 +24,7 @@ const HeaderDropdown = ({
 			} relative h-[36px] flex items-center px-5  rounded-md border-2 border-transparent hover:border-2 hover:border-primary-purple-600 hover:bg-dark-accent-00`}
 		>
 			<button
-				onClick={() => onAction(!action)}
+				onClick={() => setToggleHeader(prev => !prev)}
 				className='flex items-center gap-4 font-baloo text-sm leading-5 text-neutrals-50 '
 			>
 				{isIcon ? (
@@ -37,7 +38,7 @@ const HeaderDropdown = ({
 					</>
 				)}
 			</button>
-			{action && (
+			{toggleHeader && (
 				<div
 					className={`${
 						isIcon ? 'whitespace-nowrap' : 'w-full'

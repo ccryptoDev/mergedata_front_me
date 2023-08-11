@@ -1,4 +1,4 @@
-table {
+table.genericTable {
 	width: 100%;
 	border-collapse: collapse;
 	padding: 1rem;
@@ -8,47 +8,46 @@ table {
 	margin: 0 auto;
 	overflow: scroll;
 }
-thead {
+thead.genericTable_tableHead {
 	position: sticky;
 	top: 0;
 	background-color: #212a43;
 }
-td,
-th {
+td.genericTable_tableData,
+th.genericTable_tableHeader {
 	/* margin: 0 1rem; */
 	padding: 0 1rem;
 	font-size: 1rem;
 	font-weight: 800;
 	line-height: 24px;
 }
-tr {
+tr.genericTable_tableRow {
 	height: 54px;
 }
-td {
+td.genericTable_tableData {
 	font-size: 14px;
 	font-weight: 400;
 }
-tr:nth-child(even) {
+tr.genericTable_tableRow:nth-child(even) {
 	background-color: rgba(0, 0, 0, 0.11);
 }
-td:first-child,
-th:first-child {
+td.genericTable_tableData:first-child,
+th.genericTable_tableHeader:first-child {
 	border-radius: 12px 0 0 12px;
 	text-align: left;
 	white-space: nowrap;
 }
-td:last-child,
-th:last-child {
+td.genericTable_tableData:last-child,
+th.genericTable_tableHeader:last-child {
 	border-radius: 0 12px 12px 0;
 }
-tr:hover {
+tr.genericTable_tableRow:hover {
 	background-color: #35257a;
-	cursor: pointer;
 }
-.title-cell {
+td.title_cell {
 	font-weight: 700;
 }
-.variance-cell {
+.variance_cell {
 	height: 48px;
 	display: flex;
 	margin-right: -12px;
@@ -59,18 +58,18 @@ tr:hover {
 	border-radius: 12px;
 	color: #c2c8d7;
 }
-tr.total-row {
+tr.genericTable_tableRow.total_row {
 	position: sticky;
 	width: inherit;
 	bottom: 0;
 	background-color: #505a78;
 }
-tr.total-row td {
+tr.genericTable_tableRow.total_row td.genericTable_tableData {
 	font-weight: 700;
 }
-.table-header:hover {
+.table_header:hover {
 	background-color: #212a43;
 }
-.total-row:hover {
+.total_row:hover {
 	background-color: #505a78;
 }

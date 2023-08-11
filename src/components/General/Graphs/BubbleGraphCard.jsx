@@ -84,13 +84,9 @@ const getLabel2 = ({ quantity, name }) => {
 	}
 };
 
-export default function BubbleGraphCard({
-	iconName = 'ArrowFatUpDown',
-	width = 'w-[544px]',
-	height = 'h-[361px]',
-}) {
+export default function BubbleGraphCard({ iconName = 'ArrowFatUpDown' }) {
 	return (
-		<div className={`${width} ${height} bg-[#212A43] rounded-[16px] pt-6 pl-8`}>
+		<div className={` bg-[#212A43] rounded-[16px] pt-6 pl-8`}>
 			<div className='w-[152px] h-[60px] flex flex-col'>
 				<div className='w-[150px] h-[32px] flex flex-row items-center justify-start'>
 					<p className='text-[#FFFFFF] font-baloo font-bold text-2xl pr-2'>

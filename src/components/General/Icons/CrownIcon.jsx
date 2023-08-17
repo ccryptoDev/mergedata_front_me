@@ -1,0 +1,8 @@
+const SvgComponent = props => (
+    <svg width="24" height="23" viewBox="0 0 24 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0.429688 19.9999H23.2868V22.2856H0.429688V19.9999ZM0.429688 3.99986L6.14397 7.99986L11.8583 0.571289L17.5725 7.99986L23.2868 3.99986V17.7141H0.429688V3.99986ZM2.7154 8.38957V15.4284H21.0011V8.38957L17.0925 11.1256L11.8583 4.31986L6.62397 11.1256L2.7154 8.38843V8.38957Z" fill="white"/>
+    </svg>
+    
+);
+
+export default SvgComponent;

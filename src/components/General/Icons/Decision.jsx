@@ -1,6 +1,8 @@
 import TargetIcon from '@/components/General/Icons/TargetIcon';
 import HomeIcon from '@/components/General/Icons/HomeIcon';
+import CalendarIcon from '@/components/General/Icons/CalendarIcon';
 import CheckIcon from '@/components/General/Icons/CheckIcon';
+import PurpleCheckIcon from '@/components/General/Icons/PurpleCheckIcon';
 import RightArrowIcon from '@/components/General/Icons/RightArrowIcon';
 import LeftArrowIcon from '@/components/General/Icons/LeftArrowIcon';
 import SaveIcon from '@/components/General/Icons/SaveIcon';
@@ -44,12 +46,17 @@ import LargeFlameIcon from '@/components/General/Icons/LargeFlameIcon';
 import DivideIcon from '@/components/General/Icons/DivideIcon';
 import ReturnIcon from '@/components/General/Icons/ReturnIcon';
 import HeartLgIcon from '@/components/General/Icons/HeartLgIcon';
+import HeartIcon from '@/components/General/Icons/HeartIcon';
 import CrownShadowIcon from '@/components/General/Icons/CrownShadowIcon';
 import CrownSmIcon from '@/components/General/Icons/CrownSmIcon';
+import CrownIcon from '@/components/General/Icons/CrownIcon';
+import GraphIcon from '@/components/General/Icons/GraphIcon';
+import GrowthIcon from '@/components/General/Icons/GrowthIcon';
 import Gallery4SquaresIcon from '@/components/General/Icons/Gallery4SquaresIcon';
 import BlueStarIcon from '@/components/General/Icons/BlueStarIcon';
 import BlueTaskIcon from '@/components/General/Icons/BlueTaskIcon';
 import ThreeDotsIcon from '@/components/General/Icons/ThreeDotsIcon';
+import ThreeDotsHorIcon from '@/components/General/Icons/ThreeDotsHorIcon';
 import ProfilePlusIcon from '@/components/General/Icons/ProfilePlusIcon';
 import CopyIcon from '@/components/General/Icons/CopyIcon';
 import PrivateIcon from '@/components/General/Icons/PrivateIcon';
@@ -59,20 +66,27 @@ import DeleteIcon from '@/components/General/Icons/DeleteIcon';
 import AwardIcon from '@/components/General/Icons/AwardIcon';
 import CameraIcon from '@/components/General/Icons/CameraIcon';
 import CommunicationGlobeIcon from '@/components/General/Icons/CommunicationGlobeIcon';
+import CommunicationGlobeIcon2 from '@/components/General/Icons/CommunicationGlobeIcon2';
 import PieGraphIcon from '@/components/General/Icons/PieGraphIcon';
 import NoteIcon from '@/components/General/Icons/NoteIcon';
 import SmBotIcon from '@/components/General/Icons/SmBotIcon';
 import CheckBoxOffIcon from '@/components/General/Icons/CheckBoxOffIcon';
 import CheckBoxOnIcon from '@/components/General/Icons/CheckBoxOnIcon';
+import NextArrowIcon from '@/components/General/Icons/NextArrowIcon';
+import PrevArrowIcon from '@/components/General/Icons/PrevArrowIcon';
+import QuickChatCounterIcon from '@/components/General/Icons/QuickChatCounterIcon'
+import PurpleNoteIcon from '@/components/General/Icons/PurpleNoteIcon';
 
 const Decision = ({ name }) => {
 
     if (name === 'Target') return <TargetIcon />;
     if (name === 'Home') return <HomeIcon />;
     if (name === 'Check') return <CheckIcon />;
+    if (name === 'PurpleCheck') return <PurpleCheckIcon />;
     if (name === 'RightArrow') return <RightArrowIcon />;
     if (name === 'LeftArrow') return <LeftArrowIcon />;
     if (name === 'Save') return <SaveIcon />;
+    if (name === 'Calendar') return <CalendarIcon />;
     if (name === 'ArrowDown') return <ArrowDownIcon />;
     if (name === 'DownRedArrowSm') return <DownRedArrowSmIcon />;
     if (name === 'UpGreenArrowSm') return <UpGreenArrowSmIcon />;
@@ -112,13 +126,16 @@ const Decision = ({ name }) => {
     if (name === 'Divide') return <DivideIcon />;
     if (name === 'Return') return <ReturnIcon />;
     if (name === 'HeartLg') return <HeartLgIcon />;
+    if (name === 'Heart') return <HeartIcon />;
     if (name === 'DownRedArrow') return <DownRedArrowIcon />;
     if (name === 'CrownShadow') return <CrownShadowIcon />;
     if (name === 'CrownSm') return <CrownSmIcon />;
+    if (name === 'Crown') return <CrownIcon />;
+    if (name === 'Graph') return <GraphIcon />;
+    if (name === 'Growth') return <GrowthIcon />;
     if (name === 'Gallery4Squares') return <Gallery4SquaresIcon />;
     if (name === 'BlueStar') return <BlueStarIcon />;
     if (name === 'BlueTask') return <BlueTaskIcon />;
-    if (name === 'ThreeDots') return <ThreeDotsIcon />;
     if (name === 'ProfilePlus') return <ProfilePlusIcon />;
     if (name === 'Copy') return <CopyIcon />;
     if (name === 'Private') return <PrivateIcon />;
@@ -129,7 +146,6 @@ const Decision = ({ name }) => {
     if (name === 'Award') return <AwardIcon />;
     if (name === 'Target') return <TargetIcon />;
     if (name === 'Home' || name === 'Store') return <HomeIcon />;
-    if (name === 'Check') return <CheckIcon />;
     if (name === 'RightArrow') return <RightArrowIcon />;
     if (name === 'LeftArrow') return <LeftArrowIcon />;
     if (name === 'Save') return <SaveIcon />;
@@ -150,7 +166,6 @@ const Decision = ({ name }) => {
     if (name === 'Flame') return <FlameIcon />;
     if (name === 'LargeFlame') return <LargeFlameIcon />;
     if (name === 'Chat') return <ChatIcon />;
-    if (name === 'DoubleArrowVertical') return <DoubleArrowVerticalIcon />;
     if (name === 'Expand') return <ExpandIcon />;
     if (name === 'Share') return <ShareIcon />;
     if (name === 'ShareSm') return <ShareSmIcon />;
@@ -168,7 +183,6 @@ const Decision = ({ name }) => {
     if (name === 'ThumbMd') return <ThumbMdIcon />;
     if (name === 'Divide') return <DivideIcon />;
     if (name === 'Return') return <ReturnIcon />;
-    if (name === 'HeartLg') return <HeartLgIcon />;
     if (name === 'DownRedArrow') return <DownRedArrowIcon />;
     if (name === 'CrownShadow') return <CrownShadowIcon />;
     if (name === 'CrownSm') return <CrownSmIcon />;
@@ -176,6 +190,7 @@ const Decision = ({ name }) => {
     if (name === 'BlueStar') return <BlueStarIcon />;
     if (name === 'BlueTask') return <BlueTaskIcon />;
     if (name === 'ThreeDots') return <ThreeDotsIcon />;
+    if (name === 'ThreeDotsHor') return <ThreeDotsHorIcon />;
     if (name === 'ProfilePlus') return <ProfilePlusIcon />;
     if (name === 'Copy') return <CopyIcon />;
     if (name === 'Private') return <PrivateIcon />;
@@ -186,9 +201,13 @@ const Decision = ({ name }) => {
     if (name === 'Note') return <NoteIcon />;
     if (name === 'SmBot') return <SmBotIcon />;
     if (name === 'CommunicationGlobe') return <CommunicationGlobeIcon />;
+    if (name === 'CommunicationGlobe2') return <CommunicationGlobeIcon2 />;
     if (name === 'CheckBoxOff') return <CheckBoxOffIcon />;
     if (name === 'CheckBoxOn') return <CheckBoxOnIcon />;
-
+    if (name === 'NextArrow') return <NextArrowIcon />;
+    if (name === 'PrevArrow') return <PrevArrowIcon />;
+    if (name === 'QuickChatCounter') return <QuickChatCounterIcon />;
+    if (name === 'PurpleNote') return <PurpleNoteIcon />;
 
 	return null;
 };

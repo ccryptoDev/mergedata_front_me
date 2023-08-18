@@ -1,0 +1,16 @@
+const SvgComponent = props => (
+
+    <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g clipPath="url(#clip0_8375_12811)">
+            <path d="M11.8928 9.36945L10.9639 10.2983L13.9812 13.3222L10.9639 16.3461L11.8928 17.275L15.8455 13.3222L11.8928 9.36945Z" fill="#C2C8D7" />
+        </g>
+        <defs>
+            <clipPath id="clip0_8375_12811">
+                <rect x="0.228516" y="0.146301" width="26.3518" height="26.3518" rx="13.1759" fill="white" />
+            </clipPath>
+        </defs>
+    </svg>
+
+);
+
+export default SvgComponent;

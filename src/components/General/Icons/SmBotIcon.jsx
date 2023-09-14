@@ -14,30 +14,30 @@ const SvgComponent = props => (
 <path d="M13.5509 8.91146C13.4985 8.15119 12.8236 7.31977 12.0648 7.3721C11.306 7.42442 10.7517 8.34059 10.8041 9.10086C10.8565 9.86113 11.4799 9.94637 12.2387 9.89405C12.9975 9.84172 13.6033 9.67173 13.5509 8.91146Z" fill="url(#paint5_linear_4430_313710)"/>
 <defs>
 <linearGradient id="paint0_linear_4430_313710" x1="5.20047" y1="9.09725" x2="23.4839" y2="7.83655" gradientUnits="userSpaceOnUse">
-<stop stop-color="#F2EBFF"/>
-<stop offset="0.04" stop-color="#F5F0FF"/>
-<stop offset="0.14" stop-color="#FCFBFF"/>
-<stop offset="0.25" stop-color="white"/>
+<stop stopColor="#F2EBFF"/>
+<stop offset="0.04" stopColor="#F5F0FF"/>
+<stop offset="0.14" stopColor="#FCFBFF"/>
+<stop offset="0.25" stopColor="white"/>
 </linearGradient>
 <linearGradient id="paint1_linear_4430_313710" x1="6.57547" y1="9.00253" x2="22.713" y2="7.88979" gradientUnits="userSpaceOnUse">
-<stop stop-color="#EAE1FC"/>
-<stop offset="1" stop-color="#E6E5FD"/>
+<stop stopColor="#EAE1FC"/>
+<stop offset="1" stopColor="#E6E5FD"/>
 </linearGradient>
 <linearGradient id="paint2_linear_4430_313710" x1="8.80498" y1="8.8487" x2="20.4789" y2="8.04374" gradientUnits="userSpaceOnUse">
-<stop stop-color="#2A5DE6"/>
-<stop offset="1" stop-color="#3A2AE6"/>
+<stop stopColor="#2A5DE6"/>
+<stop offset="1" stopColor="#3A2AE6"/>
 </linearGradient>
 <linearGradient id="paint3_linear_4430_313710" x1="20.48" y1="8.04408" x2="8.80606" y2="8.84904" gradientUnits="userSpaceOnUse">
-<stop stop-color="#23AA92"/>
-<stop offset="1" stop-color="#7A4BD8"/>
+<stop stopColor="#23AA92"/>
+<stop offset="1" stopColor="#7A4BD8"/>
 </linearGradient>
 <linearGradient id="paint4_linear_4430_313710" x1="16.2239" y1="8.85686" x2="18.9707" y2="8.66746" gradientUnits="userSpaceOnUse">
-<stop stop-color="#F2EBFF"/>
-<stop offset="1" stop-color="#F7F5FF"/>
+<stop stopColor="#F2EBFF"/>
+<stop offset="1" stopColor="#F7F5FF"/>
 </linearGradient>
 <linearGradient id="paint5_linear_4430_313710" x1="10.7952" y1="8.97186" x2="13.542" y2="8.78245" gradientUnits="userSpaceOnUse">
-<stop stop-color="#F2EBFF"/>
-<stop offset="1" stop-color="#F7F5FF"/>
+<stop stopColor="#F2EBFF"/>
+<stop offset="1" stopColor="#F7F5FF"/>
 </linearGradient>
 </defs>
 </svg>

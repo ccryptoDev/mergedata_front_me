@@ -15,24 +15,23 @@ const [showItems, setShowItems] = useState(false);
 
     return (
         <div className='flex flex-col'>
-            <div className='w-[1055px] h-[52px] bg-[#13132D] flex flex-row items-center space-between pl-[14px] rounded-t-lg'>
+            <div className='w-[1055px] h-[52px] bg-[#13132D] flex flex-row items-center space-between pl-[14px] rounded-t-2xl '>
                 <p className='flex flex-row items-center space-between text-[16px] font-[800px] font-baloo leading-[19px] text-[#907BE7] mr-1'>
                     #Sales GPRU Task 01 -03022023
                 </p>
                 <Decision name='ArrowDown' />
-                <p className='text-xs text-[#fff] ml-2 mr-[50px]'>Salesperson GPRU dropped by more than 20% this week.</p>
+                <p className='text-xs text-[#fff] opacity-70 ml-2 mr-[50px]'>Salesperson GPRU dropped by more than 20% this week.</p>
                 <div className='w-[316px] h-[34px] flex flex-row items-center justify-between gap-x-3 px-2'>
-                    <button className='w-[100px] h-[26px] rounded-[4px] bg-[#FC9905] flex flex-row items-center justify-center text-[#fff] text-[14px] font-baloo font-[800px] bg-[#13132D]'>
+                    <button className='w-[100px] h-[26px] rounded-[4px] flex flex-row items-center justify-center text-[#fff] text-[14px] font-baloo font-[800px] bg-gradient-to-r from-[#F1C300] to-[#EE7302]'>
                         <p className='text-[#fff] font-baloo'>On Going</p>
                     </button>
-                    <button className='w-[77px] h-[26px] rounded-[4px] bg-[#4832A6] flex flex-row items-center justify-center text-[#fff] text-[14px] font-baloo font-[800px] bg-[#13132D]'>
+                    <button className='w-[77px] h-[26px] rounded-[4px] flex flex-row items-center justify-center text-[#fff] text-[14px] font-baloo font-[800px] bg-[#4832A6]'>
                         <p className='text-[#fff] font-baloo'>Private</p>
                     </button>
                     <div className='w-12 h-5 flex flex-row'>
-                        <img src={photo_4} alt='photo_1' className='w-full h-full' />
-                        <img src={photo_3} alt='photo_1' className='w-full h-full ml-[-6px]' />
-                        <img src={photo_2} alt='photo_1' className='w-full h-full ml-[-6px]' />
-                        <img src={photo_1} alt='photo_1' className='w-full h-full ml-[-6px]' />
+                        <img src={photo_3} alt='photo_1' className='w-full h-full ml-[-6px] border border-[#000000]' />
+                        <img src={photo_2} alt='photo_1' className='w-full h-full ml-[-6px] border border-[#000000]' />
+                        <img src={photo_1} alt='photo_1' className='w-full h-full ml-[-6px] border border-[#000000]' />
                     </div>
                     <p className='text-[#EFECFC] text-xs'>+4</p>
                     <Decision name='ProfilePlus' />

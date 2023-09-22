@@ -1,6 +1,9 @@
 import photo_1 from '@/assets/svg/photo_1.svg'
 import photo_2 from '@/assets/svg/photo_2.svg'
 import photo_8 from '@/assets/svg/photo_8.svg'
+import excelAttachment from '@/assets/svg/excelAttachment.svg';
+import threeBullets from '@/assets/svg/threeBullets.svg'
+import threeIcons from '@/assets/svg/threeIcons.svg'
 import squaredBot from '@/assets/svg/squaredBot.svg'
 import TaskStatus from '@/components/General/MergeChat/TaskStatus'
 
@@ -14,26 +17,50 @@ export default function MessageBody() {
     ]
 
     return (
-        <div className='w-[1055px] h-[544px] bg-[#0D102C] flex flex-col items-start justify-start pl-[14px] px-[18px] gap-y-[10px]'>
-            { chat.map((item) => (
-                <div key={item.id} className='flex flex-row w-[1019px] h-auto'>
-                    <div className='w-8 h-full'>
-                        <img src={item.avatar} alt='' className='w-8 h-8 object-cover rounded' />
+        <div className=''>
+            <div className='w-[1055px] h-[520px] bg-[#0D102C] flex flex-col items-start justify-start pl-[14px] px-[18px] gap-y-[3px]'>
+                {chat.map((item) => (
+                    <div key={item.id} className='flex flex-row w-[1019px] h-auto'>
+                        <div className='w-8 h-full'>
+                            <img src={item.avatar} alt='' className='w-8 h-8 object-cover rounded' />
+                        </div>
+                        <div className='w-full h-full flex flex-col'>
+                            <div className='w-full h-4 flex flex-row items-center justify-start leading-[12px] mb-[3px]'>
+                                <p className='text-[#FFFFFF] text-[13px] font-extrabold font-baloo leading-[22px] pl-2'>{item.name}</p>
+                                <p className='text-[#EFECFC] text-[11px] font-medium font-baloo leading-[22px] pl-2'>12:45</p>
+                            </div>
+                            <div className='w-full'>
+                                <p className='text-[#EFECFC] text-[14px] leading-[22px] pl-2 opacity-70'>
+                                    {item.message}
+                                </p>
+                            </div>
+                            {item.attachment}
+                        </div>
                     </div>
-                    <div className='w-full h-full flex flex-col'>
-                        <div className='w-full h-4 flex flex-row items-center justify-start leading-[12px] mb-[3px]'>
-                            <p className='text-[10px] text-[#FFFFFF] text-[13px] font-extrabold font-baloo leading-[22px] pl-2'>{item.name}</p>
-                            <p className='text-[10px] text-[#EFECFC] text-[11px] font-medium font-baloo leading-[22px] pl-2 leading-[10px]'>12:45</p>
+                ))}
+            </div>
+            <div className="bg-[#0D102C] pl-16 flex flex-row h-[36px]">
+                <img src={excelAttachment} alt="excel-attachment" />
+                <div className="flex flex-col">
+                    <p className="text-[#EFECFC] text-[13px] font-medium font-baloo leading-[22px] pl-2">Patrick_Starr_notes_on_new_salespersons.xlsx</p>
+                    <p className="text-[#EFECFC] opacity-70 text-[11px] font-medium font-baloo leading-[22px] pl-2">Last edited just 11/24/2022</p>
+                </div>
+            </div>
+            <div className='w-[1055px] h-[90px] bg-[#0D102C] rounded-b-2xl flex items-center justify-center'>
+                <div className='w-[1019px] h-[64px]'>
+                    <div className='h-[38px]  bg-[#05081E] flex items-center justify-start'>
+                        <p className='text-[#EFECFC] font-[500px] text-[13px] opacity-70'>Message #GRPU-Task-03022023</p>
+                    </div>
+                    <div className='h-[26px] flex items-center justify-between px-2 '>
+                        <div className='w-[70px] h-[14px] '>
+                            <img src={threeBullets} />
                         </div>
-                        <div className='w-full'>
-                            <p className='text-[10px] text-[#EFECFC] text-[14px] leading-[22px] pl-2'>
-                                {item.message}
-                            </p>
+                        <div className='w-[70px] h-[14px] '>
+                            <img src={threeIcons} />
                         </div>
-                        {item.attachment}
                     </div>
                 </div>
-            ))}
+            </div>
         </div>
     )
 }

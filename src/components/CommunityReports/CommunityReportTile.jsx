@@ -34,7 +34,7 @@ const CommunityReportTile = ({ withInfoIcon = true, report, handleClick }) => {
 			</div>
 
 			<div className='flex justify-between items-center gap-2'>
-				<InitialsCircle firstName={report?.createdBy?.split(' ')[0] || 'Roger'} lastName={report?.createdBy?.split(' ')[1] || 'Garcia'} />
+				<InitialsCircle firstName={report?.createdBy[0] || 'Roger'} lastName={report?.createdBy[1] || 'Garcia'} />
 				<div className='text-xs'>
 					<p className='text-primary-purple-50 font-bold'>Created On:</p>
 					<p className='text-xs text-primary-purple-200'>{report?.createdOn?.split('T')[0] || '06/07/2023'}</p>

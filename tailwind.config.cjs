@@ -1,4 +1,3 @@
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
 	content: [
@@ -6,7 +5,6 @@ module.exports = {
 		'./src/**/*.{js,jsx}',
 		'node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}',
 	],
-
 	theme: {
 		colors: {
 			primary: {
@@ -49,13 +47,16 @@ module.exports = {
 				'background-00': '#202F49',
 				'accent-00': '#161A3E',
 				'popup-00': '#0D102C',
+				'accent-dark': '#05081E',
+			},
+			background: {
+				'dark-background': '#202449',
 			},
 			light: {
 				'background-00': '#EDF0F5',
 				'accent-00': '#FFFFFF',
 				'popup-00': '#FFFFFF',
 			},
-
 		},
 		fontFamily: {
 			baloo: 'Baloo, sans-serif',
@@ -63,10 +64,10 @@ module.exports = {
 		},
 		extend: {
 			screens: {
-				'tall': { 'raw': '(max-height: 820px)' },
-				'md': '768px',
-				'lg': '1024px',
-				'xl': '1280px',
+				tall: { raw: '(max-height: 820px)' },
+				md: '768px',
+				lg: '1024px',
+				xl: '1280px',
 				'2xl': '1440px',
 				'3xl': '1536px',
 				'4xl': '1920px',

@@ -1,9 +1,10 @@
 {
-    "compilerOptions": {
-        "baseUrl": ".",
-        "paths": {
-            "@/*": ["./src/*"]
-        }
-    }, 
-    "include": ["src", "src/components/General/PredictiveAI/.jsx"]
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"@/*": ["./src/*"],
+			"@store*": ["./src/store*"]
+		}
+	},
+	"include": ["src", "src/components/General/PredictiveAI/.jsx"]
 }

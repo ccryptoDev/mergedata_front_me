@@ -18,7 +18,6 @@ export default function AssignAnOwnerSelection() {
 
     const onChangeSearch = (e) => {
         setSearchText(e.target.value);
-        { console.log(searchText) }
     };
 
     const [searchText, setSearchText] = useState('');

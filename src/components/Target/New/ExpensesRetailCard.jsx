@@ -2,15 +2,17 @@ import download from '@/assets/svg/download.svg';
 import line from '@/assets/svg/line.svg';
 import vector from '@/assets/svg/vector.svg';
 
-const ExpensesRetailCard = () => {
+const ExpensesRetailCard = ({ onClick }) => {
+
     return (
-        <div className="w-[608px] h-[665px] flex flex-col items-start p-5 gap-2.5 rounded-2xl bg-[#202449]">
+        
+        <div className="w-[612px] h-[665px] flex flex-col items-start p-5 gap-2 rounded-2xl bg-neutrals-900 " >
             <div className="flex flex-col items-start gap-2.5 w-[568px] h-[510px]">
-                <div className="flex flex-row items-start gap-6 w-[568px] h-[54px] pr-5">
-                    <button className="w-[33px] h-[33px] flex items-center justify-center">
+                <div className="flex flex-row items-start gap-2 w-[574px] h-[54px] ">
+                    <button className="w-[33px] h-[33px] flex items-center justify-center mr-2">
                         <img src={download} className="w-[20px] h-[20px]" />
                     </button>
-                    <div className="flex flex-row justify-between items-center gap-6 w-[512px] h-[54px]">
+                    <div className="flex flex-row justify-between items-center gap-2 w-[470px] h-[54px]">
                         <div className="flex flex-col justify-center items-start w-[70px] h-[54px]">
                             <span className="w-[60px] h-[18px] text-xs text-white">Expenses</span>
                             <span className="w-[70px] h-[36px] font-baloo font-bold text-2xl flex items-center text-white">Retail</span>
@@ -26,6 +28,11 @@ const ExpensesRetailCard = () => {
                             </div>
                         </div>
                     </div>
+                    <button 
+                    onClick={onClick}
+                    className="w-[48px] h-[48px] flex justify-center items-center hover:bg-purple-300 transition duration-100 delay-150 hover:delay-300 hover:border-purple-100 rounded-full hover:outline-offset-4 hover:opacity-50 ">
+                        <img src={vector} />
+                    </button>
                 </div>
                 <div className="flex flex-col items-center py-3 px-4 gap-4 w-[568px] h-[142px] bg-[#161A3E] rounded-xl">
                     <div className="flex flex-row items-start gap-11 w-[536px] h-[40px]">
@@ -145,9 +152,6 @@ const ExpensesRetailCard = () => {
                     </div>
                 </div>
             </div>
-            <button className="absolute pt-[-15px] pr-2 pl-[560px]">
-                <img src={vector} />
-            </button>
         </div>
     );
 }

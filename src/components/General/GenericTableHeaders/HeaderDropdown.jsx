@@ -4,7 +4,7 @@ import ArrowDownIcon from '@/components/General/Icons/ArrowDownIcon';
 const HeaderDropdown = ({
 	isIcon,
 	icon,
-	placeholder = 'MTD',
+	placeholder = 'YTD',
 	onAction,
 	action,
 	items,
@@ -19,9 +19,8 @@ const HeaderDropdown = ({
 
 	return (
 		<div
-			className={`${
-				action ? 'bg-primary-purple-800' : 'bg-[#3E4761]'
-			} relative h-[36px] flex items-center px-5  rounded-md border-2 border-transparent hover:border-2 hover:border-primary-purple-600 hover:bg-dark-accent-00`}
+			className={`${action ? 'bg-primary-purple-800' : 'bg-[#3E4761]'
+				} relative h-[36px] flex items-center px-5  rounded-md border-2 border-transparent hover:border-2 hover:border-primary-purple-600 hover:bg-dark-accent-00`}
 		>
 			<button
 				onClick={() => setToggleHeader(prev => !prev)}
@@ -40,17 +39,15 @@ const HeaderDropdown = ({
 			</button>
 			{toggleHeader && (
 				<div
-					className={`${
-						isIcon ? 'whitespace-nowrap' : 'w-full'
-					} absolute top-[40px] left-0 flex flex-col gap-2 p-2 text-neutrals-50  bg-[#05081E] rounded-md z-30`}
+					className={`${isIcon ? 'whitespace-nowrap' : 'w-full'
+						} absolute top-[40px] left-0 flex flex-col gap-2 p-2 text-neutrals-50  bg-[#05081E] rounded-md z-30`}
 				>
 					{items.map(item => (
 						<button
 							key={item.value}
 							onClick={() => handleSelectItem(item.value)}
-							className={`${
-								selectedItem === item.name && 'bg-primary-purple-600'
-							} p-2 text-left text-xs rounded-md hover:bg-primary-purple-600`}
+							className={`${selectedItem === item.name && 'bg-primary-purple-600'
+								} p-2 text-left text-xs rounded-md hover:bg-primary-purple-600`}
 						>
 							{item.name}
 						</button>

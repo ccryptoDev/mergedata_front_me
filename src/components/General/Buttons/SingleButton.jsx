@@ -9,11 +9,12 @@ const SingleButton = ({
     height = 'h-[50px]',
     backgroundHover = 'hover:bg-neutrals-900 transition duration-300 delay-150 hover:delay-300',
     borderHover = 'hover:border-purple-600',
-    radius = 'rounded-xl'
+    radius = 'rounded-xl',
+    onClick,
 
 }) => {
     return (
-        <button className={`${background} ${width} ${height} ${border} flex items-center justify-center shadow-[0_13px_25px_-13px_rgba(0,0,0,0.48)] ${backgroundHover} ${borderHover} hover:delay-250 transition duration-500 ${radius}`}>
+        <button onClick={onClick} className={`${background} ${width} ${height} ${border} flex items-center justify-center shadow-[0_13px_25px_-13px_rgba(0,0,0,0.48)] ${backgroundHover} ${borderHover} hover:delay-250 transition duration-500 ${radius}`}>
             <div className='w-6 h-6 flex justify-center items-center'>
                 <IconSelected name={icon} />
             </div>

@@ -1,11 +1,6 @@
-import ReportsContext from '@/context/ReportsProvider';
+import { useEffect } from 'react';
 
-import {
-	formatReportsTable,
-	periodDate,
-	typePeriod,
-} from '@/utils/helperFunctions';
-import { useContext, useEffect } from 'react';
+import { useReportData } from '@/hooks/useReportData';
 import DetailTotalRow from './DetailTotalRow';
 import styles from './DetailTable.module.css';
 
@@ -20,49 +15,14 @@ const DetailTableTier2 = ({
 	setFormattedReport,
 	getTier2Data,
 }) => {
-	const { section, stores, storesSelected, report, target } =
-		useContext(ReportsContext);
-
-	const formatReport = async () => {
-		const sectionName = section?.name || 'Community';
-		const reportName = lineInfo?.name || 'Misc/DOC';
-
-		const timelapse = 'MTD'; // MTD or YTD
-		const storesNames = [];
-		for (let i = 0; i < stores.length; i++) {
-			if (storesSelected.includes(stores[i].storeId)) {
-				storesNames.push(stores[i].name);
-			}
-		}
-		const storesName =
-			storesNames?.toString().length <= 16
-				? storesNames?.toString()
-				: 'Multiple';
-		const periodName = periodDate(
-			report?.period,
-			typePeriod(report?.period[0]),
-		);
-		setFormattedReport({
-			...formatReportsTable(lineInfo, false),
-			name: `${sectionName.replace(/\s/g, '_')}-${reportName.replace(
-				/\s/g,
-				'_',
-			)}_${storesName}_${periodName.replace(/\s/g, '_')}`,
-			reportName,
-			timelapse,
-			storesName,
-			periodName,
-			target: target.name,
-		});
-	};
-
+	const { formatReport } = useReportData();
 	const rowsWithoutTotal = withTotal
 		? formattedReport?.rows?.slice(0, -1)
 		: formattedReport?.rows;
 	const totalRow = formattedReport?.rows?.slice(-1);
 
 	useEffect(() => {
-		lineInfo && formatReport();
+		lineInfo && setFormattedReport(formatReport(lineInfo, false));
 	}, [lineInfo]);
 
 	return (

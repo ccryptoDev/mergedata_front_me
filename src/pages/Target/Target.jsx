@@ -1,10 +1,14 @@
-import Dropdown from '@/components/Target/Dropdown';
-import FilterDates from '@/components/Target/FilterDates';
-import CarouselItem from '@/components/Target/CarouselItem';
+import { useContext, useEffect, useState } from 'react';
+import FilterDates from '@/components/Target/FilterDates/FilterDates';
+import Carousel from '@/pages/Target/Carousel';
+import CarouselSlider from '@/components/General/PredictiveAI/CarouselSlider';
 import SharedLayout from '@/components/General/SharedLayout';
 import Card from '@/components/Target/Card';
-import { usePage } from '@/hooks/usePage';
-
+import ReportsContext from '@/context/ReportsProvider';
+import StorePickerDynamic from '@/components/General/StorePicker/StorePickerDynamic';
+import TargetSelector from '@/components/General/TargetSelector/TargetSelector';
+import Decision from '@/components/General/Icons/Decision';
+import { useSubSections } from '@/hooks/useSubSections';
 
 const data1 = [
 	{
@@ -37,157 +41,111 @@ const gradient1 = {
 	start: 'from-purple-900',
 	end: 'to-[#4413A6]',
 	sizeCard: {
-		height: '220px',
-		width: '354px',
+		height: '13.75em',
+		width: '22.12em',
 	},
 };
 
-const data2 = [
-	{
-		variable: 'Units',
-		percentage: '12%',
-		dataValue: '4,146',
-		increase: 'neutral',
-		realValue: 'w-[45%]',
-		targetValue: 'left-[80%]',
-	},
-	{
-		variable: 'Gross',
-		percentage: '21%',
-		dataValue: '$24,1MM',
-		increase: 'up',
-		realValue: 'w-[90%]',
-		targetValue: 'left-[80%]',
-	},
-	{
-		variable: 'PVR',
-		percentage: '4%',
-		dataValue: '5,821',
-		increase: 'down',
-		realValue: 'w-[13%]',
-		targetValue: 'left-[60%]',
-	},
-];
+// const data2 = [
+// 	{
+// 		variable: 'Units',
+// 		percentage: '12%',
+// 		dataValue: '4,146',
+// 		increase: 'neutral',
+// 		realValue: 'w-[45%]',
+// 		targetValue: 'left-[80%]',
+// 	},
+// 	{
+// 		variable: 'Gross',
+// 		percentage: '21%',
+// 		dataValue: '$24,1MM',
+// 		increase: 'up',
+// 		realValue: 'w-[90%]',
+// 		targetValue: 'left-[80%]',
+// 	},
+// 	{
+// 		variable: 'PVR',
+// 		percentage: '4%',
+// 		dataValue: '5,821',
+// 		increase: 'down',
+// 		realValue: 'w-[13%]',
+// 		targetValue: 'left-[60%]',
+// 	},
+// ];
 
-const gradient2 = {
-	start: 'from-[#4413A6]',
-	end: 'to-[#D245E9]',
-	sizeCard: {
-		height: '220px',
-		width: '354px',
-	},
-};
+// const gradient2 = {
+// 	start: 'from-[#4413A6]',
+// 	end: 'to-[#D245E9]',
+// 	sizeCard: {
+// 		height: '13.75em',
+// 		width: '22.12em',
+// 	},
+// };
 
 export default function Target () {
-	const { returnOnePage, moveToPage } = usePage();
-	const items = [
-		{
-			id: 'dd-item-0',
-			name: 'Target 1',
-			click: () => console.log('clicked 1'),
-			selected: false,
-		},
-		{
-			id: 'dd-item-1',
-			name: 'Target 2',
-			click: () => console.log('clicked 2'),
-			selected: false,
-		},
-		{
-			id: 'dd-item-2',
-			name: 'Add Target preset',
-			click: () => moveToPage('/targets/preset'),
-			selected: true,
-		},
-	];
+	useSubSections();
+	const { subSections } = useContext(ReportsContext);
+	const [carouselSession, setCarouselSession] = useState(0);
+	const [moveX, setMoveX] = useState('0em');
+	const swiperPosition = sliderFourSession => {
+		setCarouselSession(sliderFourSession);
+	};
+
+	useEffect(() => {
+		if (carouselSession === 0) {
+			setMoveX('translate-x-[0.1875em]');
+		} else if (carouselSession === 1) {
+			setMoveX('translate-x-[82.2em]');
+		} else if (carouselSession === 2) {
+			setMoveX('translate-x-[164.2em]');
+		} else if (carouselSession === 3) {
+			setMoveX('translate-x-[246.23em]');
+		}
+	}, [carouselSession]);
 
 	return (
-		<SharedLayout>
-			<div className='mt-12 flex flex-col items-center'>
-				<div className='w-[1109px] h-[50px] flex justify-between items-center mb-6'>
-					<Dropdown items={items} />
-					<div className='flex items-center gap-12 uppercase'>
-						<h6 className='text-white py-1 px-3 rounded-2xl hover:bg-neutrals-400 transition-colors duration-700'>
-							Day
-						</h6>
-						<h6 className='text-white py-1 px-3 rounded-2xl hover:bg-neutrals-400 transition-colors duration-700'>
-							Month
-						</h6>
-						<FilterDates />
+		<SharedLayout className='z-0'>
+			<div className='z-10 flex flex-col h-[46.8em] justify-between items-center'>
+				<div className='z-30 relative flex flex-row w-full justify-between items-center'>
+					<TargetSelector addTarget={true} />
+					<FilterDates
+						daySelectorEnabled={true}
+						monthSelectorEnabled={true}
+						yearSelectorEnabled={true}
+					/>
+					<div className='flex flex-row justify-end items-center w-auto h-[3.3em]'>
+						<StorePickerDynamic />
 					</div>
-					<Dropdown name='Home' />
 				</div>
-				<div className='w-[1123px] flex flex-wrap gap-3 justify-between'>
-					<Card
-						title='New'
-						subTitle='na'
-						text='Increased by 29%.'
-						data={data1}
-						gradient={gradient1}
-						typeOfCard={1}
-					/>
-					<Card
-						title='Used'
-						subTitle='na'
-						text='Increased by 82%.'
-						data={data2}
-						gradient={gradient2}
-						typeOfCard={1}
-					/>
-					<Card
-						title='F&I'
-						subTitle='Dollar per copy'
-						text='Increased by 29%.'
-						data={data1}
-						gradient={gradient1}
-						typeOfCard={2}
-					/>
-
-					<Card
-						title='CRM'
-						subTitle='na'
-						text='Increased by 82%.'
-						data={data2}
-						gradient={gradient2}
-						typeOfCard={1}
-					/>
-					<Card
-						title='Website'
-						subTitle='na'
-						text='Increased by 29%.'
-						data={data1}
-						gradient={gradient1}
-						typeOfCard={1}
-					/>
-					<Card
-						title='Service & Parts'
-						subTitle='Dollar per copy'
-						text='Increased by 82%.'
-						data={data2}
-						gradient={gradient2}
-						typeOfCard={2}
-					/>
+				<div className='z-20 relative grid grid-cols-2 lg:grid-cols-3 lg:scale-[1.1]  grid-rows-2 gap-x-[1.5em] gap-y-[1.5em] justify-items-center  h-auto w-auto mt-[2.5em] mb-[1.5em]'>
+					{subSections.map((subSection, index) => (
+						<Card
+							key={index}
+							title={subSection.name}
+							subTitle='na'
+							text='Increased by 29%.'
+							data={data1}
+							gradient={gradient1}
+							typeOfCard={1}
+							subSection={subSection}
+						/>
+					))}
 				</div>
-				<div className='flex w-[1270px] mx-auto justify-between mt-12'>
-					<CarouselItem />
-					<CarouselItem
-						name='advertising'
-						amount='-1305'
-						increase='up'
-						percentage='3'
-					/>
-					<CarouselItem
-						name='F&I PVR'
-						amount='1455'
-						increase='down'
-						percentage='2'
-					/>
-					<CarouselItem
-						name='GAP income'
-						amount='165'
-						increase='up'
-						percentage='15'
-					/>
+				<div className='w-[90.5em] h-[12.5em] flex flex-col justify-center items-center mt-[1.5em] pt-[1.1em] px-[3.125em] pb-[1.5em] gap-y-[0.8em]'>
+					<div className='relative w-[82.5em] px-[0.25em] h-[8em] py-[0.25em] flex flex-row items-center overflow-hidden'>
+						<div
+							className={`absolute top-0 right-0 transform ${moveX} transition duration-1000 delay-100`}
+						>
+							<Carousel />
+						</div>
+					</div>
+					<div className='w-[82em] h-[1.5em] flex flex-row justify-between items-center'>
+						<CarouselSlider swiperPosition={swiperPosition} />
+						<div className='w-[3.75em] h-[1.5em] flex justify-between '>
+							<Decision name='Gallery9Squares' />
+							<Decision name='Nut' />
+						</div>
+					</div>
 				</div>
 			</div>
 		</SharedLayout>

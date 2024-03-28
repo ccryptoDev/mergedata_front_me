@@ -1,34 +1,29 @@
-import { useContext } from 'react';
-
-import ReportsContext from '@/context/ReportsProvider';
-import { useReport } from '@/hooks/useReport';
+import { useDrillDown } from '@/hooks/useDrillDown';
 import { increaseStatus } from '@/utils/helperFunctions';
 import Loader from '@components/General/Loader';
 import './GenericTableStyles.css';
 
+const NON_ACCOUNTING_REPORT = 2;
+const ACCOUNTING_REPORT = 1;
+
 const GenericTable = ({
-	withTotal = true,
 	columns,
 	rows,
 	onReduce,
 	getTier1Data,
 	resetTier2,
+	reportType = ACCOUNTING_REPORT,
 }) => {
-	const { getDrillDown } = useReport();
-	const { report } = useContext(ReportsContext);
-	const rowsWithoutTotal = withTotal ? rows?.slice(0, -1) : rows;
-	const totalRow = rows?.slice(-1);
+	const { getDrillDown } = useDrillDown();
 	const getLine = async data => {
 		const drillDown = await getDrillDown({
 			level: 1,
-			reportLineId: data.id,
-			storeId: report?.storeId,
-			period: report?.period,
+			reportLineId: data.id
 		});
 		getTier1Data(drillDown.data);
 	};
 
-	function varianceCell(cell, index) {
+	function varianceCell (cell, index) {
 		const { icon, textColor } = increaseStatus(cell.split('::')[0]);
 		return (
 			<td key={index} className='genericTable_tableData'>
@@ -56,82 +51,85 @@ const GenericTable = ({
 						</tr>
 					</thead>
 					<tbody>
-						{rowsWithoutTotal?.map((row, index) => (
-							<tr key={`row-${index}`} className='genericTable_tableRow'>
-								{row.style === 'Title' ? (
-									<td
-										key={`line-description-${index}`}
-										className='genericTable_tableData title_cell'
+						{rows?.map((row, index) => {
+							if (row.style === 'Total') {
+								return (
+									<tr
+										key={`row-total-${index}`}
+										className='genericTable_tableRow total_row'
+										onClick={() => {
+											getLine(row);
+										}}
 									>
-										{row.name}
-									</td>
-								) : (
-									<td
-										key={`line-description-${index}`}
-										className='genericTable_tableData'
-									>
-										{row.name}
-									</td>
-								)}
-								{row?.values?.map((cell, index) =>
-									typeof cell === 'string' && cell.includes('::') ? (
-										varianceCell(cell, index)
-									) : index === 0 ? (
+										{reportType !== 2 && (
+											<td
+												key={`line-description-total-${index}`}
+												className='genericTable_tableData'
+											>
+												{row.name}
+											</td>
+										)}
+										{row?.values?.map((cell, index) =>
+											typeof cell === 'string' && cell.includes('::') ? (
+												varianceCell(cell, index)
+											) : (
+												<td
+													key={`cell-total-${index}`}
+													className='genericTable_tableData'
+												>
+													{cell}
+												</td>
+											),
+										)}
+									</tr>
+								)
+							}
+							return (
+								<tr key={`row-${index}`} className='genericTable_tableRow'>
+									{reportType !== NON_ACCOUNTING_REPORT && row.style === 'Title' ? (
 										<td
-											key={`cell-${index}`}
-											className={`${
-												index === 0 ? 'cursor-pointer' : ''
-											} genericTable_tableData`}
-											onClick={() => {
-												getLine(row);
-												onReduce(true);
-												resetTier2(false);
-											}}
+											key={`line-description-${index}`}
+											className='genericTable_tableData title_cell'
 										>
-											{cell}
+											{row.name}
 										</td>
-									) : (
+									) : reportType !== NON_ACCOUNTING_REPORT && (
 										<td
-											key={`cell-${index}`}
-											className={`${
-												index === 0 ? 'cursor-pointer' : ''
-											} genericTable_tableData`}
+											key={`line-description-${index}`}
+											className='genericTable_tableData'
 										>
-											{cell}
+											{row.name}
 										</td>
-									),
-								)}
-							</tr>
-						))}
-						{withTotal &&
-							totalRow?.slice(-1).map((row, index) => (
-								<tr
-									key={`row-total-${index}`}
-									className='genericTable_tableRow total_row'
-									onClick={() => {
-										getLine(row);
-									}}
-								>
-									<td
-										key={`line-description-total-${index}`}
-										className='genericTable_tableData'
-									>
-										{row.name}
-									</td>
+									)}
 									{row?.values?.map((cell, index) =>
 										typeof cell === 'string' && cell.includes('::') ? (
 											varianceCell(cell, index)
+										) : index === 0 ? (
+											<td
+												key={`cell-${index}`}
+												className={`${index === 0 ? 'cursor-pointer' : ''
+													} genericTable_tableData`}
+												onClick={() => {
+													getLine(row);
+													onReduce(true);
+													resetTier2(false);
+												}}
+											>
+												{cell}
+											</td>
 										) : (
 											<td
-												key={`cell-total-${index}`}
-												className='genericTable_tableData'
+												key={`cell-${index}`}
+												className={`${index === 0 ? 'cursor-pointer' : ''
+													} genericTable_tableData`}
 											>
 												{cell}
 											</td>
 										),
 									)}
 								</tr>
-							))}
+							)
+						})}
 					</tbody>
 				</table>
 			) : columns && columns.length === 0 ? (

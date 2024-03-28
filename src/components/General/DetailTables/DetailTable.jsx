@@ -1,13 +1,10 @@
-import ReportsContext from '@/context/ReportsProvider';
-import { useReport } from '@/hooks/useReport';
-import {
-	formatReportsTable,
-	periodDate,
-	typePeriod,
-} from '@/utils/helperFunctions';
-import { useContext, useEffect } from 'react';
+import { useEffect } from 'react';
+
+import { useDrillDown } from '@/hooks/useDrillDown';
+import { useReportData } from '@/hooks/useReportData';
 import DetailTotalRow from './DetailTotalRow';
 import styles from './DetailTable.module.css';
+
 
 const DetailTable = ({
 	withTotal = true,
@@ -17,42 +14,8 @@ const DetailTable = ({
 	setFormattedReport,
 	getTier2Data,
 }) => {
-	const { getDrillDown } = useReport();
-	const { section, stores, storesSelected, report, target } =
-		useContext(ReportsContext);
-
-	const formatReport = async () => {
-		const sectionName = section?.name || 'Community';
-		const reportName = lineInfo?.name || 'Misc/DOC';
-
-		const timelapse = 'MTD'; // MTD or YTD
-		const storesNames = [];
-		for (let i = 0; i < stores.length; i++) {
-			if (storesSelected.includes(stores[i].storeId)) {
-				storesNames.push(stores[i].name);
-			}
-		}
-		const storesName =
-			storesNames?.toString().length <= 16
-				? storesNames?.toString()
-				: 'Multiple';
-		const periodName = periodDate(
-			report?.period,
-			typePeriod(report?.period[0]),
-		);
-		setFormattedReport({
-			...formatReportsTable(lineInfo, false),
-			name: `${sectionName.replace(/\s/g, '_')}-${reportName.replace(
-				/\s/g,
-				'_',
-			)}_${storesName}_${periodName.replace(/\s/g, '_')}`,
-			reportName,
-			timelapse,
-			storesName,
-			periodName,
-			target: target.name,
-		});
-	};
+	const { getDrillDown } = useDrillDown();
+	const { formatReport } = useReportData();
 
 	const rowsWithoutTotal = withTotal
 		? formattedReport?.rows?.slice(0, -1)
@@ -62,14 +25,12 @@ const DetailTable = ({
 		const drillDown = await getDrillDown({
 			level: 2,
 			accountNo: data.values[0],
-			storeId: report?.storeId,
-			period: report?.period,
 		});
 		getTier2Data(drillDown.data);
 	};
 
 	useEffect(() => {
-		lineInfo && formatReport();
+		lineInfo && setFormattedReport(formatReport(lineInfo, false));
 	}, [lineInfo]);
 
 	return (

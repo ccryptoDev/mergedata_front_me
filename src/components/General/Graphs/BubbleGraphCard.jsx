@@ -1,108 +1,91 @@
 import { ScatterChart, Scatter, XAxis, YAxis, LabelList } from 'recharts';
 import Decision from '@/components/General/Icons/Decision';
+import nextArrow from '@/assets/svg/next_arrow.svg';
 
-const data = [
-	{
-		id: '1',
-		name: '0-30',
-		daysAgedAverage: 25,
-		quantity: 32,
-		agingIncrease: 0.2,
-	},
-	{
-		id: '2',
-		name: '31-90',
-		daysAgedAverage: 110,
-		quantity: 120,
-		agingIncrease: 0.3,
-	},
-	{
-		id: '3',
-		name: '91-180',
-		daysAgedAverage: 193,
-		quantity: 32,
-		agingIncrease: 0.5,
-	},
-	{
-		id: '4',
-		name: '+180',
-		daysAgedAverage: 160,
-		quantity: 24,
-		agingIncrease: -3.5,
-	},
-	{ id: '5', name: 0, daysAgedAverage: 180, quantity: 7, agingIncrease: 4.8 },
-	{ id: '6', name: 0, daysAgedAverage: 20, quantity: 7, agingIncrease: -4.5 },
-];
+export default function BubbleGraphCard ({
+	iconName = 'ArrowFatUpDown',
+	width = 500,
+	height = 300,
+	data = [],
+	handleClick = () => { },
+	personalizedStyle = { width: 'w-[500px]', height: 'h-[330px]', calcWidth: 'w-[calc(330px)]', calcHeight: 'h-[calc(330px)]' },
+	name = 'Inventory',
+	description = 'Aging Analysis',
+}) {
 
-const getColor = id => {
-	if (id == '1') {
-		return 'url(#-30)';
-	} else if (id == '2') {
-		return 'url(#-90)';
-	} else if (id == '3') {
-		return 'url(#-180)';
-	} else if (id == '4') {
-		return 'url(#+180)';
-	} else if (id == '5') {
-		return 'url(#neutral1)';
-	} else {
-		return 'url(#neutral2)';
-	}
-};
+	const getColor = id => {
+		if (id == '1') {
+			return 'url(#-30)';
+		} else if (id == '2') {
+			return 'url(#-90)';
+		} else if (id == '3') {
+			return 'url(#-180)';
+		} else if (id == '4') {
+			return 'url(#+180)';
+		} else if (id == '5') {
+			return 'url(#neutral1)';
+		} else {
+			return 'url(#neutral2)';
+		}
+	};
 
-const getRadius = quantity => {
-	return Math.sqrt(quantity) * 9;
-};
+	const getRadius = quantity => {
+		return Math.sqrt(quantity) * 8;
+	};
 
-const labelStyle1 = {
-	fill: 'white',
-	fontSize: 27,
-	fontWeight: 'bold',
-	fontFamily: 'baloo',
-};
+	const labelStyle1 = {
+		fill: 'white',
+		fontSize: 27,
+		fontWeight: 'bold',
+		fontFamily: 'baloo',
+	};
 
-const labelStyle2 = {
-	fill: 'white',
-	fontSize: 12,
-	fontWeight: 'semibold',
-	fontFamily: 'baloo',
-};
+	const labelStyle2 = {
+		fill: 'white',
+		fontSize: 12,
+		fontWeight: 'semibold',
+		fontFamily: 'baloo',
+	};
 
-const getLabel1 = ({ quantity, name }) => {
-	if (name === 0) {
-		null;
-	} else {
-		return `${quantity}\n`;
-	}
-};
+	const getLabel1 = ({ quantity, name }) => {
+		if (name === 0) {
+			null;
+		} else {
+			return `${quantity}\n`;
+		}
+	};
 
-const getLabel2 = ({ quantity, name }) => {
-	if (name === 0) {
-		null;
-	} else {
-		return `\n${name}`;
-	}
-};
+	const getLabel2 = ({ quantity, name }) => {
+		if (name === 0) {
+			null;
+		} else {
+			return `\n${name}`;
+		}
+	};
 
-export default function BubbleGraphCard({ iconName = 'ArrowFatUpDown' }) {
 	return (
-		<div className={` bg-[#212A43] rounded-[16px] pt-6 pl-8`}>
-			<div className='w-[152px] h-[60px] flex flex-col'>
-				<div className='w-[150px] h-[32px] flex flex-row items-center justify-start'>
+		<div onClick={handleClick} className={`${personalizedStyle.width} ${personalizedStyle.height} bg-[#212A43] rounded-[1em] py-[1.5em]`}>
+
+			<div className='relative w-[90%] h-[3.75em] flex flex-col mx-[2em]'>
+				<div className='w-[9.375em] h-[2em] flex flex-row items-center justify-start'>
 					<p className='text-[#FFFFFF] font-baloo font-bold text-2xl pr-2'>
-						Inventory
+						{name}
 					</p>
-					<div className='w-[10.3px] h-[6.8px]'>
+					<div className='w-[0.64em] h-[0.425em]'>
 						<Decision name={iconName} />
 					</div>
 					<p className='font-baloo text-[#5EFF5A] text-sm'>10%</p>
 				</div>
 				<div className=''>
-					<p className='text-sm text-neutrals-500'>Aging Analysis</p>
+					<p className='text-sm text-neutrals-500'>{description}</p>
+				</div>
+				<div className='absolute right-[-0.5em] top-[-0.5em] w-[2em] h-[2em] rounded-full hover:bg-primary-purple-200 hover:ring-2'>
+					<img src={nextArrow} />
 				</div>
 			</div>
-			<div className='w-[470px] h-[250px]'>
-				<ScatterChart width={450} height={280}>
+			<div className={`${personalizedStyle.width} ${personalizedStyle.height} mx-[2em] mt-[1em] `}>
+
+				<ScatterChart width={width - 67} height={height - 95} >
 					<defs>
 						<linearGradient id='-30'>
 							<stop offset='10%' stopColor='#00B899' stopOpacity={0.9} />
@@ -140,7 +123,7 @@ export default function BubbleGraphCard({ iconName = 'ArrowFatUpDown' }) {
 					</defs>
 					<div
 						id='label1'
-						className='text-red-600 font-bold font-baloo text-2xl'
+						className='text-red-600 font-bold font-baloo text-[1.5rem]'
 					></div>
 					<Scatter
 						data={data}
@@ -171,7 +154,7 @@ export default function BubbleGraphCard({ iconName = 'ArrowFatUpDown' }) {
 					<XAxis
 						dataKey='daysAgedAverage'
 						type='number'
-						domain={[0, 250]}
+						domain={[-20, 340]}
 						strokeOpacity={0}
 						tickMargin={3}
 						tick={false}
@@ -179,7 +162,7 @@ export default function BubbleGraphCard({ iconName = 'ArrowFatUpDown' }) {
 					<YAxis
 						dataKey='agingIncrease'
 						type='number'
-						domain={[-6, 6]}
+						domain={[-7, 9]}
 						strokeOpacity={0}
 						tickMargin={3}
 						tick={false}

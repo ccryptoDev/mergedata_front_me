@@ -66,7 +66,7 @@ const data = [
 
 export default function LineGraph() {
     return (
-        <div className='z-0 relative w-[660px] h-[329px] bg-neutrals-900 rounded-[10px] flex flex-col pt-6 px-8 gap-y-6'>
+        <div className='z-0 relative w-[42.25em] h-[20.25em] bg-neutrals-900 rounded-[1em] flex flex-col pt-6 px-8 gap-y-[1.5em]'>
             <div className='z-10 absolute top-[191px] left-[590px] border border-[#E5E8EF] w-[11.23px] h-[15.04px] bg-[#E5E8EF] rounded-full flex items-center justify-center'>
                 <div className='w-[8.6px] h-[11.5px] border-[3px] border-[#3E4761] bg-[#3E4761] rounded-full flex items-center justify-center'>
                     <div className='w-[3.74px] h-[5px] bg-[#E5E8EF] rounded-full'>

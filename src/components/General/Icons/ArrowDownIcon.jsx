@@ -1,4 +1,4 @@
-const SvgComponent = props => (
+const ArrowDownIcon = props => (
 	<svg
 		width={12}
 		height={8}
@@ -15,4 +15,4 @@ const SvgComponent = props => (
 	</svg>
 );
 
-export default SvgComponent;
+export default ArrowDownIcon;

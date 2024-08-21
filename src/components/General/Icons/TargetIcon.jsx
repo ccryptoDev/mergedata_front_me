@@ -1,7 +1,7 @@
 const SvgComponent = props => (
 	<svg
-		width={props.width || 22}
-		height={props.height || 22}
+		width={props.width || 19}
+		height={props.height || 19}
 		fill='none'
 		xmlns='http://www.w3.org/2000/svg'
 		{...props}

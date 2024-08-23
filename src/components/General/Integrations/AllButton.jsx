@@ -4,7 +4,6 @@ import AllFilter from './AllFilter'
 
 export default function AllButton() {
     const [showFilterOptions, setShowFilterOptions] = useState(false)
-    console.log('showMenu?', showFilterOptions)
 
     return (
         <div className='relative'>

@@ -5,7 +5,7 @@ import CardSlider from '@/components/General/PredictiveAI/CardSlider';
 
 export default function ChatScreen() {
   return (
-    <div className='w-[1070px] h-[786px] bg-[#0D102C] p-6 flex flex-col justify-between items-center' >
+    <div className='w-[66.875em] h-[49.125em] bg-[#0D102C] p-[1,5em] flex flex-col justify-between items-center' >
       <NavBarAI />
       <body className='z-10'>
         <CardSlider />

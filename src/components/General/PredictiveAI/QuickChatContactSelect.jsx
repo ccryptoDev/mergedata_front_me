@@ -29,7 +29,6 @@ export default function QuickChatContactSelect() {
 
     const onChange = (e) => {
         setSearchText(e.target.value);
-        { console.log(searchText) }
     };
 
     const [searchText, setSearchText] = useState('');

@@ -4,7 +4,7 @@ import bot1 from '@/assets/svg/bot1.svg'
 
 export default function TextInputChat() {
 
-  const data = [    {option: 'Inventory trends'},     {option: 'Improve my inventory'},     {option: 'Future of inventory'},    {option: 'Future of stocks'},  ]
+  const data = [    {id:1, option: 'Inventory trends'},     {id:2, option: 'Improve my inventory'},     {id:3, option: 'Future of inventory'},    {id:4, option: 'Future of stocks'},  ]
 
   const [showList, setShowList] = useState(false)
 
@@ -23,7 +23,7 @@ export default function TextInputChat() {
         <ul className='pl-6 pt-6 text-sm flex flex-col space-y-3'>
           {data.map((item) => {
             return(
-              <li className='text-[#A6ACBD] h-[26px] text-lg font-sans py-1'>{item.option}</li>
+              <li key={item.id} className='text-[#A6ACBD] h-[26px] text-lg font-sans py-1'>{item.option}</li>
             )
           })}
         </ul>

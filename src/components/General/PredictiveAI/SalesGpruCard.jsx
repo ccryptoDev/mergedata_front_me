@@ -32,7 +32,7 @@ export default function SalesGpruCard() {
     const textStyle = 'w-[190px] text-[#FFFFFF] text-[11px] leading-4'
 
     return (
-        <div className='w-[320px] h-[529px] bg-[#202449] hover:bg-[#161A3E] flex flex-col items-center justify-between py-6 shadow-md rounded-lg'>
+        <div className='w-[20em] h-[33em] bg-[#202449] hover:bg-[#161A3E] flex flex-col items-center justify-between py-6 shadow-md rounded-lg'>
             <div className='w-[280px] h-[145px] flex flex-col justify-between items-center'>
                 <div className='w-[280px] h-[30px] flex flex-row justify-between items-center'>
                     <p className="text-[#C2C8D7] text-xl font-baloo font-bold">Sales</p>

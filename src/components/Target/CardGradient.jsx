@@ -1,23 +1,25 @@
 import nextIcon from '@/assets/svg/next_arrow.svg';
 
-
-const Card = ({ children, gradient, button=true }) => {
+const Card = ({ children, gradient, button = true, onClick = () => console.log('clicked!') }) => {
 	const { start, end } = gradient;
 	return (
-		<div className={`w-[${gradient.sizeCard.width}] h-[204px] flex items-center justify-center hover:p-2 hover:border-[1px] hover:border-light-background-00 hover:rounded-xl relative group hover:shadow-lg hover:shadow-[rgba(255,255,255,0.1)]`}>
+		<div className={`flex items-center justify-center group`}>
 			<div
-				className={`w-[353px] h-[190px] flex flex-col justify-between p-6 bg-gradient-to-r ${start} ${end} rounded-xl group-hover:bg-gradient-to-r group-hover:to-[rgba(118,117,176,1)] group-hover:from-[rgba(118,117,176,1)]`}
+				className={
+					`relative border-[#0D102C] hover:ring-2 ring-neutrals-500 ring-offset-[0.375em] ring-offset-[#0D102C] dark:ring-offset-[#0D102C] w-[22.1em] h-[13.75em] flex flex-col justify-be between p-[1.25em] bg-gradient-to-r ${end} ${start} rounded-xl group-hover:bg-gradient-to-r group-hover:to-[rgba(118,117,176,1)] group-hover:from-[rgba(118,117,176,1)] `
+				}
 			>
 				{children}
+
+				{button && (
+					<div onClick={onClick} className='absolute top-[0.625em] right-[0.75em] w-[2em] h-[2em] cursor-pointer group-hover:bg-[rgba(255,255,255,0.4)] rounded-full'>
+						<img src={nextIcon} alt='Next Icon' />
+					</div>
+				)}
 			</div>
-			{ button && 
-						<img
-						src={nextIcon}
-						className='absolute top-[16px] left-[311px] w-[32px] h-[32px] group-hover:bg-[rgba(255,255,255,0.4)] rounded-full'
-					/>
-				}
 		</div>
 	);
 };
 
 export default Card;
+

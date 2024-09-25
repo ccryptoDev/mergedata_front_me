@@ -6,31 +6,6 @@ import NameSlider from "@components/Target/NameSlider";
 export default function NameSliderCard() {
     return (
         <div className='w-[566px] h-[310px] mb-3 px-4 pt-3 mr-2 bg-[#161A3E] rounded-xl'>
-            <div className='w-[534px] h-[34px] mb-3 flex flex-row items-center]' >
-                <div className='mr-2'>
-                    <TargetNew uppertitle='Target' maintitle='New' />
-                </div>
-                <div className='w-[320px] h-full flex flex-row items-center'>
-                    <div className='mr-[16px]'>
-                        <ToggleSwitch
-                            name1='Percentage'
-                            name2='Amount' />
-                    </div>
-                    <div>
-                        <TextIconButton
-                            text='Collapse'
-                            iconLeft=''
-                            iconRight='ArrowDown'
-                            background='bg-[#563CC7]'
-                            backgroundHover='hover:bg-[#4832A6]'
-                            textColor='text-[#FFFFFF]'
-                            height='h-[32px]'
-                            width='w-[102px]'
-                            textSize='text-sm semibold'
-                        />
-                    </div>
-                </div>
-            </div>
             <div className='flex flex-row justify-between w-[534px] h-[240px] '>
                 <div className='w-[261px] h-full mb-3'>
                     <NameSlider name='Retail Sales' cursorlocation='left-[70%]' sliderbg='bg-[#000000]' slidertrackbg='bg-gradient-to-r from-[#3C1CC5] to-[#9043DD]' slidertracklenght='w-[37px]' blacktalker={true} value={160} blacktalkerlocation='left-[55%]' />

@@ -1,6 +1,6 @@
-import "@/css/global.css";
+import "@/css/Toggle.css";
 
-export default function ToggleSwitch({ handleClick, name1, name2 }) {
+export default function ToggleSwitch ({ action, handleClick, name1, name2 }) {
 
 
     return (
@@ -9,7 +9,7 @@ export default function ToggleSwitch({ handleClick, name1, name2 }) {
                 <span className="font-baloo text-[#EEECF1]">{name1}</span>
             </div>
             <label className="switch" >
-                <input type="checkbox" onClick={handleClick}/>
+                <input type="checkbox" checked={action} onClick={handleClick} />
                 <span className="slider"></span>
             </label>
             <div className="w-auto h-7">
@@ -18,4 +18,5 @@ export default function ToggleSwitch({ handleClick, name1, name2 }) {
         </div>
     )
 }
+
 

@@ -8,14 +8,14 @@ import Adam_Smith from "@/assets/svg/Adam_Smith.svg"
 import Jones_Ferdinand from "@/assets/svg/Jones_Ferdinand.svg"
 
 
-export default function CommentsCard() {
+export default function CommentsCard({ onClick }) {
     const [list, setList] = useState([
         { id: 1, name: 'Adam Smith', date: '12/08/2022', message: 'Leaving this month', avatar: Adam_Smith },
         { id: 2, name: 'Adam Smith', date: '09/05/2020', message: 'Two deals working. Gone this month', avatar: Adam_Smith },
         { id: 3, name: 'Jones Ferdinand', date: '02/02/2023', message: 'Cheapest on the internet working a deal on it.', avatar: Jones_Ferdinand }
     ]);
     return (
-        <div className='flex flex-col justify-between py-5 px-5 gap-y-[10px] rounded-xl w-[295px] h-[665px] bg-[#202449]'>
+        <div className='flex flex-col justify-between py-5 px-5 gap-y-[10px] rounded-xl w-[295px] h-[665px] bg-neutrals-900 '>
             <div className='flex flex-col gap-y-[10px]'>
                 <div className='w-full h-[60px]'>
                     <TitleVectorX
@@ -31,6 +31,7 @@ export default function CommentsCard() {
                         mainTitleColor='text-neutrals-300'
                         upperTitleFont='font-baloo'
                         mainTitleFont='font-sans'
+                        onClick={onClick}
                     />
                 </div>
                 <div className='flex flex-col items-center justify-start gap-y-[10px] rounded-xl'>

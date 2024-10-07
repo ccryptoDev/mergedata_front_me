@@ -4,14 +4,13 @@ import SingleButton from '@/components/General/Buttons/SingleButton';
 import Table6 from '@/components/Target/New/Table6';
 import Table6Total from '@/components/Target/New/Table6Total';
 
-export default function ModelsTable({ setShowModel }) {
+export default function ModelsTable ({ setShowModel }) {
 	const [reduce, setReduce] = useState(false);
 
 	return (
 		<div
-			className={`relative bg-neutrals-900 px-[26px] pt-[20px] ${
-				!reduce ? 'w-[962px]' : 'w-[805px]'
-			} h-[666px] rounded-2xl`}
+			className={`relative bg-neutrals-900 px-[26px] pt-[20px] ${!reduce ? 'w-[962px]' : 'w-[805px]'
+				} h-[666px] rounded-2xl`}
 		>
 			<div className='h-[50px] w-full border-neutrals-700 flex flex-row items-center justify-between'>
 				<div className='flex flex-row gap-x-3'>
@@ -32,7 +31,7 @@ export default function ModelsTable({ setShowModel }) {
 						/>
 					</button>
 				</div>
-				<div className='flex flex-row gap-x-2'>
+				{/* <div className='flex flex-row gap-x-2'>
 					<button>
 						<SingleButton
 							icon='Share'
@@ -76,7 +75,7 @@ export default function ModelsTable({ setShowModel }) {
 							/>
 						)}
 					</button>
-				</div>
+				</div> */}
 			</div>
 			<div className='w-auto'>
 				<div className='min-w-full py-4 sm:px-0 lg:px-1'>
@@ -88,7 +87,9 @@ export default function ModelsTable({ setShowModel }) {
 						/>
 					</div>
 					<div className='absolute top-[594px] left-0 w-full rounded-[50px]'>
-						<Table6Total shouldReduce={reduce} />
+						<Table6Total
+							shouldReduce={reduce}
+						/>
 					</div>
 				</div>
 			</div>

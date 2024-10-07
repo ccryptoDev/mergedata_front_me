@@ -5,7 +5,7 @@ const IconNameBarIncreaseTable = ({
 }) => {
 	return (
 		<div
-			className={`w-[309px] h-[164px] mt-[30px] ${paddingVertical} flex flex-col justify-between ${tailwindStyles}`}
+			className={`flex flex-col gap-4 ${paddingVertical} justify-between ${tailwindStyles}`}
 		>
 			{children}
 		</div>

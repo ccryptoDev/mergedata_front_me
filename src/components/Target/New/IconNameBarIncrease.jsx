@@ -17,7 +17,7 @@ const IconNameBarIncrease = ({
 	return (
 		<div className='flex justify-between items-center'>
 			{donutIcon && <DonutIcon initialColor={barColor.slice(23, 30)} finalColor={barColor.slice(36, 43)} />}
-			<p className='font-public text-white text-[16px] font-normal w-[96px]'>
+			<p className='font-public text-white font-normal'>
 				{title}
 			</p>
 			<div className='w-[88px]'>

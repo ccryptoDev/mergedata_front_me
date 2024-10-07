@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import LeftIcon from '@/components/General/Icons/LeftArrowIcon';
-import HeartIcon from '@/components/General/Icons/HeartIcon';
+import Decision from '@/components/General/Icons/Decision';
 
 export default function LeftArrowDirectActionHeart({
 	iconName = 'LeftArrow',
@@ -10,56 +10,50 @@ export default function LeftArrowDirectActionHeart({
 	bgColor = 'bg-dark-background-00',
 	onClick,
 }) {
-	const [showAddToFavorites, setShowAddToFavorites] = useState(false);
+	const [showFlag, setShowFlag] = useState(false);
+
 	return (
-		<div className='flex flex-row items-end my-[30px] '>
+		<div className='flex flex-row items-end '>
 			<div
-				className={`ml-2 h-[50px] max-w-max rounded-[4px] flex flex-row p-[1px] ${bgColor}`}
+				className={`ml-[0.5rem] h-[3.125rem] max-w-max rounded-[0.25rem] flex flex-row items-center p-[0.0625rem] ${bgColor}`}
 			>
 				<div
-					className='h-[44px] w-[44px] aspect-[1/1] bg-[#6043dd] rounded-full flex justify-center items-center mr-[23px] cursor-pointer'
+					className='h-[2.75rem] w-[2.75rem] aspect-[1/1] bg-[#6043dd] rounded-full flex justify-center items-center mr-[1.4375rem] cursor-pointer'
 					onClick={onClick}
 				>
-					<LeftIcon IconName={iconName} className='w-[13px] h-[9,5px]' />
+					<LeftIcon IconName={iconName} className='w-[0.81rem] h-[0.56rem]' />
 				</div>
-				<div className=''>
-					<div className='font-sans font-normal text-[#ffffff] text-[12px] whitespace-nowrap h-[18px] flex items-center mb-[-8px]'>
+				<div className='h-[3.6em] flex flex-col justify-between'>
+					<div className='z-40 font-sans font-normal text-[#ffffff] text-[12px] whitespace-nowrap h-[1.1rem] flex items-center mb-[-0.5rem]'>
 						{upperName}
 					</div>
-					<div className='flex flex-row max-w-max items-center'>
-						<div className='max-w-max h-[48px] font-baloo font-bold mr-[14px] text-[#ffffff] text-[32px] whitespace-nowrap leading-[48px] '>
+					<div className='flex flex-row max-w-max items-center z-0'>
+						<div
+							className={`z-20 max-w-max h-[w-[22.1em] h-auto leading-[2rem] font-baloo font-bold pr-[1.5rem] mr-[-2px] text-[#ffffff] text-[2rem] whitespace-nowrap ${bgColor}`}
+						>
 							{buttonName}
 						</div>
-						<div
-							onMouseOver={() => setShowAddToFavorites(true)}
-							onMouseLeave={() => setShowAddToFavorites(false)}
-							className={`${
-								!showAddToFavorites
-									? 'bg-[#161A3E] rounded-[8px] w-[28px] h-[30px] text-[#ffffff] flex justify-center items-center'
-									: 'bg-[#0D102C] rounded-[8px] w-[28px] h-[30px] text-[#ffffff] flex justify-center items-center'
-							}`}
-						>
-							<div className='items-center justify-end whitespace-nowrap cursor-pointer'>
-								{heartLike === true ? (
-									<HeartIcon className='w-[13px] h-[12,1px]' />
-								) : (
-									''
-								)}
+						{heartLike ? (
+							<div className=' w-auto h-auto flex flex-row items-center'>
+								<div
+									onMouseOver={() => setShowFlag(true)}
+									onMouseLeave={() => setShowFlag(false)}
+									className='bg-[#161A3E] rounded-[0.5em] w-[1.875em] h-[1.875em] text-[#ffffff] flex flex-row justify-center items-center z-30'
+								>
+									<Decision name='Heart' />
+								</div>
+								<div
+									className={`bg-[#161A3E] w-auto px-[0.75em] rounded-r-[0.625em] h-[2em] text-[#ffffff] flex justify-center items-center text-[0.875rem] ml-[-0.3125em] 
+									${
+										showFlag
+											? 'translate-x-0 opacity-70'
+											: 'translate-x-[-8.75em] opacity-0'
+									} easy-in-out duration-500 z-10`}
+								>
+									Add as favorite
+								</div>
 							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div className='flex text-center ml-[-3px]'>
-				<div className='text-center my-auto text-[14px] leading-[30px]'>
-					<div
-						className={`${
-							showAddToFavorites
-								? 'opacity-97 transition-opacity duration-1000 easy-in w-[120px] rounded-r-[6px] bg-[#0D102C] text-[#ffffff] '
-								: 'opacity-0'
-						}`}
-					>
-						Add as favorite
+						) : null}
 					</div>
 				</div>
 			</div>

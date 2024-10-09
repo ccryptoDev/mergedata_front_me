@@ -1,6 +1,6 @@
 import TitleVectorX from "@/components/Target/TitleVectorX";
 
-function SelectionModelCard() {
+function SelectionModelCard({ onClick }) {
     return (
         <div className='w-[434px]'>
             <TitleVectorX
@@ -10,6 +10,7 @@ function SelectionModelCard() {
                 mainTitle='Altima'
                 upperTitleSize='text-xs'
                 mainTitleSize ='text-2xl'
+                onClick={onClick}
             />
         </div>
     )

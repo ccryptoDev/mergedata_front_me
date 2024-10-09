@@ -3,7 +3,8 @@ import Decision from "@/components/General/Icons/Decision"
 import SelectionModelCard from "@/components/Target/New/SelectionModelCard"
 
 function ResumeUserCard({
-    icon = 'Download'
+    icon = 'Download',
+    onClick
 }) {
     return (
         <div className='w-[531px] h-[665px] rounded-xl bg-neutrals-900 p-5 gap-y-[10px] flex flex-col items-start'>
@@ -12,7 +13,7 @@ function ResumeUserCard({
                     <Decision name={icon} />
                 </div>
                 <div>
-                    <SelectionModelCard />
+                    <SelectionModelCard onClick={onClick}/>
                 </div>
             </div>
             <div>

@@ -17,10 +17,12 @@ const data = [
     { id: 12, stores: 'Alameda Honda', days: '98', stockNumber: 'PL17JO60', makeModel: { brand: 'Subaru', model: 'Ascent' }, year: '2022', miles: 43, color: 'Black', glBalance: { value: '67,987', behavior: 'up', percent: 9 } },
 ];
 
-export default function Table5(shouldReduce = false) {
+export default function Table5({
+    shouldReduce,
+    showLargeTable,
+}) {
 
     let behaviorTextColor = '';
-    const behaviorIcon = { neutral };
 
     return (
 
@@ -33,9 +35,9 @@ export default function Table5(shouldReduce = false) {
                         <th scope="col" className="text-purple-50 text-sm font-bold px-0">Stock #</th>
                         <th scope="col" className="text-purple-50 text-sm font-bold text-center">Make/Model</th>
 
-                        {shouldReduce.shouldReduce ? null : <th scope="col" className="text-purple-50 text-sm font-bold text center">Year</th>}
-                        {shouldReduce.shouldReduce ? null : <th scope="col" className="text-purple-50 text-sm font-bold pl-0">Miles</th>}
-                        {shouldReduce.shouldReduce ? null : <th scope="col" className="text-purple-50 text-sm font-bold text-center pr-0">Color</th>}
+                        { (!showLargeTable) ? null : <th scope="col" className="text-purple-50 text-sm font-bold text-center">Year</th>}
+                        { (!showLargeTable) ? null : <th scope="col" className="text-purple-50 text-sm font-bold pl-0">Miles</th>}
+                        { (!showLargeTable) ? null : <th scope="col" className="text-purple-50 text-sm font-bold text-center pr-0">Color</th>}
                         <th scope="col" className="text-purple-50 text-sm font-bold text-center pr-0">GL Balance</th>
                     </tr>
                 </thead>
@@ -49,17 +51,13 @@ export default function Table5(shouldReduce = false) {
 
                                 if (beHavior === 'up') {
                                     behaviorTextColor = 'text-[#5EFF5A]'
-
                                 }
                                 else if (beHavior === 'down') {
                                     behaviorTextColor = 'text-[#FF8181]'
-
                                 }
                                 else {
                                     behaviorTextColor = 'text-[#FFBB0D]'
                                 }
-                                return <img src={behaviorIcon} />
-
                             }
 
                             function iconSelect() {
@@ -75,7 +73,7 @@ export default function Table5(shouldReduce = false) {
                             }
                             return (
 
-                                <tr className={`h-[54px] border-b-4 border-neutrals-900 ${((item.id) % 2 === 0) ? 'bg-[#151F39]' : 'bg-neutrals-900'}`} key={item.id}>
+                                <tr className={`h-[56px] rounded-r-xl ${((item.id) % 2 === 0) ? 'bg-[#192543] rounded-r-xl' : 'rounded-r-xl'}`} key={item.id}>
                                     <td className="whitespace-nowrap text-neutrals-300 h-12 pl-6 font-semibold text-base rounded-l-xl">{item.stores}</td>
                                     <td className="whitespace-nowrap text-neutrals-300 h-12 text-xs">{item.days}</td>
                                     <td className="whitespace-nowrap text-neutrals-300 h-12 text-xs">{item.stockNumber}</td>
@@ -87,10 +85,10 @@ export default function Table5(shouldReduce = false) {
                                             {item.makeModel.model}
                                         </p>
                                     </td>
-                                    {shouldReduce.shouldReduce ? null : <td className="whitespace-nowrap text-neutrals-300 h-12 text-smb text-start">{item.year}</td>}
-                                    {shouldReduce.shouldReduce ? null : <td className="whitespace-nowrap text-neutrals-300 h-12 text-sm text-start pl-2">{item.miles}</td>}
-                                    {shouldReduce.shouldReduce ? null : <td className="whitespace-nowrap text-neutrals-300 h-12 text-sm text-center">{item.color}</td>}
-                                    <td className="whitespace-nowrap text-neutrals-300 h-12 rounded-xl text-sm bg-neutrals-1000 text-center flex flex-row justify-center">
+                                    { (!showLargeTable) ? null : <td className="whitespace-nowrap text-neutrals-300 h-12 text-smb text-start">{item.year}</td>}
+                                    { (!showLargeTable) ? null : <td className="whitespace-nowrap text-neutrals-300 h-12 text-sm text-start pl-2">{item.miles}</td>}
+                                    { (!showLargeTable) ? null : <td className="whitespace-nowrap text-neutrals-300 h-12 text-sm text-center">{item.color}</td>}
+                                    <td className="whitespace-nowrap text-neutrals-300 h-12 rounded-xl mt-[0.27em] text-sm bg-[#0e1628] text-center flex flex-row justify-center">
                                         <span className='pr-2 flex items-center'>{item.glBalance.value}</span>
                                         <span className='pr-1 flex items-center'>{iconSelect()}</span>
                                         <span className={`flex items-center ${scoreColor()} ${behaviorTextColor}`}>

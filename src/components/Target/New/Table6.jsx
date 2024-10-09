@@ -168,7 +168,7 @@ export default function Table6({
 						>
 							GP %
 						</th>
-						{shouldReduce.shouldReduce ? null : (
+						{shouldReduce ? null : (
 							<th
 								scope='col'
 								className='text-purple-50 text-sm font-bold text-center pl-0'
@@ -176,7 +176,7 @@ export default function Table6({
 								Forecast
 							</th>
 						)}
-						{shouldReduce.shouldReduce ? null : (
+						{shouldReduce ? null : (
 							<th
 								scope='col'
 								className='text-purple-50 text-sm font-bold text-start pr-0'
@@ -255,12 +255,12 @@ export default function Table6({
 								<td className='whitespace-nowrap text-neutrals-300 h-auto text-base'>
 									{item.gp}%
 								</td>
-								{shouldReduce.shouldReduce ? null : (
+								{shouldReduce ? null : (
 									<td className='whitespace-nowrap text-neutrals-300 h-auto text-base text-center'>
 										{item.forecast}
 									</td>
 								)}
-								{shouldReduce.shouldReduce ? null : (
+								{shouldReduce ? null : (
 									<td
 										className={`whitespace-nowrap text-neutrals-300 h-auto text-base pl-6 `}
 									>

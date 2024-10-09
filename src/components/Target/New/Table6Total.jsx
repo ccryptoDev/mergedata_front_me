@@ -6,7 +6,7 @@ const data =
     [{ id: 1, total: 'Total', variance: { value: 12, percent: 2, behavior: 'up' }, inventory: 28, daysSupply: 28, totalUnits: 163, gp: 11, forecast: '12', tracking: 27, pvrGoal: '-$2.982' }]
     ;
 
-export default function Table6Total(shouldReduce = false) {
+export default function Table6Total({ shouldReduce=false }) {
 
     let behaviorTextColor = '';
     const behaviorIcon = { neutral };
@@ -60,9 +60,9 @@ export default function Table6Total(shouldReduce = false) {
                                     <td className="whitespace-nowrap text-neutrals-100 h-auto text-base text-start w-[114px]  ">{item.totalUnits}</td>
 
                                     <td className="whitespace-nowrap text-neutrals-100 h-auto text-base text-start w-[55px]">{item.gp}%</td>
-                                    {shouldReduce.shouldReduce ? null : <td className="whitespace-nowrap text-neutrals-100 h-auto text-base text-center w-[70px]">{item.forecast}</td>}
+                                    {shouldReduce ? null : <td className="whitespace-nowrap text-neutrals-100 h-auto text-base text-center w-[70px]">{item.forecast}</td>}
 
-                                    {shouldReduce.shouldReduce ? null : <td className="whitespace-nowrap text-neutrals-100 w-[80px] h-12 flex justify-center items-center text-base">{item.tracking}</td>}
+                                    {shouldReduce ? null : <td className="whitespace-nowrap text-neutrals-100 w-[80px] h-12 flex justify-center items-center text-base">{item.tracking}</td>}
 
                                     <td className='whitespace-nowrap text-neutrals-100 h-12 text-base flex flex-row flex-nowrap items-center bg-[#151F39] brightness-90 pl-6 ml-2 rounded-l-2xl'>
                                         <p className='pr-2 text-base'>{item.variance.value}%</p>

@@ -3,7 +3,7 @@ import AddTargetPresetsTargetInput from '@/components/Target/AddTargetPresetsTar
 
 function BasicInformation() {
 	return (
-		<div className='flex flex-col ml-[61px] pt-10 h-full'>
+		<div className='flex flex-col ml-[61px] pt-10 h-full w-[460px]'>
 			<div className='flex flex-col'>
 				<div className='flex items-center gap-2 font-baloo text-[24px]'>
 					<p className='text-[#8B93A9]'>01</p>

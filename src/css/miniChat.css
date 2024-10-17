@@ -1,0 +1,97 @@
+#root
+	> div
+	> div
+	> div
+	> div.px-4.h-\[calc\(100vh-156px\)\].flex.gap-4.overflow-hidden
+	> div.w-\[70\%\]
+	> div
+	> div
+	> div
+	> div
+	> div.str-chat__list {
+	background-color: #212a43;
+}
+
+#root
+	> div
+	> div
+	> div
+	> div.px-4.h-\[calc\(100vh-156px\)\].flex.gap-4.overflow-hidden
+	> div.w-\[70\%\]
+	> div
+	> div
+	> div
+	> div
+	> div.str-chat__input-flat.str-chat__message-input.str-chat__input-flat--send-button-active {
+	background-color: #212a43 !important;
+	padding: 0.5rem 1rem !important;
+}
+
+#root
+	> div
+	> div
+	> div
+	> div.px-4.h-\[calc\(100vh-156px\)\].flex.gap-4.overflow-hidden
+	> div.w-\[70\%\]
+	> div
+	> div
+	> div
+	> div
+	> div.str-chat__header-livestream.str-chat__channel-header {
+	padding: 0.5rem 1rem !important;
+	background-color: #212a43;
+	border-radius: 0.75rem 0.75rem 0 0;
+}
+
+#root
+	> div
+	> div
+	> div
+	> div.px-4.h-\[calc\(100vh-156px\)\].flex.gap-4.overflow-hidden
+	> div.w-\[70\%\]
+	> div
+	> div {
+	border-radius: 0.75rem;
+}
+
+#root
+	> div
+	> div
+	> div
+	> div.px-4.h-\[calc\(100vh-156px\)\].flex.gap-4.overflow-hidden
+	> div.w-\[70\%\]
+	> div
+	> div {
+	height: 95%;
+}
+
+/* Indicators chat */
+#indicator-chat > div > div {
+	height: 100%;
+}
+
+#indicator-chat > div > div > div > {
+	height: 100%;
+}
+
+#indicator-chat > div > div > div > div > div > div > div {
+	border-radius: 0;
+}
+
+#indicator-chat > div > div {
+	height:100%;
+}
+
+#indicator-chat
+	> div
+	> div
+	> div
+	> div
+	> div.str-chat__header-livestream.str-chat__channel-header {
+	background-color: #202449;
+	border-radius: 0;
+}
+
+#indicator-chat > div > div > div > div {
+	border-radius: 0;
+}

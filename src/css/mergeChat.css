@@ -1,0 +1,221 @@
+.app-container {
+	display: flex;
+	height: 98%;
+	color: #f8f9fa; /* Light text for readability */
+	background-color: #202449;
+	border-radius: 0.75rem;
+}
+
+.sidebar {
+	width: 250px;
+	/* background-color: #343a40;  */
+	padding: 20px;
+	overflow-y: auto;
+}
+
+/* Styles for channel and user items */
+.sidebar div {
+	margin-bottom: 5px;
+	cursor: pointer;
+	border-radius: 5px;
+	transition: background-color 0.3s;
+}
+
+/* Hover effect */
+
+.chat-container {
+	flex-grow: 1;
+	/* overflow: hidden; */
+	height: 100%;
+	/* background-color: #343a40;  */
+}
+
+.channel-icon {
+	border-radius: 0px;
+	margin-right: 6px;
+}
+
+.user-item {
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	margin-bottom: 10px;
+}
+
+.user-icon {
+	width: 20px; /* Adjust size as needed */
+	height: 20px; /* Adjust size as needed */
+	border-radius: 0px;
+	margin-right: 10px;
+}
+
+.channel-item {
+	/* Your styles for the channel item */
+	cursor: pointer;
+	padding: 0 10px;
+	border-radius: 4px;
+	margin: 2px 0;
+}
+
+.channel-item:hover {
+	/* Styles to apply on hover */
+	background-color: #f0f0f0;
+	color: #333;
+}
+
+.search-container {
+	position: relative;
+	/* other styling */
+}
+
+.search-results-popup {
+	position: absolute;
+	top: 100%; /* Directly below the search input */
+	left: 15%;
+	right: 0;
+	max-height: 300px; /* Maximum height before scrolling */
+	overflow-y: auto;
+	background-color: #343a40;
+	border: 1px solid #1c1a1a;
+	z-index: 10; /* Ensure it's above other content */
+	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Optional: for better visibility */
+}
+
+.search-item {
+	padding: 10px;
+	font-size: smaller;
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 1px solid #ddd;
+}
+
+.search-item:hover {
+	/* Styles to apply on hover */
+	background-color: #f0f0f0; /* Example background color */
+	color: #333; /* Example text color */
+}
+
+.channel-item.selected {
+	background-color: #6043dd;
+	font-weight: bold;
+}
+
+.channel-item:hover {
+	background-color: #1be2c5;
+	color: #f0f0f0;
+}
+
+.collapse-icon {
+	font-size: smaller; /* Adjust the size as needed */
+	margin-right: 5px; /* Space between icon and title */
+}
+/* Search box styles */
+.search-box {
+	background-color: #333 !important; /* Dark background */
+	border: 1px solid #7a42f4; /* Purple outline */
+	border-radius: 0.75rem !important; /* Slightly rounded corners */
+	color:white; /* Light text color for dark background */
+	font-size: 16px; /* Larger font size */
+	padding: 8px 12px; /* Padding for larger touch area */
+	margin-bottom: 10px; /* Margin to separate from other content */
+	width: 98%; /* Full width */
+}
+
+.search-box::placeholder {
+	color: #aaa; /* Lighter placeholder text color */
+}
+
+.custom-channel-header {
+	position: relative;
+	/* other styling */
+}
+
+.view-report-btn {
+	position: absolute;
+	top: 10px; /* Adjust as needed */
+	right: 10px; /* Adjust as needed */
+	background-color: #4caf50; /* Merge Data green */
+	color: white;
+	border: none;
+	border-radius: 15px;
+	padding: 10px 20px;
+	cursor: pointer;
+	box-shadow: 0px 2px 2px grey;
+}
+
+.view-report-btn:hover {
+	background-color: #45a049; /* Slightly darker green for hover effect */
+}
+
+.add-item-btn {
+	background-color: #333;
+	color: white; /* White text */
+	border: none; /* No border */
+	padding: 8px 16px; /* Padding for button size */
+	margin: 5px 0; /* Margin for spacing */
+	border-radius: 4px; /* Rounded corners */
+	cursor: pointer; /* Cursor changes to pointer to indicate it's clickable */
+	transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+.add-item-btn:hover {
+	background-color: grey; /* Slightly lighter background on hover */
+}
+
+.search-results-modal {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 50%;
+	height: 70%; /* Adjust size as needed */
+	max-width: 600px; /* Adjust as needed */
+	max-height: 400px;
+	overflow-y: auto;
+	background-color: #202449;
+	color: white;
+	font-size: 16px; /* Larger font size */
+	padding: 20px;
+	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+	z-index: 1000; /* Ensure it's above other content */
+	border-radius: 0.75rem;
+}
+
+.search-result-item {
+	/* Styles for individual search result items */
+	margin-bottom: 10px;
+	padding: 10px;
+}
+
+.str-chat__main-panel {
+	background-color: #202449 !important;
+	height: 100% !important;
+	border-radius: 0.75rem;
+	padding: 0 !important;
+}
+
+#root
+	> div
+	> div.z-10.w-11\/12.h-\[calc\(100\%-3\.5em\)\]
+	> div
+	> div.chat-container
+	> div {
+	height: 100% !important;
+	border-radius: 0.75rem;
+}
+
+#root
+	> div
+	> div.z-10.w-11\/12.h-\[calc\(100\%-3\.5em\)\]
+	> div
+	> div.chat-container
+	> div
+	> div
+	> div
+	> div.str-chat__header-livestream.str-chat__channel-header {
+	background-color: #202449 !important;
+}
+
+/* .str-chat__list {
+	background-color: #202449 !important;
+} */

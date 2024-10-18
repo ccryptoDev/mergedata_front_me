@@ -1,0 +1,35 @@
+.switch {
+	position: relative;
+	display: inline-block;
+	width: 48px;
+	height: 24px;
+	margin: 0px 10px;
+}
+.switch input {
+	display: none;
+}
+.sliders {
+	position: absolute;
+	inset: 0;
+	cursor: pointer;
+	background-color: #1BE2C5;
+	transition: 0.5s;
+	border-radius: 2rem;
+}
+.sliders::before {
+	position: absolute;
+	content: '';
+	height: 18px;
+	width: 18px;
+	left: 1px;
+	bottom: 1px;
+	background-color: #ffffff;
+	transition: 0.5s;
+	border-radius: 50%;
+}
+input:checked + .sliders {
+	background: #6043dd;
+}
+input:checked + .sliders::before {
+	transform: translateX(20px);
+}

@@ -1,5 +1,4 @@
 import { useEffect, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 import useRefreshToken from '@/hooks/useRefreshToken';
 import {
@@ -8,19 +7,21 @@ import {
 	axiosPrivateReporter,
 } from '@/services/axios';
 import AuthContext from '@/context/AuthProvider';
+import { usePage } from '@/hooks/usePage';
 
 const useAxiosPrivate = (endpoint = 'importer') => {
 	const { setAuth } = useContext(AuthContext);
 	const refresh = useRefreshToken();
-	const navigate = useNavigate();
+	const { moveToPage } = usePage();
 	const token = JSON.parse(localStorage.getItem('permissionsMergeData'))
 		? JSON.parse(localStorage.getItem('permissionsMergeData')).token
 		: null;
 
 	const handleLogout = () => {
-		navigate('/login');
-		setAuth('');
 		localStorage.removeItem('permissionsMergeData');
+		localStorage.removeItem('reportsMergeData');
+		moveToPage('/login');
+		setAuth('');
 	};
 
 	useEffect(() => {
@@ -71,10 +72,10 @@ const useAxiosPrivate = (endpoint = 'importer') => {
 						(error.response.status === 403 && !prevRequest?.sent)
 					) {
 						handleLogout();
-						prevRequest.sent = true;
-						const { newToken } = await refresh();
-						prevRequest.headers.Authorization = `Bearer ${newToken}`;
-						return axiosPrivateImporter(prevRequest);
+						// prevRequest.sent = true;
+						// const { newToken } = await refresh();
+						// prevRequest.headers.Authorization = `Bearer ${newToken}`;
+						// return axiosPrivateImporter(prevRequest);
 					}
 					return Promise.reject(error);
 				},
@@ -91,10 +92,10 @@ const useAxiosPrivate = (endpoint = 'importer') => {
 						(error.response.status === 403 && !prevRequest?.sent)
 					) {
 						handleLogout();
-						prevRequest.sent = true;
-						const { newToken } = await refresh();
-						prevRequest.headers.Authorization = `Bearer ${newToken}`;
-						return axiosPrivateCustomer(prevRequest);
+						// prevRequest.sent = true;
+						// const { newToken } = await refresh();
+						// prevRequest.headers.Authorization = `Bearer ${newToken}`;
+						// return axiosPrivateCustomer(prevRequest);
 					}
 					return Promise.reject(error);
 				},
@@ -110,10 +111,10 @@ const useAxiosPrivate = (endpoint = 'importer') => {
 						(error.response.status === 403 && !prevRequest?.sent)
 					) {
 						handleLogout();
-						prevRequest.sent = true;
-						const { newToken } = await refresh();
-						prevRequest.headers.Authorization = `Bearer ${newToken}`;
-						return axiosPrivateReporter(prevRequest);
+						// prevRequest.sent = true;
+						// const { newToken } = await refresh();
+						// prevRequest.headers.Authorization = `Bearer ${newToken}`;
+						// return axiosPrivateReporter(prevRequest);
 					}
 					return Promise.reject(error);
 				},

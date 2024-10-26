@@ -1,27 +1,24 @@
-import { useState, useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+import { useStore } from '@/store/store';
+import ReportsContext from '@/context/ReportsProvider';
 
 const usePage = () => {
-	const [previousState, setPreviousState] = useState(null);
-	const location = useLocation();
+	const { setReport } = useContext(ReportsContext);
+	const setSection = useStore(state => state.setSection);
+	const setSubSection = useStore(state => state.setSubSection);
+	const setUser = useStore(state => state.setUser);
 	const navigate = useNavigate();
 
-	useEffect(() => {
-		if (location.state) {
-			const newState = Object.assign({}, location.state);
-			delete newState.previousState;
-			setPreviousState(newState);
-			localStorage.setItem('stateMergeData', JSON.stringify(newState));
-		} else {
-			const stateMergeData = JSON.parse(localStorage.getItem('stateMergeData'));
-			stateMergeData && setPreviousState(stateMergeData);
-		}
-	}, [location]);
-
 	const moveToPage = (path = '/', newState = {}) => {
+		const newStateKeys = Object.keys(newState);
+		if (newStateKeys[0] === 'reportInfo') setReport(newState.reportInfo);
+		if (newStateKeys[0] === 'user') setUser(newState.user);
+		if (newStateKeys[0] === 'section') setSection(newState.section);
+		if (newStateKeys[0] === 'subSection') setSubSection(newState.subSection);
 		navigate(path, {
 			state: {
-				...previousState,
 				...newState,
 			},
 		});
@@ -32,7 +29,6 @@ const usePage = () => {
 	};
 
 	return {
-		previousState,
 		moveToPage,
 		returnOnePage,
 	};

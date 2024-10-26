@@ -3,6 +3,7 @@ import { useContext, useState } from 'react';
 import AuthContext from '@/context/AuthProvider';
 import { axiosCustomer } from '@/services/axios';
 import { usePage } from '@/hooks/usePage';
+import { useStore } from '@/store/store';
 
 const useLoginForm = (
 	initialForm = {
@@ -20,10 +21,16 @@ const useLoginForm = (
 	const [errorMessage, setErrorMessage] = useState('');
 	const { moveToPage } = usePage();
 
+	const setUser = useStore(state => state.setUser);
+	const setStores = useStore(state => state.setStores);
+	const setStoresSelected = useStore(state => state.setStoresSelected);
+
 	const handleLogout = () => {
+		localStorage.removeItem('permissionsMergeData');
+		localStorage.removeItem('reportsMergeData');
+		localStorage.removeItem('MergeData');
 		moveToPage('/login');
 		setAuth('');
-		localStorage.removeItem('permissionsMergeData');
 	};
 
 	const handleChange = event => {
@@ -70,6 +77,7 @@ const useLoginForm = (
 			const clients = data?.clients?.length ? data.clients : [1];
 			const stores = data?.stores?.length ? data.stores : [1];
 			const role = data?.userRoles[0];
+			const storesSelected = stores.map(store => store.storeId);
 			const permissionsMergeData = {
 				userId,
 				role,
@@ -79,29 +87,20 @@ const useLoginForm = (
 				lastName,
 				clients,
 				stores,
-				client: clients[0],
-				store: stores[0],
+				email,
+				clientSelected: clients[0]?.clientId,
+				storesSelected,
 			};
 			localStorage.setItem(
 				'permissionsMergeData',
 				JSON.stringify({ ...permissionsMergeData }),
 			);
+			setUser(response?.data?.data);
+			setStores(stores);
+			setStoresSelected(storesSelected);
 			setAuth({ userId, role, token, refreshToken });
 			setLoading(false);
-			moveToPage('/', {
-				user: {
-					userId,
-					role,
-					token,
-					refreshToken,
-					firstName,
-					lastName,
-					clients,
-					stores,
-					client: clients[0],
-					store: stores[0],
-				},
-			});
+			moveToPage('/', { user: permissionsMergeData });
 		} catch (error) {
 			setLoading(false);
 			if (!error?.response) {
